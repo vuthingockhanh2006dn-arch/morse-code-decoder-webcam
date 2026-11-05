@@ -1,0 +1,194 @@
+# Nhập thư viện Tkinter
+import tkinter as tk
+# Nhập thư viện winsound
+import winsound
+
+# Tạo một từ điển để ánh xạ các ký tự với mã Morse
+morse_code = {
+    "A": ".-",
+    "B": "-...",
+    "C": "-.-.",
+    "D": "-..",
+    "E": ".",
+    "F": "..-.",
+    "G": "--.",
+    "H": "....",
+    "I": "..",
+    "J": ".---",
+    "K": "-.-",
+    "L": ".-..",
+    "M": "--",
+    "N": "-.",
+    "O": "---",
+    "P": ".--.",
+    "Q": "--.-",
+    "R": ".-.",
+    "S": "...",
+    "T": "-",
+    "U": "..-",
+    "V": "...-",
+    "W": ".--",
+    "X": "-..-",
+    "Y": "-.--",
+    "Z": "--..",
+    "0": "-----",
+    "1": ".----",
+    "2": "..---",
+    "3": "...--",
+    "4": "....-",
+    "5": ".....",
+    "6": "-....",
+    "7": "--...",
+    "8": "---..",
+    "9": "----.",
+}
+
+# Hàm để chuyển đổi từ văn bản sang mã Morse
+def text_to_morse(text):
+  # Chuyển đổi văn bản thành chữ hoa
+  text = text.upper()
+  # Khởi tạo một chuỗi trống để lưu kết quả
+  result = ""
+  # Duyệt qua từng ký tự trong văn bản
+  for char in text:
+    # Nếu ký tự là một khoảng trắng, thêm một khoảng trắng vào kết quả
+    if char == " ":
+      result += " "
+    # Nếu ký tự có trong từ điển mã Morse, thêm mã Morse tương ứng vào kết quả
+    elif char in morse_code:
+      result += morse_code[char] + " "
+    # Nếu không, bỏ qua ký tự đó
+  # Trả về kết quả
+  return result
+
+# Hàm để chuyển đổi từ mã Morse sang văn bản
+def morse_to_text(morse):
+  # Khởi tạo một chuỗi trống để lưu kết quả
+  result = ""
+  # Tách chuỗi mã Morse thành các từ bằng cách sử dụng khoảng trắng làm dấu phân cách
+  words = morse.split("  ")
+  # Duyệt qua từng từ trong chuỗi mã Morse
+  for word in words:
+    # Tách từ thành các ký tự bằng cách sử dụng khoảng trắng làm dấu phân cách
+    chars = word.split(" ")
+    # Duyệt qua từng ký tự trong từ
+    for char in chars:
+      # Nếu ký tự có trong từ điển mã Morse, thêm ký tự tương ứng vào kết quả
+      if char in morse_code.values():
+        result += list(morse_code.keys())[list(morse_code.values()).index(char)]
+      # Nếu không, bỏ qua ký tự đó
+    # Thêm một khoảng trắng vào kết quả sau mỗi từ
+    result += " "
+  # Trả về kết quả
+  return result
+
+# Tạo một cửa sổ chính
+window = tk.Tk()
+window.title("Nguyễn Quốc Đạt Originals")
+
+# Tạo một khung để chứa các thành phần giao diện
+frame = tk.Frame(window)
+frame.pack()
+
+# Tạo một nhãn để hiển thị tiêu đề
+label = tk.Label(frame, text="Trình chuyển đổi mã Morse", font=("Arial", 20))
+label.pack()
+
+# Tạo một biến để lưu trữ loại chuyển đổi
+mode = tk.StringVar()
+mode.set("text_to_morse")
+
+# Tạo một hàm để thay đổi loại chuyển đổi khi người dùng chọn
+def change_mode():
+  global mode
+  if mode.get() == "text_to_morse":
+    mode.set("morse_to_text")
+    input_label.config(text="Nhập mã Morse:")
+    output_label.config(text="Và đây là kết quả:")
+    button.config(text="Chuyển đổi thành văn bản")
+  else:
+    mode.set("text_to_morse")
+    input_label.config(text="Nhập văn bản:")
+    output_label.config(text="Và đây là kết quả:")
+    button.config(text="Chuyển đổi thành mã Morse")
+
+# Tạo một nút để thay đổi loại chuyển đổi
+toggle_button = tk.Button(frame, text="Chuyển đổi chế độ", command=change_mode)
+toggle_button.pack()
+
+# Tạo một nhãn và một hộp nhập liệu để nhập dữ liệu
+input_label = tk.Label(frame, text="Nhập văn bản:")
+input_label.pack()
+input_entry = tk.Entry(frame)
+input_entry.pack()
+
+# Tạo một nhãn và một hộp văn bản để hiển thị kết quả
+output_label = tk.Label(frame, text="Và đây là kết quả:")
+output_label.pack()
+output_text = tk.Text(frame, height=5, width=40)
+output_text.pack()
+
+# Tạo một hàm để chuyển đổi dữ liệu khi người dùng nhấn nút
+def convert():
+  global mode
+  # Lấy dữ liệu từ hộp nhập liệu
+  data = input_entry.get()
+  # Xóa nội dung của hộp văn bản
+  output_text.delete(1.0, tk.END)
+  # Kiểm tra loại chuyển đổi
+  if mode.get() == "text_to_morse":
+    # Chuyển đổi từ văn bản sang mã Morse
+    morse = text_to_morse(data)
+    # Hiển thị kết quả lên hộp văn bản
+    output_text.insert(tk.END, morse)
+  else:
+    # Chuyển đổi từ mã Morse sang văn bản
+    text = morse_to_text(data)
+    # Hiển thị kết quả lên hộp văn bản
+    output_text.insert(tk.END, text)
+
+# Tạo một nút để chuyển đổi dữ liệu
+button = tk.Button(frame, text="Chuyển đổi thành mã Morse", command=convert)
+button.pack()
+
+# Tạo một hàm để phát ra âm thanh cho một ký tự trong mã Morse
+def play_morse_char(char):
+  # Đặt tần số và độ dài của âm thanh
+  frequency = 1000 # Hz
+  dot_duration = 100 # ms
+  dash_duration = dot_duration * 3
+  # Kiểm tra ký tự là chấm hay gạch
+  if char == ".":
+    # Phát ra âm thanh cho chấm
+    winsound.Beep(frequency, dot_duration)
+  elif char == "-":
+    # Phát ra âm thanh cho gạch
+    winsound.Beep(frequency, dash_duration)
+
+# Tạo một hàm để phát ra âm thanh cho một từ trong mã Morse
+def play_morse_word(word):
+  # Đặt khoảng cách giữa các ký tự và các từ
+  char_gap = 100 # ms
+  word_gap = char_gap * 7
+  # Duyệt qua từng ký tự trong từ
+  for i, char in enumerate(word):
+    # Phát ra âm thanh cho ký tự
+    play_morse_char(char)
+    # Nếu không phải ký tự cuối cùng, thêm khoảng cách giữa các ký tự
+    if i < len(word) - 1:
+      time.sleep(char_gap / 1000)
+
+# Tạo một hàm để phát ra âm thanh cho một chuỗi mã Morse
+def play_morse(morse):
+  # Tách chuỗi mã Morse thành các từ bằng cách sử dụng khoảng trắng làm dấu phân cách
+  words = morse.split("  ")
+  # Duyệt qua từng từ trong chuỗi mã Morse
+  for i, word in enumerate(words):
+    # Phát ra âm thanh cho từ
+    play_morse_word(word)
+    # Nếu không phải từ cuối cùng, thêm khoảng cách giữa các từ
+    if i < len(words) - 1:
+      time.sleep(word_gap / 1000)
+
+# Khởi chạy cửa sổ chính
+window.mainloop()

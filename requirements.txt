@@ -1,0 +1,9 @@
+# Python 3.9 - 3.12
+mediapipe==0.10.14
+opencv-python>=4.8,<5
+numpy>=1.23,<2
+pandas>=1.5
+scikit-learn>=1.2
+joblib>=1.2
+matplotlib>=3.6
+seaborn>=0.12

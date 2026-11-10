@@ -1,0 +1,15 @@
+{
+  "touch_threshold": 0.25,
+  "release_threshold": 0.35,
+  "noise_time": 0.05,
+  "dash_time": 0.4,
+  "double_tap_window": 0.45,
+  "confidence_threshold": 0.75,
+  "smoothing_window": 5,
+  "release_frames": 3,
+  "sign_stable_frames": 10,
+  "best_model": {
+    "morse": null,
+    "sign": null
+  }
+}

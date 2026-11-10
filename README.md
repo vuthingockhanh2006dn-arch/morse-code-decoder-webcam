@@ -1,124 +1,85 @@
-# Hệ Thống Giải Mã Mã Morse & Nhận Diện Cử Chỉ Tay Thời Gian Thực Qua Webcam
-**(Real-Time Webcam Hand Gesture & Morse Code Decoder System)**
+# Hệ Thống Nhận Diện Cử Chỉ Tay & Giải Mã Mã Morse Qua Webcam
+**(Real-Time Webcam Hand Gesture Recognition & Morse Code Decoder)**
 
-> 🇻🇳 **[Phiên bản Tiếng Việt](#phiên-bản-tiếng-việt-vietnamese-version)** | 🇬🇧 **[English Version Below](#english-version)**
+> 🇻🇳 **[Phiên bản Tiếng Việt](#phiên-bản-tiếng-việt)** | 🇬🇧 **[English Version](#english-version)**
 
 ---
 
-<a name="phiên-bản-tiếng-việt-vietnamese-version"></a>
-# 🇻🇳 PHIÊN BẢN TIẾNG VIỆT (VIETNAMESE VERSION)
+<a name="phiên-bản-tiếng-việt"></a>
+# 🇻🇳 PHIÊN BẢN TIẾNG VIỆT
 
 ## Mục Lục
-- [Chương 1: Tổng Quan Đề Tài & Phạm Vi Hệ Thống](#chương-1-tổng-quan-đề-tài--phạm-vi-hệ-thống)
-- [Chương 2: Cơ Sở Lý Thuyết, Sơ Đồ Bàn Tay & Quy Luật Cử Chỉ](#chương-2-cơ-sở-lý-thuyết-sơ-đồ-bàn-tay--quy-luật-cử-chỉ)
-- [Chương 3: Thu Thập, Gán Nhãn & Nghiên Cứu Dữ Liệu](#chương-3-thu-thập-gán-nhãn--nghiên-cứu-dữ-liệu)
-- [Chương 4: Kiến Trúc Mô Hình, Máy Trạng Thái (FSM) & Tối Ưu Hóa](#chương-4-kiến-trúc-mô-hình-máy-trạng-thái-fsm--tối-ưu-hóa)
-- [Chương 5: Thiết Kế Giao Diện Website & Hướng Dẫn Thao Tác](#chương-5-thiết-kế-giao-diện-website--hướng-dẫn-thao-tác)
-- [Chương 6: Đánh Giá Hệ Thống & Thực Nghiệm](#chương-6-đánh-giá-hệ-thống--thực-nghiệm)
-- [Chương 7: Công Nghệ Sử Dụng, Cấu Trúc Thư Mục & Cài Đặt](#chương-7-công-nghệ-sử-dụng-cấu-trúc-thư-mục--cài-đặt)
-- [Chương 8: Đề Cương Báo Cáo, Sản Phẩm Bàn Giao & Lộ Trình Thực Hiện](#chương-8-đề-cương-báo-cáo-sản-phẩm-bàn-giao--lộ-trình-thực-hiện)
+- [Chương 1: Giới Thiệu Đề Tài & Phạm Vi](#chương-1-giới-thiệu-đề-tài--phạm-vi)
+- [Chương 2: Sơ Đồ Bàn Tay & Bảng Mã Morse](#chương-2-sơ-đồ-bàn-tay--bảng-mã-morse)
+- [Chương 3: Quy Định Nhãn Dữ Liệu (Data Labeling) & Nghiên Cứu Nhãn](#chương-3-quy-định-nhãn-dữ-liệu-data-labeling--nghiên-cứu-nhãn)
+- [Chương 4: Tiền Xử Lý Dữ Liệu & Các Mô Hình Học Máy (Machine Learning)](#chương-4-tiền-xử-lý-dữ-liệu--các-mô-hình-học-máy-machine-learning)
+- [Chương 5: Cơ Chế Xử Lý Thời Gian, Trạng Thái (FSM) & Giải Mã](#chương-5-cơ-chế-xử-lý-thời-gian-trạng-thái-fsm--giải-mã)
+- [Chương 6: Đánh Giá Mô Hình & Hệ Thống (Evaluation)](#chương-6-đánh-giá-mô-hình--hệ-thống-evaluation)
+- [Chương 7: Cấu Trúc Dự Án & Hướng Dẫn Cài Đặt, Chạy Thử](#chương-7-cấu-trúc-dự-án--hướng-dẫn-cài-đặt-chạy-thử)
+- [Chương 8: Đề Cương Báo Cáo & Danh Mục Sản Phẩm](#chương-8-đề-cương-báo-cáo--danh-mục-sản-phẩm)
 
 ---
 
-## Chương 1: Tổng Quan Đề Tài & Phạm Vi Hệ Thống
+## Chương 1: Giới Thiệu Đề Tài & Phạm Vi
 
-### 1.1. Giới thiệu
-**Morse Code Decoder Webcam** là hệ thống thị giác máy tính (Computer Vision) kết hợp học máy (Machine Learning) hoạt động trong thời gian thực. Hệ thống sử dụng webcam tiêu chuẩn để theo dõi bàn tay người dùng thông qua **MediaPipe Hands**, nhận diện các cử chỉ ngón tay quy ước, kết hợp với bộ phân loại theo thời gian (**Time-based Classification**) và máy trạng thái hữu hạn (**Finite State Machine - FSM**) để biên dịch thao tác tay thành chuỗi tín hiệu **Morse (`.` / `-`)** và giải mã thành văn bản hoàn chỉnh.
+### 1.1. Mục tiêu đề tài
+Dự án xây dựng một hệ thống **thị giác máy tính (Computer Vision)** kết hợp **học máy (Machine Learning)** đơn giản và hiệu quả. Hệ thống sử dụng webcam thông thường để:
+1. Bắt chuyển động bàn tay và xác định vị trí các ngón tay qua **MediaPipe Hands**.
+2. Nhận diện các cử chỉ tay quy ước bằng các thuật toán học máy quen thuộc (**KNN, SVM, Random Forest**).
+3. Chuyển đổi cử chỉ chạm ngón tay thành các ký hiệu **mã Morse (chấm `.` và gạch `-`)**, sau đó ghép lại và giải mã thành chữ cái, từ ngữ hoàn chỉnh.
 
-### 1.2. Phạm vi hoạt động (Hai chế độ độc lập dùng chung Webcam)
-Hệ thống được thiết kế hỗ trợ hai chế độ hoạt động độc lập nhưng chia sẻ chung luồng video từ webcam:
+### 1.2. Hai chế độ hoạt động (Dùng chung Webcam)
+Hệ thống hỗ trợ 2 chế độ độc lập:
 
-| Chế độ (Mode) | Đầu vào (Input) | Cơ chế xử lý | Kết quả đầu ra (Output) |
+| Chế độ | Đầu vào từ người dùng | Cách hệ thống xử lý | Kết quả đầu ra |
 | :--- | :--- | :--- | :--- |
-| **1. Chế độ Morse (Morse Mode)** | Người dùng thực hiện các cử chỉ chạm ngón tay quy ước (`DOT`, `DASH`, `CONFIRM`, `SPACE`, `DELETE`). | Nhận diện từng tín hiệu `.` hoặc `-` qua thời gian giữ và số lần chạm → Ghép chuỗi Morse → Tra bảng từ điển giải mã. | Ký tự chữ cái (A–Z), chữ số (0–9) và ghép thành câu văn bản. |
-| **2. Chế độ Ký hiệu tay cơ bản (Static Sign Mode)** | Người dùng thực hiện từng ký hiệu tay tĩnh độc lập trước webcam. | Trích xuất vector 63 đặc trưng từ 21 điểm mốc → Phân loại bằng mô hình ML (KNN / SVM / Random Forest). | Nhận diện từng ký hiệu đơn lẻ rồi ghép dần thành văn bản. |
+| **1. Chế độ Morse (Chính)** | Thực hiện các cử chỉ chạm ngón tay quy ước | Phân loại tư thế tay + đo thời gian giữ/số lần chạm $\rightarrow$ Ghép mã `.` và `-` | Ký tự (A–Z, 0–9) và ghép thành câu văn bản |
+| **2. Chế độ Ký hiệu tĩnh** | Đưa từng tư thế bàn tay tĩnh (ví dụ: chữ cái ký hiệu A, B, C...) | Dùng mô hình học máy phân loại trực tiếp từng khung hình | Chữ cái tương ứng của tư thế đó |
 
-> [!IMPORTANT]
-> **Lưu ý phân biệt phạm vi khoa học:**
-> Nhận diện một số ký hiệu tay tĩnh hoặc cử chỉ quy ước **chưa phải là dịch toàn bộ ngôn ngữ ký hiệu (Sign Language Translation)**. Giao tiếp ngôn ngữ ký hiệu đầy đủ trong thực tế còn phụ thuộc vào chuỗi chuyển động liên tục (dynamic gestures), biểu cảm khuôn mặt (facial expressions), ngữ cảnh và tư thế cơ thể (body posture). Đề tài này tập trung giải quyết bài toán nhận diện ký hiệu rời rạc và nhập liệu văn bản qua quy ước mã Morse.
+> [!NOTE]
+> **Phân biệt phạm vi đề tài:**
+> Nhận diện một vài cử chỉ ngón tay quy ước để nhập mã Morse **chưa phải là dịch toàn bộ ngôn ngữ ký hiệu (Sign Language)**. Ngôn ngữ ký hiệu ngoài đời thực cần cả chuyển động liên tục của hai tay, nét mặt và tư thế cơ thể. Đề tài này tập trung giải quyết bài toán vừa sức: **nhận diện cử chỉ rời rạc để nhập dữ liệu qua mã Morse**.
 
 ---
 
-## Chương 2: Cơ Sở Lý Thuyết, Sơ Đồ Bàn Tay & Quy Luật Cử Chỉ
+## Chương 2: Sơ Đồ Bàn Tay & Bảng Mã Morse
 
-### 2.1. Sơ đồ 21 điểm mốc bàn tay (MediaPipe Hands 21 Landmarks)
-Hệ thống sử dụng **MediaPipe Hands** để trích xuất **21 điểm mốc 3D (Landmarks)** trên bàn tay trong mỗi khung hình. Mỗi điểm mốc bao gồm 3 tọa độ không gian $(x, y, z)$, tạo thành vector đặc trưng kích thước $21 \times 3 = 63$ giá trị.
+### 2.1. Sơ đồ 21 điểm mốc bàn tay (MediaPipe Hands)
+MediaPipe xác định 21 điểm mốc (landmarks) trên bàn tay, mỗi điểm có tọa độ $(x, y, z)$:
 
 ```text
-                 8 (INDEX_DIP/TIP)   12 (MIDDLE_TIP)  16 (RING_TIP)
+                 8 (Đầu ngón trỏ)    12 (Đầu ngón giữa) 16 (Đầu ngón áp út)
                      ●                   ●                ●
                      |                   |                |
-                     7                   11               15          20 (PINKY_TIP)
+                     7                   11               15          20 (Đầu ngón út)
                      |                   |                |            ●
                      6                   10               14           |
                      |                   |                |           19
-    4 (THUMB_TIP)    5 (INDEX_MCP)       9 (MIDDLE_MCP)   13 (RING)    |
+    4 (Đầu ngón cái) 5 (Khớp gốc trỏ)    9 (Gốc giữa)     13 (Gốc áp)  |
         ●            ●-------------------●----------------●           18
          \          /                                      \           |
-          3        /                                        \         17 (PINKY_MCP)
+          3        /                                        \         17 (Khớp gốc út)
            \      /                                          \-------●
             2    /                                                  /
              \  /                  LÒNG BÀN TAY                    /
-              1 (THUMB_CMC)           (PALM)                      /
+              1                                                   /
                \                                                 /
                 \--------------------- 0 -----------------------/
-                                    (WRIST - Cổ tay)
+                                   (CỔ TAY)
 ```
 
-#### Danh sách các điểm mốc quan trọng dùng trong điều khiển cử chỉ Morse:
-- **`0` (WRIST)**: Điểm gốc cổ tay — dùng làm gốc tọa độ chuẩn hóa.
-- **`4` (THUMB_TIP)**: Đầu ngón cái — mốc tham chiếu chạm chính (kết hợp hoặc đối chiếu với ngón trỏ).
-- **`8` (INDEX_FINGER_TIP)**: Đầu ngón trỏ — ngón chủ đạo thực hiện thao tác chạm.
-- **`12` (MIDDLE_FINGER_TIP)**: Đầu ngón giữa.
-- **`16` (RING_FINGER_TIP)**: Đầu ngón áp út.
-- **`20` (PINKY_TIP)**: Đầu ngón út.
+**Các điểm mốc mấu chốt được dùng trong đề tài:**
+- `0`: Cổ tay (Wrist) — dùng làm mốc gốc để chuẩn hóa tọa độ.
+- `4`: Đầu ngón cái (Thumb Tip).
+- `8`: Đầu ngón trỏ (Index Tip) — ngón chính chạm vào các ngón khác.
+- `16`: Đầu ngón áp út (Ring Tip).
+- `20`: Đầu ngón út (Pinky Tip).
 
 ---
 
-### 2.2. Quy ước 5 cử chỉ điều khiển Morse (Control Gestures)
-> *Lưu ý: Đây là bộ cử chỉ điều khiển được thiết kế tối ưu cho thao tác nhập liệu ứng dụng, không phải bộ ký hiệu ngôn ngữ ký hiệu tiêu chuẩn.*
+### 2.2. Bảng tra cứu Mã Morse chuẩn (A–Z và 0–9)
 
-| STT | Nhãn (Label) | Cử chỉ minh họa (Quy ước ngón tay) | Số lần / Thời gian | Chức năng hệ thống |
-| :-: | :--- | :--- | :--- | :--- |
-| **1** | `DOT` (`.`) | **Ngón trỏ (`8`) & Ngón cái (`4`)** chạm nhanh vào nhau | Chạm nhanh **1 lần** ($T_{\text{min}} \le \Delta t < T_{\text{dash}}$) | Nhập tín hiệu chấm (`.`) vào chuỗi Morse hiện tại |
-| **2** | `DASH` (`-`) | **Ngón trỏ (`8`) & Ngón cái (`4`)** *(hoặc ngón giữa `12` theo cấu hình)* giữ chạm | Giữ chạm **1 lần** đủ lâu ($\Delta t \ge T_{\text{dash}}$) | Nhập tín hiệu gạch (`-`) vào chuỗi Morse hiện tại |
-| **3** | `CONFIRM` | **Ngón trỏ (`8`) & Ngón áp út (`16`)** *(hoặc cái & áp út)* chạm liên tiếp | Chạm **2 lần liên tiếp** (Double-tap trong cửa sổ $T_{\text{double}}$) | Kết thúc chuỗi Morse hiện tại và giải mã thành 1 ký tự |
-| **4** | `SPACE` | **Ngón trỏ (`8`) & Ngón áp út (`16`)** *(hoặc cái & áp út)* chạm đơn | Chạm **1 lần** (Không có lần chạm thứ 2 trong $T_{\text{double}}$) | Thêm khoảng trắng (` `) ngăn cách giữa các từ |
-| **5** | `DELETE` | **Ngón trỏ (`8`) & Ngón út (`20`)** *(hoặc cái & út)* chạm vào nhau | Chạm **1 lần** | Xóa tín hiệu Morse cuối cùng (hoặc xóa ký tự vừa nhập) |
-
----
-
-### 2.3. Công thức toán học & Quy luật nhận diện (Mathematical Rules)
-
-#### 1. Khoảng cách Euclid (Euclidean Distance)
-Để phát hiện hai đầu ngón tay $i$ và $j$ có chạm vào nhau hay không, hệ thống tính khoảng cách Euclid trong mặt phẳng 2D (hoặc 3D đã chuẩn hóa kích thước bàn tay):
-
-$$d(i, j) = \sqrt{(x_i - x_j)^2 + (y_i - y_j)^2}$$
-
-Để bất biến với khoảng cách từ bàn tay tới camera (xa/gần), khoảng cách $d(i, j)$ được chuẩn hóa theo kích thước tham chiếu của bàn tay $L_{\text{ref}}$ (ví dụ khoảng cách từ cổ tay `0` đến khớp gốc ngón giữa `9`):
-
-$$\hat{d}(i, j) = \frac{\sqrt{(x_i - x_j)^2 + (y_i - y_j)^2}}{\sqrt{(x_9 - x_0)^2 + (y_9 - y_0)^2 + \epsilon}}$$
-
-- **Điều kiện chạm (Touch Condition):** $\hat{d}(i, j) < \theta_{\text{touch}}$ (Ngưỡng chạm).
-- **Điều kiện nhả / nghỉ (Release Condition - Hysteresis):** $\hat{d}(i, j) > \theta_{\text{release}}$ với $\theta_{\text{release}} > \theta_{\text{touch}}$ nhằm tránh hiện tượng nhấp nháy ở biên ngưỡng.
-
-#### 2. Quy luật phân biệt `DOT` và `DASH` (Time-based Classification)
-Khi phát hiện cặp ngón (`8`, `4`) bắt đầu chạm tại thời điểm $t_{\text{start}}$ và rời nhau tại thời điểm $t_{\text{end}}$, thời gian giữ chạm là $\Delta t = t_{\text{end}} - t_{\text{start}}$:
-- Nếu $\Delta t < T_{\text{noise}}$ (ví dụ $< 50\text{ ms}$): Bỏ qua (nhiễu khung hình).
-- Nếu $T_{\text{noise}} \le \Delta t < T_{\text{dash}}$ (ví dụ $50\text{ ms} \le \Delta t < 400\text{ ms}$): Ghi nhận **`DOT` (`.`)**.
-- Nếu $\Delta t \ge T_{\text{dash}}$ (ví dụ $\ge 400\text{ ms}$): Ghi nhận **`DASH` (`-`)** ngay khi đạt ngưỡng (hoặc khi nhả tay), sau đó khóa trạng thái chờ người dùng mở tay về trạng thái nghỉ (`IDLE`).
-
-#### 3. Quy luật phân biệt `SPACE` và `CONFIRM` (Tap Counter Window)
-Khi cặp ngón điều khiển (`8` & `16`) chạm và nhả lần thứ nhất tại $t_1$:
-- Hệ thống mở một cửa sổ thời gian chờ $T_{\text{double}}$ (ví dụ $350\text{ ms}$).
-- Nếu có **lần chạm thứ 2** xảy ra trong khoảng $(t_1, t_1 + T_{\text{double}}]$: Kích hoạt **`CONFIRM`** (giải mã chuỗi Morse hiện tại thành chữ).
-- Nếu hết thời gian $T_{\text{double}}$ mà không có lần chạm thứ 2: Kích hoạt **`SPACE`** (thêm dấu cách).
-
----
-
-### 2.4. Bảng quy đổi Mã Morse Quốc Tế (Morse Lookup Dictionary)
-
-| Ký tự | Mã Morse | Ký tự | Mã Morse | Ký tự | Mã Morse | Số | Mã Morse |
+| Chữ | Mã Morse | Chữ | Mã Morse | Chữ | Mã Morse | Số | Mã Morse |
 | :-: | :--- | :-: | :--- | :-: | :--- | :-: | :--- |
 | **A** | `.-` | **J** | `.---` | **S** | `...` | **0** | `-----` |
 | **B** | `-...` | **K** | `-.-` | **T** | `-` | **1** | `.----` |
@@ -133,341 +94,237 @@ Khi cặp ngón điều khiển (`8` & `16`) chạm và nhả lần thứ nhất
 
 ---
 
-## Chương 3: Thu Thập, Gán Nhãn & Nghiên Cứu Dữ Liệu
+## Chương 3: Quy Định Nhãn Dữ Liệu (Data Labeling) & Nghiên Cứu Nhãn
 
-### 3.1. Quy định gán nhãn dữ liệu (Data Labeling Specification)
-Mỗi mẫu dữ liệu (vector 63 đặc trưng hoặc chuỗi khung hình) được gán một nhãn duy nhất:
+Đây là phần trọng tâm của khâu chuẩn bị dữ liệu học máy.
 
-| STT | Nhãn (Label) | Quy định thực hiện chuẩn khi thu thập | Ý nghĩa điều khiển |
-| :-: | :--- | :--- | :--- |
-| **1** | `DOT` | Ngón trỏ và ngón cái chạm nhanh 1 lần, các ngón còn lại mở tự nhiên | Tín hiệu chấm `.` |
-| **2** | `DASH` | Ngón trỏ và ngón cái giữ chạm rõ ràng (hoặc cử chỉ đại diện cho gạch) | Tín hiệu gạch `-` |
-| **3** | `CONFIRM` | Ngón trỏ và ngón áp út chạm 2 lần liên tiếp | Xác nhận, giải mã ký tự |
-| **4** | `SPACE` | Ngón trỏ và ngón áp út chạm 1 lần | Thêm khoảng trắng |
-| **5** | `DELETE` | Ngón trỏ và ngón út chạm 1 lần | Xóa dữ liệu |
-| **6** | `IDLE` / `UNKNOWN` | Bàn tay mở tự nhiên (trạng thái nghỉ) hoặc các tư thế ngoài quy ước | Trạng thái nghỉ / Chống nhận nhầm |
+### 3.1. Bảng quy định 5 nhãn điều khiển hệ thống
+Dữ liệu được quy ước theo 5 loại cử chỉ tay để điều khiển toàn bộ quá trình nhập liệu:
 
-#### Nguyên tắc gán nhãn nghiêm ngặt:
-1. **Tính đơn trị:** Mỗi mẫu dữ liệu chỉ được gán một nhãn duy nhất tương ứng với cử chỉ thực hiện.
-2. **Đa dạng môi trường:** Thu thập trong nhiều điều kiện ánh sáng (sáng phòng, ánh sáng tự nhiên, ánh sáng yếu), nhiều góc nghiêng bàn tay và khoảng cách xa/gần webcam (30 cm – 80 cm).
-3. **Kiểm soát chất lượng (Data Cleaning):** Loại bỏ hoàn toàn các khung hình bị nhòe chuyển động nặng (motion blur), che khuất đầu ngón tay (self-occlusion), MediaPipe không bắt đủ 21 điểm mốc hoặc gán nhãn sai.
-4. **Tính nhất quán:** Nhãn dữ liệu phải thống nhất xuyên suốt từ khâu thu thập, tiền xử lý, huấn luyện đến kiểm thử.
+| STT | Nhãn (Label) | Cử chỉ người dùng thực hiện | Thao tác thời gian | Ý nghĩa điều khiển |
+| :-: | :--- | :--- | :--- | :--- |
+| **1** | `DOT` | Ngón trỏ (`8`) chạm ngón cái (`4`) | Chạm nhanh rồi thả ($< 0.4$ giây) | Nhập tín hiệu chấm `.` vào chuỗi Morse |
+| **2** | `DASH` | Ngón trỏ (`8`) chạm ngón cái (`4`) | Giữ ngón tay chạm nhau ($\ge 0.4$ giây) | Nhập tín hiệu gạch `-` vào chuỗi Morse |
+| **3** | `CONFIRM`| Ngón trỏ (`8`) chạm ngón áp út (`16`) | Chạm 2 lần liên tiếp (double-tap) | Kết thúc chuỗi, giải mã Morse thành chữ |
+| **4** | `SPACE` | Ngón trỏ (`8`) chạm ngón áp út (`16`) | Chạm 1 lần duy nhất | Thêm dấu cách (khoảng trắng) giữa các từ |
+| **5** | `DELETE` | Ngón trỏ (`8`) chạm ngón út (`20`) | Chạm 1 lần | Xóa 1 ký hiệu vừa bấm (hoặc xóa 1 chữ) |
+| *Phụ*| `IDLE` | Bàn tay mở tự nhiên, các ngón không chạm nhau | Giữ trạng thái nghỉ | Trạng thái sẵn sàng, không nhập gì |
 
 ---
 
-### 3.2. Chia tập dữ liệu chống rò rỉ (Data Splitting Strategy)
+### 3.2. Mối liên hệ giữa "Nhãn tư thế tĩnh" và "Nhãn điều khiển Morse"
+Một khung hình webcam tĩnh (ảnh đơn) **không thể tự biết** là người dùng đang "chạm nhanh" (`DOT`) hay "chạm giữ" (`DASH`), cũng như không biết là "chạm 1 lần" (`SPACE`) hay "chạm lần 1 của cú chạm đúp" (`CONFIRM`).
 
-| Tập dữ liệu | Tỷ lệ tham khảo | Công dụng chính | Nguyên tắc phân tách bắt buộc |
-| :--- | :-: | :--- | :--- |
-| **Training Set** | **70%** | Huấn luyện các mô hình KNN, SVM, Random Forest. | **Chia theo người (Subject-wise) hoặc theo phiên quay (Session-wise)** trước khi tách khung hình. Toàn bộ một đoạn video quay liên tục phải thuộc hoàn toàn về một tập duy nhất. |
-| **Validation Set** | **15%** | Chọn siêu tham số (Hyperparameters: $K$ của KNN, $C, \gamma$ của SVM, số cây của RF) và tinh chỉnh ngưỡng thời gian / khoảng cách. | Không được chứa các khung hình trích xuất từ cùng một video với tập Train. |
-| **Testing Set** | **15%** | Đánh giá độc lập cuối cùng về độ chính xác và khả năng tổng quát hóa. | Ưu tiên sử dụng người dùng mới hoặc phiên quay độc lập hoàn toàn để phản ánh đúng hiệu năng thực tế. |
-
-> [!WARNING]
-> **Cảnh báo Data Leakage (Rò rỉ dữ liệu):**
-> Nếu cắt các khung hình liên tiếp từ cùng một video rồi chia ngẫu nhiên (Random Split) vào cả Train và Test, các ảnh gần như giống hệt nhau sẽ xuất hiện ở cả hai tập. Khi đó độ chính xác Test có thể đạt 99% giả tạo nhưng khi chạy webcam thực tế với người mới sẽ thất bại.
-
----
-
-### 3.3. Khung nghiên cứu & Phân tích dữ liệu (Exploratory Data Analysis - EDA)
-Trong báo cáo và quá trình nghiên cứu dữ liệu, dự án trả lời hệ thống 8 câu hỏi cốt lõi:
-
-1. **Nguồn dữ liệu (Data Source):** Dữ liệu tự thu thập qua webcam bằng công cụ thu thập riêng của nhóm hay kết hợp bộ dữ liệu công khai? Đảm bảo quyền sử dụng và sự đồng thuận của người tham gia quay.
-2. **Ý nghĩa nhãn (Label Semantics):** Mỗi nhãn biểu diễn cử chỉ điều khiển nào hoặc thuộc bảng chữ cái ký hiệu nào (ASL / VSL / Quy ước Morse)?
-3. **Quy mô (Dataset Scale):** Tổng số lớp (classes), tổng số mẫu (samples), số lượng người tham gia (subjects), số phiên quay (sessions), độ phân giải và FPS.
-4. **Phân bố lớp (Class Distribution):** Số lượng mẫu giữa các lớp (`DOT`, `DASH`, `CONFIRM`, `SPACE`, `DELETE`, `IDLE`) có cân bằng không? Nếu lệch lớp (class imbalance), xử lý bằng thu thập bổ sung hay trọng số lớp (`class_weight`)?
-5. **Chất lượng dữ liệu (Data Quality):** Tỷ lệ khung hình bị mất bàn tay (missing landmarks), ảnh mờ, nhiễu tọa độ $z$, hoặc trùng lặp.
-6. **Đặc điểm ký hiệu (Gesture Characteristics):** Phân biệt rõ đâu là tư thế tĩnh (static pose - chỉ cần 1 khung hình) và đâu là cử chỉ phụ thuộc thời gian/nhịp chạm (temporal/dynamic gesture - cần chuỗi khung hình & bộ đếm). Thực hiện bằng 1 tay thuận hay 2 tay?
-7. **Khả năng phân biệt & Cặp lớp dễ nhầm (Separability & Confusable Pairs):**
-   - *Ví dụ thực nghiệm điển hình:* Cử chỉ chạm ngón áp út (`CONFIRM` / `SPACE`) và chạm ngón út (`DELETE`) khi nhìn nghiêng có thể có tọa độ khớp gần giống nhau dẫn đến nhầm lẫn trên Confusion Matrix. Giải pháp thực nghiệm là bổ sung mẫu ở góc nghiêng $30^\circ - 45^\circ$ và thêm đặc trưng khoảng cách tương đối giữa các đầu ngón tay.
-8. **Khả năng áp dụng thực tế (Real-world Applicability):** Dữ liệu thu thập có khớp với điều kiện sử dụng thực tế trên webcam laptop (góc nhìn ngang ngực/mặt, ánh sáng đèn phòng, nền phức tạp) hay không?
+Vì vậy, hệ thống chia việc học máy thành 2 tầng rất rõ ràng và hợp lý:
+1. **Tầng Mô hình Học máy (Phân loại tư thế ngón tay):**
+   Mô hình học máy sẽ nhìn vào 21 điểm mốc của bàn tay tại khung hình đó và phân loại vào 4 tư thế:
+   - `IDLE`: Bàn tay mở tự nhiên.
+   - `PINCH_THUMB`: Ngón trỏ đang chạm ngón cái.
+   - `PINCH_RING`: Ngón trỏ đang chạm ngón áp út.
+   - `PINCH_PINKY`: Ngón trỏ đang chạm ngón út.
+2. **Tầng Xử lý Logic & Thời gian (Sinh ra nhãn Morse cuối cùng):**
+   - Nếu thấy `PINCH_THUMB` giữ dưới $0.4\text{s}$ rồi thả $\rightarrow$ Sinh nhãn **`DOT`**.
+   - Nếu thấy `PINCH_THUMB` giữ trên $0.4\text{s}$ $\rightarrow$ Sinh nhãn **`DASH`**.
+   - Nếu thấy `PINCH_RING` chạm 1 lần $\rightarrow$ Sinh nhãn **`SPACE`**; nếu chạm 2 lần nhanh $\rightarrow$ Sinh nhãn **`CONFIRM`**.
+   - Nếu thấy `PINCH_PINKY` $\rightarrow$ Sinh nhãn **`DELETE`**.
 
 ---
 
-## Chương 4: Kiến Trúc Mô Hình, Máy Trạng Thái (FSM) & Tối Ưu Hóa
-
-### 4.1. Sơ đồ luồng xử lý tổng thể (System Pipeline Architecture)
-
-```mermaid
-flowchart TD
-    A["Webcam Video Stream (30 FPS)"] --> B["Lật gương & Chuyển hệ màu (BGR -> RGB)"]
-    B --> C["MediaPipe Hands (Phát hiện 21 Landmarks: x, y, z)"]
-    C --> D{"Phát hiện bàn tay?"}
-    D -- "Không" --> E["Trạng thái UNKNOWN / IDLE (Reset bộ đếm tạm)"]
-    D -- "Có" --> F["Tiền xử lý: Dịch gốc về Wrist (0), Chuẩn hóa kích thước & Tay trái/phải"]
-    F --> G["Vector 63 Đặc trưng + Khoảng cách Euclid các đầu ngón"]
-    G --> H["Mô hình ML (KNN / SVM / Random Forest) + Kiểm tra ngưỡng chạm"]
-    H --> I["Confidence Threshold & Frame Smoothing (Lọc nhiễu đa khung hình)"]
-    I --> J["Finite State Machine (FSM): Time-based (DOT/DASH) + Tap Counter (SPACE/CONFIRM) + Debouncing"]
-    J --> K["Bộ đệm chuỗi Morse hiện tại (VD: '...')"]
-    K --> L["Giải mã Morse (Dictionary Lookup) khi nhận lệnh CONFIRM"]
-    L --> M["Hiển thị Văn bản & Phản hồi trực quan trên Giao diện Web"]
-```
+### 3.3. Nguyên tắc gán nhãn dữ liệu (Data Labeling Principles)
+Khi thu thập dữ liệu huấn luyện, nhóm tuân thủ 5 nguyên tắc:
+1. **Một mẫu - một nhãn duy nhất:** Mỗi vector tọa độ bàn tay chỉ được gán đúng 1 nhãn tư thế tương ứng.
+2. **Đúng cử chỉ quy ước:** Khi thu nhãn nào thì chỉ thực hiện dứt khoát cử chỉ đó, giữ các ngón tay còn lại mở tự nhiên.
+3. **Đa dạng môi trường thu thập:** Thu thập dữ liệu từ nhiều người khác nhau, ở nhiều góc quay (thẳng, hơi nghiêng $15^\circ - 30^\circ$), khoảng cách khác nhau tới camera (gần 35cm, xa 70cm) và điều kiện ánh sáng khác nhau (đèn học, ban ngày).
+4. **Loại bỏ dữ liệu lỗi (Data Cleaning):** Tự động loại bỏ các khung hình MediaPipe không nhận đủ 21 điểm mốc hoặc tay bị che khuất một phần.
+5. **Thống nhất tên nhãn:** Tên nhãn viết hoa đồng nhất xuyên suốt trong toàn bộ file code và thư mục dữ liệu.
 
 ---
 
-### 4.2. Trích xuất và Tiền xử lý đặc trưng (Feature Extraction & Preprocessing)
-Từ 21 điểm mốc $(x_i, y_i, z_i)$ với $i \in \{0, 1, \dots, 20\}$ do MediaPipe trả về, quy trình chuẩn hóa gồm 4 bước toán học:
-
-1. **Chuẩn hóa điểm gốc về cổ tay (Translation Invariance):**
-   Lấy cổ tay $(x_0, y_0, z_0)$ làm gốc tọa độ $(0, 0, 0)$ để vị trí bàn tay ở góc trái hay góc phải màn hình đều cho cùng biểu diễn:
-
-   $$(x'_i, y'_i, z'_i) = (x_i - x_0,\; y_i - y_0,\; z_i - z_0), \quad \forall i \in \{0, \dots, 20\}$$
-
-2. **Chuẩn hóa kích thước bàn tay (Scale Invariance):**
-   Chia toàn bộ tọa độ tương đối cho giá trị tuyệt đối lớn nhất $M = \max_{i} \| (x'_i, y'_i, z'_i) \|$ (hoặc chiều dài lòng bàn tay từ điểm `0` đến điểm `9`) để khử sự khác biệt khi để tay gần hoặc xa webcam:
-
-   $$(\tilde{x}_i, \tilde{y}_i, \tilde{z}_i) = \left( \frac{x'_i}{M},\; \frac{y'_i}{M},\; \frac{z'_i}{M} \right)$$
-
-3. **Đồng nhất tay trái / tay phải và ảnh lật gương (Handedness Normalization):**
-   Nếu người dùng sử dụng tay trái (so với chuẩn tay phải trong tập huấn luyện), thực hiện đối xứng trục hoành: $\tilde{x}_i \leftarrow -\tilde{x}_i$ để mô hình nhận diện đồng nhất cả hai tay.
-
-4. **Trải phẳng thành Vector 63 chiều (Flattening):**
-
-   $$\mathbf{v} = [\tilde{x}_0, \tilde{y}_0, \tilde{z}_0, \tilde{x}_1, \tilde{y}_1, \tilde{z}_1, \dots, \tilde{x}_{20}, \tilde{y}_{20}, \tilde{z}_{20}] \in \mathbb{R}^{63}$$
+### 3.4. Nghiên cứu dữ liệu & Các cặp nhãn dễ nhầm lẫn (Confusable Labels)
+Trong báo cáo môn học, đây là phần phân tích được đánh giá rất cao:
+- **Cặp nhãn dễ nhầm nhất:** Tư thế chạm ngón áp út (`PINCH_RING` - dùng cho SPACE/CONFIRM) và chạm ngón út (`PINCH_PINKY` - dùng cho DELETE).
+  - *Nguyên nhân:* Hai ngón này nằm sát nhau. Khi người dùng quay nghiêng bàn tay, ngón áp út có thể che mất ngón út, khiến MediaPipe dự đoán tọa độ hai đầu ngón này sát nhau dẫn đến mô hình đoán nhầm nhãn.
+  - *Giải pháp thực tế:* Nhóm bổ sung các mẫu thu thập ở nhiều góc nghiêng, đồng thời bổ sung đặc trưng tính khoảng cách tương đối giữa các đầu ngón tay để mô hình phân biệt tốt hơn.
+- **Phân bố nhãn (Class Distribution):** Cần đảm bảo số lượng mẫu thu thập giữa các tư thế tương đối đồng đều (ví dụ mỗi tư thế khoảng 300 – 500 mẫu), tránh trường hợp nhãn `IDLE` quá nhiều còn nhãn `PINCH_PINKY` quá ít làm lệch mô hình.
 
 ---
 
-### 4.3. Huấn luyện và So sánh 3 Thuật toán Machine Learning
-
-| Thuật toán | Nguyên lý hoạt động trong bài toán cử chỉ | Ưu điểm | Hạn chế cần lưu ý |
-| :--- | :--- | :--- | :--- |
-| **1. KNN (K-Nearest Neighbors)** | Tính khoảng cách giữa vector 63 chiều hiện tại với các mẫu trong tập huấn luyện, bầu chọn theo $K$ láng giềng gần nhất. | Đơn giản, trực quan, không tốn thời gian huấn luyện, hiệu quả với dữ liệu ít chiều. | Tốc độ suy luận (Inference time) chậm dần nếu tập dữ liệu quá lớn; nhạy cảm với nhiễu nếu $K$ quá nhỏ. |
-| **2. SVM (Support Vector Machine)** | Tìm siêu phẳng (Hyperplane) có lề cực đại (Maximum Margin) với nhân phi tuyến (RBF Kernel) để phân tách các vùng tư thế bàn tay trong không gian 63 chiều. | Độ chính xác rất cao và ổn định trên vector đặc trưng hình học; suy luận cực nhanh. | Cần chuẩn hóa dữ liệu tốt và tinh chỉnh cặp tham số $(C, \gamma)$ qua GridSearch trên tập Validation. |
-| **3. Random Forest (Rừng ngẫu nhiên)** | Tập hợp (Ensemble) nhiều cây quyết định (Decision Trees) huấn luyện trên các tập con đặc trưng và mẫu ngẫu nhiên. | Chống quá khớp (Overfitting) tốt, đánh giá được mức độ quan trọng của từng điểm mốc (Feature Importance). | Kích thước mô hình lớn hơn SVM; xác suất dự đoán có thể phân tán nếu số cây ít. |
+### 3.5. Quy tắc chia tập dữ liệu: 70% Train - 15% Val - 15% Test
+Để đánh giá mô hình học máy một cách trung thực và chính xác:
+- **Không chia ngẫu nhiên từng dòng:** Nếu một đoạn video quay tay liên tục mà cắt ảnh ra rồi chia ngẫu nhiên thì ảnh ở tập Train và Test gần như y hệt nhau $\rightarrow$ độ chính xác Test sẽ cao giả tạo (99%), nhưng khi người mới dùng thật thì lại nhận diện kém.
+- **Chia theo phiên quay (Session-wise) hoặc theo người (Subject-wise):** Toàn bộ các mẫu trong 1 lần quay phải nằm trọn vẹn trong tập Train, hoặc tập Val, hoặc tập Test. Người thử nghiệm ở tập Test nên là người chưa từng xuất hiện ở tập Train.
 
 ---
 
-### 4.4. Máy Trạng Thái Hữu Hạn (FSM) & Cơ Chế Chống Nhập Lặp (Debouncing)
-> **Bài toán cốt lõi khi chạy thực tế:** Webcam chạy ở tốc độ 30 FPS (30 khung hình/giây). Nếu người dùng giữ một cử chỉ trong 1 giây mà không có cơ chế kiểm soát trạng thái, hệ thống sẽ nhập liên tiếp **30 dấu chấm (`.`)**!
-> **Quy tắc bắt buộc:** *Mỗi lần thực hiện cử chỉ chỉ được ghi nhận đúng 1 lần duy nhất; người dùng bắt buộc phải đưa bàn tay trở về trạng thái nghỉ (`IDLE` / mở ngón tay) trước khi hệ thống cho phép ghi nhận lần nhập tiếp theo.*
+## Chương 4: Tiền Xử Lý Dữ Liệu & Các Mô Hình Học Máy (Machine Learning)
 
-```mermaid
-stateDiagram-v2
-    [*] --> IDLE : Khởi tạo / Bàn tay mở
-    IDLE --> TOUCHING_THUMB_INDEX : d(8,4) < Ngưỡng chạm
-    TOUCHING_THUMB_INDEX --> IDLE : Nhả nhanh (dt < T_dash) -> Phát lệnh DOT (.)
-    TOUCHING_THUMB_INDEX --> LOCKED_WAIT_RELEASE : Giữ đủ lâu (dt >= T_dash) -> Phát lệnh DASH (-)
-    
-    IDLE --> TOUCHING_RING : d(8,16) < Ngưỡng chạm
-    TOUCHING_RING --> WAIT_SECOND_TAP : Nhả lần 1 (Mở cửa sổ T_double)
-    WAIT_SECOND_TAP --> LOCKED_WAIT_RELEASE : Chạm lần 2 trong T_double -> Phát lệnh CONFIRM
-    WAIT_SECOND_TAP --> IDLE : Hết T_double không chạm thêm -> Phát lệnh SPACE
-    
-    IDLE --> TOUCHING_PINKY : d(8,20) < Ngưỡng chạm -> Phát lệnh DELETE
-    TOUCHING_PINKY --> LOCKED_WAIT_RELEASE : Chờ nhả tay
-    
-    LOCKED_WAIT_RELEASE --> IDLE : Mở các ngón tay (d > Ngưỡng nhả trong N frames)
-```
+### 4.1. Tại sao dùng tọa độ MediaPipe thay vì đưa cả ảnh vào CNN?
+- Nếu đưa thẳng bức ảnh webcam vào mạng Deep Learning (như CNN): Mô hình sẽ rất nặng, dễ bị ảnh hưởng bởi phông nền đằng sau (tường, quần áo, người đi lại) và cần máy tính có card đồ họa rời (GPU).
+- **Giải pháp của đề tài:** Dùng MediaPipe tách trước 21 điểm mốc xương bàn tay. Sau đó chỉ đưa **63 con số tọa độ** vào các thuật toán học máy cổ điển.
+- **Lợi ích:** Mô hình cực nhẹ (chưa tới vài Megabyte), học xong trong vài giây, chạy siêu mượt trên CPU laptop bình thường với tốc độ trên 30 khung hình/giây (FPS).
 
-#### 6 Cơ chế tối ưu hóa thời gian thực (Real-time Stabilization):
-1. **Confidence Threshold (Ngưỡng tin cậy):** Chỉ chấp nhận dự đoán của mô hình ML khi xác suất $\max(P(y|\mathbf{v})) \ge \tau_{\text{conf}}$ (ví dụ $\tau_{\text{conf}} = 0.75$).
-2. **Frame Smoothing (Làm mượt liên khung hình):** Sử dụng cửa sổ trượt (Sliding Window $W = 5$ khung hình) lấy nhãn xuất hiện nhiều nhất (Majority Voting) để loại bỏ hiện tượng giật/nhiễu đơn lẻ.
-3. **Time-based Classification (Phân loại theo thời gian):** Đo chính xác thời lượng giữ chạm $\Delta t$ để phân biệt `DOT` (chạm nhả nhanh) và `DASH` (chạm giữ).
-4. **Debouncing & State Locking (Chống dội & Khóa trạng thái):** Sau khi phát sinh một sự kiện (`DASH`, `CONFIRM`, `DELETE`), hệ thống chuyển ngay sang trạng thái `LOCKED_WAIT_RELEASE`. Mọi khung hình tiếp theo giữ nguyên tư thế đều bị bỏ qua cho đến khi người dùng mở tay hoàn toàn về `IDLE`.
-5. **State Management (Quản lý trạng thái):** Tách bạch trạng thái *Đang tích lũy tín hiệu* (`TOUCHING`), *Đang chờ chạm đúp* (`WAIT_SECOND_TAP`), *Đã khóa chờ nhả* (`LOCKED_WAIT_RELEASE`) và *Trạng thái nghỉ* (`IDLE`).
-6. **Unknown State Handling (Xử lý ngoại lệ):** Khi không có bàn tay trong khung hình hoặc cử chỉ lạ có độ tin cậy thấp, hiển thị trạng thái `UNKNOWN / IDLE` và giữ nguyên văn bản đã nhập, tuyệt đối không sinh ký tự rác.
+### 4.2. Tiền xử lý 63 đặc trưng (Preprocessing)
+Từ 21 điểm $(x, y, z)$, hệ thống thực hiện 3 bước đơn giản:
+1. **Dời gốc tọa độ về cổ tay:** Lấy tọa độ của tất cả các điểm trừ đi tọa độ cổ tay (điểm số `0`). Sau bước này, dù bạn để tay ở góc trái, góc phải hay giữa màn hình thì hình dáng bàn tay đều có cùng một gốc tọa độ.
+2. **Chuẩn hóa tỷ lệ kích thước:** Chia tất cả tọa độ cho khoảng cách xa nhất từ cổ tay tới đầu ngón tay. Nhờ vậy, đưa tay lại gần camera (tay to) hay để tay ra xa (tay nhỏ) thì kích thước bàn tay đều được đưa về cùng một chuẩn từ 0 đến 1.
+3. **Xử lý tay trái / tay phải:** Nếu phát hiện tay trái, hệ thống lật trục ngang để đưa về tọa độ giống như tay phải, giúp một mô hình nhận diện tốt cả 2 tay.
+4. **Kết quả:** Thu được một mảng (vector) gồm 63 số biểu diễn chính xác tư thế bàn tay.
 
 ---
 
-## Chương 5: Thiết Kế Giao Diện Website & Hướng Dẫn Thao Tác
+### 4.3. Ba thuật toán học máy được so sánh
 
-### 5.1. Sơ đồ bố cục giao diện trang chính (Website UI Wireframe)
+Hệ thống huấn luyện và so sánh 3 thuật toán phổ biến:
 
-```text
-+-----------------------------------------------------------------------------------+
-|  🛰️ HỆ THỐNG GIẢI MÃ MÃ MORSE & CỬ CHỈ TAY QUA WEBCAM      [Chế độ: Morse ▼]     |
-+-----------------------------------------+-----------------------------------------+
-|                                         |  📊 KẾT QUẢ NHẬN DIỆN HIỆN TẠI          |
-|         🎥 KHU VỰC WEBCAM TRỰC TIẾP     |  - Cử chỉ đang nhận: [ DOT (.)     ]    |
-|                                         |  - Độ tin cậy (Conf): [ 96.4% ████░]    |
-|     +-----------------------------+     |  - Trạng thái FSM  : [ IDLE / READY]    |
-|     |   [Hình ảnh Video + Khung   |     +-----------------------------------------+
-|     |    xương 21 điểm MediaPipe  |     |  ⚡ CHUỖI MORSE ĐANG NHẬP (BUFFER)      |
-|     |    vẽ trực tiếp lên tay]    |     |  [  . . .                          ]    |
-|     |                             |     |  -> Dự kiến giải mã: 'S'                |
-|     +-----------------------------+     +-----------------------------------------+
-|     FPS: 29.8 | Độ trễ: 12 ms           |  📝 VĂN BẢN ĐÃ XÁC NHẬN (OUTPUT TEXT)   |
-|                                         |  +-----------------------------------+  |
-|  🎛️ BẢNG ĐIỀU KHIỂN (CONTROLS)          |  | SOS HELLO_                        |  |
-|  [▶ Bật/Tắt Camera] [⌫ Xóa ký tự]      |  +-----------------------------------+  |
-|  [🗑 Xóa toàn bộ  ] [🔊 Đọc văn bản]    |                                         |
-+-----------------------------------------+-----------------------------------------+
-|  📖 BẢNG HƯỚNG DẪN CỬ CHỈ & MÃ MORSE TRỰC QUAN                                    |
-|  [🤏 Trỏ+Cái 1 lần: DOT (.)] [🤏 Trỏ+Cái giữ: DASH (-)] [✌️ Trỏ+Áp út x2: CONFIRM]|
-|  [☝️ Trỏ+Áp út x1: SPACE   ] [🤙 Trỏ+Út x1: DELETE    ] [Bảng tra cứu A-Z, 0-9]   |
-+-----------------------------------------------------------------------------------+
-```
+#### 1. $K$-Nearest Neighbors ($K$-NN)
+- **Cách hoạt động:** Khi có một tư thế tay mới, KNN tính khoảng cách giữa 63 con số của tay hiện tại với tất cả các mẫu trong tập dữ liệu đã lưu. Sau đó nó chọn ra $K$ mẫu gần giống nhất (ví dụ $K=5$) và xem đa số các mẫu đó thuộc nhãn nào thì đoán nhãn đó.
+- **Ưu điểm:** Cực kỳ trực quan, dễ hiểu, không cần bước huấn luyện phức tạp.
+- **Nhược điểm:** Nếu tập dữ liệu lớn thì tốc độ so sánh sẽ chậm dần.
 
-### 5.2. Chi tiết 6 khu vực chức năng trên Website
-1. **Khu vực Webcam:** Hiển thị luồng video trực tiếp (Real-time stream), vẽ đè (overlay) 21 điểm mốc bàn tay, đường nối khớp xương và thanh tiến trình thời gian giữ cử chỉ.
-2. **Khu vực Kết quả hiện tại:** Hiển thị nhãn cử chỉ đang nhận diện (`DOT`, `DASH`, `CONFIRM`, `SPACE`, `DELETE`, `IDLE`), mức độ tin cậy (%) và trạng thái khóa Debounce.
-3. **Khu vực Chuỗi Morse:** Hiển thị chuỗi tín hiệu `.` và `-` đang tích lũy cho ký tự hiện tại (ví dụ: `...`) kèm gợi ý ký tự tương ứng trước khi xác nhận.
-4. **Khu vực Văn bản:** Hiển thị chuỗi các chữ cái và từ đã được xác nhận thành công.
-5. **Khu vực Điều khiển:** Các nút bấm trực tiếp trên giao diện (Bật/tắt camera, Xóa 1 tín hiệu/ký tự, Xóa toàn bộ văn bản, Chuyển đổi chế độ hoạt động).
-6. **Khu vực Hướng dẫn:** Hình ảnh minh họa trực quan từng cử chỉ ngón tay và bảng tra cứu nhanh mã Morse để người mới có thể sử dụng ngay.
+#### 2. Support Vector Machine (SVM)
+- **Cách hoạt động:** SVM tìm một "ranh giới" (đường phân chia tối ưu) trong không gian 63 chiều để ngăn cách rõ ràng giữa các nhóm tư thế (`IDLE`, `PINCH_THUMB`, `PINCH_RING`, `PINCH_PINKY`). Khi dùng nhân RBF, SVM có thể uốn cong ranh giới để chia các nhóm phức tạp.
+- **Ưu điểm:** Nhận diện rất chính xác, chạy dự đoán cực nhanh (chỉ mất khoảng 1 mili-giây mỗi khung hình).
+- **Nhược điểm:** Cần chuẩn hóa dữ liệu cẩn thận và chọn đúng tham số $C$ và $\gamma$.
 
-> [!NOTE]
-> **Lưu ý kỹ thuật quan trọng khi xây dựng bằng Streamlit:**
-> Thành phần mặc định `st.camera_input` của Streamlit chỉ dùng để **chụp ảnh tĩnh (snapshot)**, do đó **không đáp ứng được luồng video nhận diện liên tục theo thời gian thực**. Để truyền và xử lý từng khung hình liên tục (30 FPS), hệ thống cần sử dụng một trong các cơ chế:
-> - **`streamlit-webrtc`** (`VideoProcessorBase` / `VideoTransformerBase`) để xử lý luồng WebRTC trực tiếp trên trình duyệt.
-> - Vòng lặp đọc khung hình `cv2.VideoCapture(0)` cập nhật vào `st.empty()` / `st.image()` (khi chạy local).
-> - Hoặc kiến trúc **FastAPI / Flask (WebSocket / MJPEG Stream) + Frontend HTML/JS**.
+#### 3. Random Forest (Rừng ngẫu nhiên)
+- **Cách hoạt động:** Kết hợp nhiều "cây quyết định" (Decision Trees). Mỗi cây sẽ đặt ra một loạt câu hỏi dạng Nếu - Thì (ví dụ: "Khoảng cách ngón cái và ngón trỏ có nhỏ hơn 0.2 không?", "Ngón út có duỗi thẳng không?"). Cuối cùng, tất cả các cây cùng bỏ phiếu để chọn ra nhãn chiến thắng.
+- **Ưu điểm:** Rất ổn định, ít bị học vẹt (overfitting).
+- **Nhược điểm:** Kích thước file mô hình lớn hơn SVM.
 
 ---
 
-### 5.3. Ví dụ Kịch bản Thao tác Thực tế (Step-by-Step Walkthrough)
-Giả sử người dùng muốn nhập chữ **`S`** (Mã Morse là `...`):
-1. **Bước 1:** Mở giao diện web, bật camera và chọn **Chế độ Morse**. Đưa bàn tay lên trước webcam ở tư thế mở tự nhiên (`IDLE`).
-2. **Bước 2 (Nhập dấu chấm thứ 1):** Chạm nhanh đầu ngón trỏ và ngón cái vào nhau rồi mở ra → Hệ thống nhận diện `DOT`, chuỗi Morse hiện tại hiển thị `.`.
-3. **Bước 3 (Nhập dấu chấm thứ 2 & 3):** Lặp lại thao tác chạm nhanh ngón trỏ và ngón cái thêm 2 lần nữa (mỗi lần đều mở tay về trạng thái nghỉ) → Chuỗi Morse hiện tại cập nhật thành `...`.
-4. **Bước 4 (Xác nhận ký tự):** Chạm đầu ngón trỏ và ngón áp út 2 lần liên tiếp → Hệ thống nhận diện `CONFIRM`, tra bảng từ điển giải mã `...` thành chữ **`S`**, đưa chữ **`S`** vào ô **Văn bản** và làm rỗng ô **Chuỗi Morse**.
+## Chương 5: Cơ Chế Xử Lý Thời Gian, Trạng Thái (FSM) & Giải Mã
+
+### 5.1. Vấn đề nhập lặp khi dùng Webcam (Debouncing)
+Webcam quay liên tục khoảng 30 khung hình mỗi giây (30 FPS). Nếu người dùng chạm ngón tay giữ trong 1 giây mà không có cơ chế chặn:
+$\implies$ Hệ thống sẽ nhận diện liên tục và nhập tới **30 dấu chấm (`...............`)**!
+
+**Quy tắc bắt buộc của hệ thống:**
+*Mỗi lần thực hiện cử chỉ chỉ được ghi nhận đúng 1 lần. Sau khi nhập xong một tín hiệu, người dùng phải mở bàn tay về trạng thái nghỉ (`IDLE`) thì hệ thống mới cho phép nhập tiếp tín hiệu sau.*
+
+### 5.2. Máy trạng thái (FSM) hoạt động như thế nào?
+Hệ thống sử dụng một máy trạng thái đơn giản để quản lý:
+1. **Lọc nhiễu đa khung hình:** Kiểm tra 5 khung hình liên tiếp, chỉ khi đa số các khung hình cùng ra một tư thế thì mới tin tưởng (tránh bị giật/nhấp nháy).
+2. **Trạng thái sẵn sàng (`IDLE`):** Bàn tay mở tự nhiên.
+3. **Khi chạm ngón cái + ngón trỏ:**
+   - Nếu thả ra nhanh ($< 0.4$ giây) $\rightarrow$ Thêm dấu `.` (DOT).
+   - Nếu giữ lâu ($\ge 0.4$ giây) $\rightarrow$ Thêm dấu `-` (DASH), sau đó **khóa lại** không cho nhập tiếp.
+4. **Khi chạm ngón áp út + ngón trỏ:**
+   - Nếu chạm 1 lần rồi thôi $\rightarrow$ Thêm dấu cách `SPACE`.
+   - Nếu chạm lần 2 trong vòng $0.45$ giây $\rightarrow$ Phát lệnh **`CONFIRM`** (giải mã chuỗi Morse hiện tại thành chữ cái tương ứng).
+5. **Khi chạm ngón út + ngón trỏ:** $\rightarrow$ Lệnh **`DELETE`** (xóa tín hiệu hoặc xóa chữ vừa gõ).
+6. **Mở khóa:** Chỉ khi người dùng mở tay ra (về trạng thái `IDLE`), máy trạng thái mới quay lại sẵn sàng cho lần gõ tiếp theo.
+
+### 5.3. Ví dụ nhập chữ "S" (Mã Morse: `...`)
+1. Để tay mở tự nhiên (`IDLE`).
+2. Chạm nhanh ngón trỏ và cái lần 1 $\rightarrow$ Màn hình hiện `.`. Mở tay ra.
+3. Chạm nhanh ngón trỏ và cái lần 2 $\rightarrow$ Màn hình hiện `..`. Mở tay ra.
+4. Chạm nhanh ngón trỏ và cái lần 3 $\rightarrow$ Màn hình hiện `...`. Mở tay ra.
+5. Chạm 2 lần ngón trỏ và áp út (`CONFIRM`) $\rightarrow$ Hệ thống tra bảng mã thấy `...` là chữ **`S`**, lưu chữ **`S`** vào văn bản và làm trống chuỗi Morse để sẵn sàng cho chữ tiếp theo.
 
 ---
 
-## Chương 6: Đánh Giá Hệ Thống & Thực Nghiệm
+## Chương 6: Đánh Giá Mô Hình & Hệ Thống (Evaluation)
 
-Hệ thống được đánh giá toàn diện trên **2 cấp độ**: Đánh giá mô hình học máy (Model-level) và Đánh giá trải nghiệm nhập liệu toàn trình (End-to-End System-level).
+### 6.1. Các chỉ số đánh giá mô hình học máy (trên tập Test 15%)
+Để báo cáo kết quả huấn luyện của 3 mô hình (KNN, SVM, Random Forest), hệ thống dùng các chỉ số:
+- **Accuracy (Độ chính xác chung):** Tỷ lệ đoán đúng trên toàn bộ tập kiểm thử.
+- **Precision (Độ chuẩn xác):** Khi mô hình đoán là nhãn X, thì có bao nhiêu % thực sự là nhãn X (đo lường việc không đoán bừa).
+- **Recall (Độ nhạy / Độ bao quát):** Trong toàn bộ các cử chỉ nhãn X người dùng làm, mô hình nhận diện đúng được bao nhiêu % (đo lường việc không bỏ sót).
+- **F1-score:** Điểm số trung bình điều hòa kết hợp cả Precision và Recall.
+- **Inference Time:** Thời gian mô hình tính toán xong 1 khung hình (tính bằng mili-giây, yêu cầu $< 10\text{ms}$ để chạy mượt thời gian thực).
+- **Confusion Matrix (Ma trận nhầm lẫn):** Bảng hiển thị trực quan các cặp nhãn hay bị đoán nhầm sang nhau.
 
-### 6.1. Đánh giá Mô hình Phân loại Cử chỉ (trên tập Test 15%)
-Sử dụng các độ đo chuẩn cho bài toán phân loại đa lớp:
-- **Accuracy:** $\frac{\text{Số mẫu dự đoán đúng}}{\text{Tổng số mẫu kiểm thử}}$
-- **Precision (Độ chuẩn xác):** $\frac{TP}{TP + FP}$ — Đo tỷ lệ không nhận nhầm khi mô hình báo một cử chỉ.
-- **Recall (Độ phủ / Độ nhạy):** $\frac{TP}{TP + FN}$ — Đo khả năng không bỏ sót cử chỉ của người dùng.
-- **F1-score:** $2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$ — Trung bình điều hòa cân bằng giữa Precision và Recall.
-- **Confusion Matrix (Ma trận nhầm lẫn):** Phát hiện trực quan cặp cử chỉ nào hay bị nhầm lẫn với nhau nhất.
-- **Inference Time (Thời gian suy luận):** Thời gian trung bình (ms) để mô hình dự đoán 1 khung hình (yêu cầu $< 10\text{ ms}$ để đảm bảo thời gian thực).
+*(Các con số cụ thể sẽ được ghi nhận tự động khi chạy lệnh `python3 src/evaluate.py`).*
 
-#### Bảng mẫu so sánh thực nghiệm 3 mô hình (Template Báo Cáo):
-
-| Mô hình (Model) | Accuracy (%) | Macro Precision (%) | Macro Recall (%) | Macro F1-Score (%) | Inference Time (ms/frame) | Đánh giá lựa chọn |
-| :--- | :-: | :-: | :-: | :-: | :-: | :--- |
-| **KNN ($K=5$)** | *94.2%* | *94.0%* | *93.8%* | *93.9%* | *3.8 ms* | Nhanh, dễ cài đặt, nhạy với nhiễu biên |
-| **SVM (RBF Kernel)** | ***97.8%*** | ***97.6%*** | ***97.5%*** | ***97.5%*** | ***1.2 ms*** | **Tốt nhất (Được chọn tích hợp)** |
-| **Random Forest ($N=100$)** | *96.5%* | *96.3%* | *96.1%* | *96.2%* | *4.5 ms* | Ổn định, chống nhiễu tốt |
-
-*(Lưu ý: Các con số trong bảng trên là định dạng mẫu tham khảo, được cập nhật trực tiếp từ script đánh giá `evaluate.py` của dự án).*
+### 6.2. Đánh giá thực tế khi chạy với Webcam
+Độ chính xác trên tập dữ liệu cao chưa chắc lúc dùng thật đã tốt. Cần kiểm tra thêm:
+- **Tốc độ khung hình (FPS):** Đạt 25 – 30 FPS trên webcam laptop thông thường.
+- **Khả năng chống lặp:** Giữ nguyên tay trong 3 giây xem có bị nhảy hàng chục chữ không (mục tiêu: chỉ ra đúng 1 chữ).
+- **Độ chính xác ghép chữ:** Thử gõ các từ mẫu như `SOS`, `HELLO` xem tỷ lệ gõ đúng chữ cái và đúng từ đạt bao nhiêu %.
+- **Thử với người mới:** Đưa cho một người bạn chưa từng tham gia thu thập dữ liệu dùng thử xem hệ thống có nhận diện tốt không.
 
 ---
 
-### 6.2. Đánh giá Hệ thống Toàn trình trong Điều kiện Thực tế
-> *Nhận diện từng cử chỉ có Accuracy cao chưa chắc quá trình nhập Morse đã tốt (do có thể bị nhập thừa dấu lúc chuyển tay, bỏ sót dấu hoặc xác nhận sai thời điểm). Do đó bắt buộc phải đánh giá toàn bộ quá trình sử dụng:*
+## Chương 7: Cấu Trúc Dự Án & Hướng Dẫn Cài Đặt, Chạy Thử
 
-| Đối tượng kiểm tra | Chỉ số / Cách thức đánh giá | Mục tiêu chất lượng |
-| :--- | :--- | :--- |
-| **Chạy trực tiếp (Real-time Performance)** | Tốc độ khung hình (**FPS**) và độ trễ phản hồi (Latency từ lúc chạm tay đến khi hiện dấu `.`/`-`). | $\ge 24\text{ FPS}$, độ trễ cảm nhận $< 100\text{ ms}$. |
-| **Ghép văn bản & Chống lặp (Debouncing)** | Giữ nguyên cử chỉ trong 3 giây hoặc chuyển tay giữa các cử chỉ xem có bị nhập lặp, mất chữ hay sinh ký tự rác không. | Tỷ lệ nhập lặp do giữ tay = **0%**. |
-| **Giải mã Morse (Character & Word Accuracy)** | Yêu cầu người thử nghiệm nhập danh sách từ chuẩn (VD: `SOS`, `HELLO`, `MORSE`, `AI 2026`). Tính tỷ lệ giải mã đúng cấp độ ký tự (Character Accuracy) và cấp độ từ (Word Accuracy). | Giải mã đúng $\ge 90\%$ khi thao tác đúng nhịp. |
-| **Điều kiện thực tế đa dạng (Robustness)** | Kiểm thử với: (1) **Người dùng mới** chưa có trong tập Train, (2) **Ánh sáng khác nhau** (đèn vàng, ngược sáng nhẹ), (3) **Nền phức tạp**, (4) **Khoảng cách khác nhau** (35 cm – 75 cm). | Ghi nhận mức suy giảm hiệu năng và ngưỡng hoạt động ổn định. |
-
----
-
-## Chương 7: Công Nghệ Sử Dụng, Cấu Trúc Thư Mục & Cài Đặt
-
-### 7.1. Công nghệ sử dụng (Tech Stack)
-- **Ngôn ngữ lập trình:** Python 3.9+
-- **Thị giác máy tính & Nhận diện bàn tay:** OpenCV (`opencv-python`), Google MediaPipe (`mediapipe`)
-- **Xử lý dữ liệu & Học máy:** NumPy, Pandas, Scikit-learn (`KNN`, `SVM`, `RandomForestClassifier`), Joblib (lưu/tải model)
-- **Trực quan hóa & Báo cáo thực nghiệm:** Matplotlib, Seaborn (vẽ Confusion Matrix, biểu đồ phân bố dữ liệu)
-- **Giao diện Website:** Streamlit + `streamlit-webrtc` (hoặc Flask / FastAPI WebSocket)
-
-### 7.2. Cấu trúc thư mục dự án chuẩn (Project Architecture)
+### 7.1. Cấu trúc thư mục mã nguồn
 ```text
 morse-code-decoder-webcam/
 ├── data/
-│   ├── raw/                        # Video / Phiên quay gốc phân theo người & phiên (Subject/Session)
-│   ├── processed/                  # Dữ liệu vector 63 đặc trưng đã làm sạch (train.csv, val.csv, test.csv)
-│   └── dataset_description.md      # Mô tả nguồn dữ liệu, quy trình thu thập và thống kê phân bố
+│   ├── raw/                        # Chứa các file CSV dữ liệu thô thu thập từ webcam
+│   ├── processed/                  # Chứa dữ liệu đã tiền xử lý 63 đặc trưng (train, val, test)
+│   └── dataset_description.md      # Tài liệu mô tả chi tiết nguồn dữ liệu, nhãn và số lượng mẫu
 ├── models/
-│   ├── gesture_svm_model.pkl       # Mô hình phân loại cử chỉ tốt nhất đã huấn luyện
-│   ├── gesture_knn_model.pkl       # Mô hình KNN phục vụ so sánh
-│   ├── gesture_rf_model.pkl        # Mô hình Random Forest phục vụ so sánh
-│   └── scaler_config.json          # Tham số chuẩn hóa và các ngưỡng (Thresholds)
+│   ├── scaler_config.json          # File lưu các ngưỡng thời gian, ngưỡng chạm và mô hình tốt nhất
+│   └── *.pkl                       # File lưu mô hình đã huấn luyện (KNN, SVM, Random Forest)
 ├── src/
-│   ├── data_collection.py          # Công cụ quay webcam và gán nhãn thu thập dữ liệu
-│   ├── preprocessing.py            # Chuẩn hóa 21 landmarks -> vector 63 chiều & khoảng cách Euclid
-│   ├── train_models.py             # Huấn luyện và tinh chỉnh KNN, SVM, Random Forest
-│   ├── evaluate.py                 # Xuất bảng Accuracy, Precision, Recall, F1, Inference Time & Confusion Matrix
-│   ├── fsm_controller.py           # Máy trạng thái (FSM), Time-based DOT/DASH, Tap Counter, Debouncing
-│   └── morse_decoder.py            # Bộ từ điển giải mã tín hiệu Morse sang chữ cái A-Z, 0-9
-├── app/
-│   ├── main.py                     # Ứng dụng Website chính (Webcam, Kết quả, Chuỗi Morse, Văn bản, Hướng dẫn)
-│   └── assets/                     # Hình ảnh minh họa các cử chỉ tay và bảng mã Morse
+│   ├── config.py                   # Cấu hình danh sách nhãn, thông số mặc định và đường dẫn
+│   ├── data_collection.py          # Script bật webcam để thu thập dữ liệu và gán nhãn
+│   ├── hand_tracker.py             # Script trích xuất 21 điểm mốc xương tay bằng MediaPipe
+│   ├── preprocessing.py            # Tiền xử lý, chuẩn hóa 63 tọa độ và chia tập 70/15/15
+│   ├── train_models.py             # Huấn luyện và so sánh KNN, SVM, Random Forest
+│   ├── evaluate.py                 # Đánh giá trên tập Test, tính Accuracy, F1 và vẽ Confusion Matrix
+│   ├── fsm_controller.py           # Quản lý trạng thái, phân biệt chạm nhanh/giữ và chống lặp
+│   └── morse_decoder.py            # Từ điển tra cứu mã Morse sang chữ cái A-Z, 0-9
+├── tests/
+│   └── test_morse_fsm.py           # Bộ 13 bài test tự động kiểm tra logic giải mã và FSM
 ├── reports/
-│   ├── figures/                    # Biểu đồ phân bố nhãn, Confusion Matrix, kết quả thực nghiệm
-│   └── report_outline.md           # Nội dung báo cáo chi tiết 6 chương
-├── requirements.txt                # Danh sách thư viện Python cần thiết
-└── README.md                       # Tài liệu hướng dẫn toàn diện của dự án
+│   ├── figures/                    # Nơi lưu ảnh biểu đồ phân bố nhãn và ma trận nhầm lẫn
+│   └── report_outline.md           # Đề cương gợi ý chi tiết các mục cần viết trong báo cáo
+├── requirements.txt                # Danh sách các thư viện Python cần cài
+└── README.md                       # Tài liệu tổng quan toàn bộ dự án
 ```
 
-### 7.3. Hướng dẫn cài đặt và chạy chương trình (Installation & Usage)
+### 7.2. Hướng dẫn cài đặt và các lệnh chạy
 
-#### Bước 1: Clone kho mã nguồn và tạo môi trường ảo
+#### Bước 1: Mở Terminal, tạo môi trường ảo và cài thư viện
 ```bash
-git clone https://github.com/your-username/morse-code-decoder-webcam.git
-cd morse-code-decoder-webcam
-python -m venv venv
-source venv/bin/activate        # Trên macOS/Linux
+# 1. Tạo môi trường ảo Python
+python3 -m venv venv
+source venv/bin/activate        # Trên macOS / Linux
 # hoặc: venv\Scripts\activate   # Trên Windows
-```
 
-#### Bước 2: Cài đặt các thư viện phụ thuộc
-```bash
+# 2. Cài đặt các thư viện cần thiết
 pip install -r requirements.txt
 ```
-*(Gồm: `opencv-python`, `mediapipe`, `scikit-learn`, `numpy`, `pandas`, `matplotlib`, `seaborn`, `streamlit`, `streamlit-webrtc`, `joblib`)*
 
-#### Bước 3: Quy trình chạy từng mô-đun
+#### Bước 2: Chạy các bước thực hiện dự án
 ```bash
-# 1. Thu thập dữ liệu cử chỉ mới qua webcam (theo phiên quay và người dùng)
-python src/data_collection.py --subject user_01 --session session_01
+# Bước A: Chạy kiểm thử tự động để kiểm tra logic giải mã Morse
+python3 -m unittest discover tests -v
 
-# 2. Tiền xử lý và chia tập dữ liệu (70% Train - 15% Val - 15% Test theo phiên)
-python src/preprocessing.py
+# Bước B: Thu thập dữ liệu cử chỉ ngón tay qua webcam (bấm phím 0, 1, 2, 3 để chọn nhãn)
+python3 src/data_collection.py --task morse --subject user_01 --session s01
 
-# 3. Huấn luyện và so sánh 3 mô hình (KNN, SVM, Random Forest)
-python src/train_models.py
+# Bước C: Tiền xử lý dữ liệu và chia tập (70% Train, 15% Val, 15% Test)
+python3 src/preprocessing.py --task morse
 
-# 4. Đánh giá trên tập Test và xuất Confusion Matrix
-python src/evaluate.py
+# Bước D: Huấn luyện và tìm tham số tốt nhất cho 3 mô hình (KNN, SVM, Random Forest)
+python3 src/train_models.py --task morse
 
-# 5. Khởi chạy Website giao diện người dùng với Webcam thời gian thực
-streamlit run app/main.py
+# Bước E: Đánh giá mô hình trên tập Test và xuất biểu đồ ma trận nhầm lẫn
+python3 src/evaluate.py --task morse
 ```
 
 ---
 
-## Chương 8: Đề Cương Báo Cáo, Sản Phẩm Bàn Giao & Lộ Trình Thực Hiện
+## Chương 8: Đề Cương Báo Cáo & Danh Mục Sản Phẩm
 
-### 8.1. Cấu trúc Báo cáo Khoa học (6 Chương chuẩn)
-| Chương | Tên chương | Nội dung trọng tâm cần trình bày |
-| :-: | :--- | :--- |
-| **Chương 1** | **Tổng quan đề tài** | Lý do chọn đề tài, mục tiêu, phạm vi (phân biệt nhận diện ký hiệu đơn lẻ với dịch ngôn ngữ ký hiệu hoàn chỉnh), đối tượng sử dụng, sản phẩm dự kiến. |
-| **Chương 2** | **Cơ sở lý thuyết & Công trình liên quan** | Bảng mã Morse, ngôn ngữ ký hiệu được chọn, MediaPipe Hands (21 landmarks), khoảng cách Euclid, nguyên lý KNN, SVM, Random Forest và FSM. |
-| **Chương 3** | **Thu thập & Xử lý dữ liệu** | Nguồn dữ liệu, quy trình thu thập đa điều kiện, quy định 5 nhãn, thống kê phân bố, làm sạch dữ liệu, chuẩn hóa 63 đặc trưng, chiến lược chia tập 70/15/15 theo phiên quay. |
-| **Chương 4** | **Phân tích & Thiết kế hệ thống** | Yêu cầu chức năng/phi chức năng, kiến trúc tổng thể, thiết kế giao diện 6 khu vực, luồng xử lý 2 chế độ, thiết kế FSM chống nhập lặp (Debouncing) và phân loại theo thời gian. |
-| **Chương 5** | **Xây dựng & Thực nghiệm** | Cấu hình huấn luyện, bảng so sánh KNN vs SVM vs Random Forest (Accuracy, Precision, Recall, F1, Inference Time), phân tích Confusion Matrix, đánh giá FPS và giải mã Morse thực tế. |
-| **Chương 6** | **Kết luận & Hướng phát triển** | Tổng kết kết quả đạt được, hạn chế hiện tại (nhạy sáng, góc khuất), hướng mở rộng sang ký hiệu động (LSTM/Transformer) hoặc hỗ trợ hai tay / nhiều người dùng. |
-| **Phụ lục** | **Tài liệu tham khảo & Phụ lục** | Danh sách nhãn chi tiết, bảng mã Morse, hướng dẫn cài đặt & sử dụng, hình ảnh minh họa thực nghiệm. |
+### 8.1. Các chương cần viết trong báo cáo môn học / đồ án
+1. **Chương 1: Tổng quan đề tài:** Lý do chọn đề tài, mục tiêu, phạm vi ứng dụng mã Morse qua cử chỉ ngón tay.
+2. **Chương 2: Cơ sở lý thuyết:** Giới thiệu MediaPipe Hands (21 điểm mốc), nguyên lý của 3 thuật toán học máy (KNN, SVM, Random Forest), bảng mã Morse quốc tế.
+3. **Chương 3: Thu thập và gán nhãn dữ liệu:** Mô tả cách gán 5 nhãn điều khiển, quy trình thu thập từ nhiều người, cách làm sạch dữ liệu và chia tập chống rò rỉ.
+4. **Chương 4: Thiết kế hệ thống:** Luồng xử lý từ webcam qua MediaPipe đến phân loại tư thế, cơ chế máy trạng thái (FSM) để phân biệt chạm nhanh/giữ và chống nhập lặp.
+5. **Chương 5: Kết quả thực nghiệm:** Bảng so sánh Accuracy, Precision, Recall, F1 và thời gian chạy của KNN, SVM, Random Forest; phân tích ma trận nhầm lẫn (cặp nhãn nào hay nhầm và tại sao).
+6. **Chương 6: Kết luận và hướng mở rộng:** Những điểm đã làm được, hạn chế hiện tại (ánh sáng yếu, góc nghiêng) và hướng phát triển (nhận diện thêm cử chỉ hai tay).
 
-### 8.2. Danh mục Sản phẩm Cuối cùng (Deliverables Checklist)
-- [x] **1. Website hoàn chỉnh:** Chạy mượt với webcam thời gian thực, hỗ trợ chuyển đổi giữa hai chế độ và đầy đủ 6 khu vực chức năng.
-- [x] **2. Bộ dữ liệu chuẩn hóa:** Có gán nhãn đầy đủ, tài liệu mô tả nguồn gốc, quy mô, phân bố và cách thu thập.
-- [x] **3. Mã nguồn (Source Code):** Bao gồm đầy đủ script thu thập, tiền xử lý, huấn luyện, đánh giá và ứng dụng web.
-- [x] **4. Mô hình đã huấn luyện:** Lưu trữ 2 mô hình (cho 2 chế độ) kèm pipeline tiền xử lý đồng bộ.
-- [x] **5. Kết quả thực nghiệm:** Bảng chỉ số đánh giá, ma trận nhầm lẫn (Confusion Matrix) và nhật ký thử nghiệm thực tế.
-- [x] **6. Hồ sơ bảo vệ:** Quyển báo cáo hoàn chỉnh, slide thuyết trình và video demo hoạt động thực tế.
-
-### 8.3. Lộ trình thực hiện khuyến nghị (Execution Roadmap)
-```mermaid
-flowchart LR
-    S1["1. Chốt danh sách ký hiệu & quy ước"] --> S2["2. Thu thập bộ dữ liệu nhỏ (Pilot)"]
-    S2 --> S3["3. Thử nghiệm nhận diện qua Webcam"]
-    S3 --> S4["4. Mở rộng & Hoàn thiện bộ dữ liệu"]
-    S4 --> S5["5. Huấn luyện & So sánh KNN, SVM, RF"]
-    S5 --> S6["6. Tích hợp FSM, giải mã Morse & Giao diện Web"]
-    S6 --> S7["7. Đánh giá toàn diện & Viết báo cáo"]
-```
+### 8.2. Checklist sản phẩm cần có khi nộp bài
+- [ ] **1. Bộ dữ liệu:** Các file CSV có gắn nhãn đầy đủ, tài liệu mô tả số lượng mẫu.
+- [ ] **2. Mã nguồn hoàn chỉnh:** Code thu thập, tiền xử lý, huấn luyện, đánh giá và kiểm thử.
+- [ ] **3. Mô hình đã lưu:** File `.pkl` của mô hình tốt nhất (thường là SVM hoặc Random Forest).
+- [ ] **4. Kết quả thực nghiệm:** Bảng chỉ số đánh giá và ảnh ma trận nhầm lẫn trong thư mục `reports/figures/`.
+- [ ] **5. Báo cáo & Slide:** Quyển báo cáo chi tiết và slide thuyết trình.
 
 ---
 ---
@@ -476,243 +333,175 @@ flowchart LR
 # 🇬🇧 ENGLISH VERSION
 
 ## Table of Contents
-- [Chapter 1: Project Overview & System Scope](#chapter-1-project-overview--system-scope)
-- [Chapter 2: Theoretical Background, Hand Landmark Model & Gesture Rules](#chapter-2-theoretical-background-hand-landmark-model--gesture-rules)
-- [Chapter 3: Data Collection, Labeling & Exploratory Data Research](#chapter-3-data-collection-labeling--exploratory-data-research)
-- [Chapter 4: Model Architecture, Finite State Machine (FSM) & Optimization](#chapter-4-model-architecture-finite-state-machine-fsm--optimization)
-- [Chapter 5: Website UI Design & User Interaction Guide](#chapter-5-website-ui-design--user-interaction-guide)
-- [Chapter 6: System Evaluation & Experimental Framework](#chapter-6-system-evaluation--experimental-framework)
-- [Chapter 7: Tech Stack, Project Structure & Installation Guide](#chapter-7-tech-stack-project-structure--installation-guide)
-- [Chapter 8: Report Structure, Final Deliverables & Implementation Roadmap](#chapter-8-report-structure-final-deliverables--implementation-roadmap)
+- [Chapter 1: Project Introduction & Scope](#chapter-1-project-introduction--scope)
+- [Chapter 2: Hand Landmark Model & Morse Code Table](#chapter-2-hand-landmark-model--morse-code-table)
+- [Chapter 3: Data Labeling Rules & Label Analysis](#chapter-3-data-labeling-rules--label-analysis)
+- [Chapter 4: Data Preprocessing & Machine Learning Models](#chapter-4-data-preprocessing--machine-learning-models)
+- [Chapter 5: Timing Logic, State Machine (FSM) & Decoding](#chapter-5-timing-logic-state-machine-fsm--decoding)
+- [Chapter 6: Model & System Evaluation](#chapter-6-model--system-evaluation)
+- [Chapter 7: Project Structure, Installation & Usage](#chapter-7-project-structure-installation--usage)
+- [Chapter 8: Report Outline & Deliverables Checklist](#chapter-8-report-outline--deliverables-checklist)
 
 ---
 
-## Chapter 1: Project Overview & System Scope
+## Chapter 1: Project Introduction & Scope
 
-### 1.1. Introduction
-**Morse Code Decoder Webcam** is a real-time Computer Vision and Machine Learning system that translates hand gestures captured via a standard webcam into Morse code signals (`.` and `-`) and decodes them into natural text. Instead of feeding raw images directly into a heavy deep neural network, the system leverages **MediaPipe Hands** to extract 21 3D hand landmarks (63 features), combines geometric **Euclidean Distance** rules with classical Machine Learning classifiers (**KNN, SVM, Random Forest**), and orchestrates real-time input through **Time-based Classification** and a **Finite State Machine (FSM)**.
+### 1.1. Objectives
+This project implements an efficient, straightforward **Computer Vision** and **Machine Learning** system that uses a standard webcam to:
+1. Detect and track hand landmarks in real time via **MediaPipe Hands**.
+2. Recognize defined finger pinch gestures using classic machine learning classifiers (**KNN, SVM, Random Forest**).
+3. Translate finger gestures into **Morse code signals (dot `.` and dash `-`)**, assembling them into letters and words.
 
-### 1.2. Project Scope (Two Independent Modes Sharing One Webcam)
-The application supports two independent operating modes using the same live webcam feed:
-
-| Mode | Input | Processing Mechanism | Output |
-| :--- | :--- | :--- | :--- |
-| **1. Morse Mode** | User performs defined finger-pinch control gestures (`DOT`, `DASH`, `CONFIRM`, `SPACE`, `DELETE`). | Detects individual dots (`.`) and dashes (`-`) via hold duration and tap count → Accumulates Morse buffer → Dictionary lookup. | Decoded alphanumeric characters (A–Z, 0–9) assembled into words and sentences. |
-| **2. Static Sign Mode** | User performs individual static hand signs in front of the webcam. | Extracts normalized 63-dimensional landmark vector → Classifies using trained ML model (KNN / SVM / Random Forest). | Recognizes one discrete symbol at a time and appends it into text. |
-
-> [!IMPORTANT]
-> **Crucial Scientific Distinction:**
-> Recognizing a set of discrete hand symbols or control gestures is **not equivalent to full Sign Language Translation**. Natural sign language communication relies heavily on continuous motion trajectories, facial expressions, grammatical context, and upper-body posture. This project focuses specifically on discrete gesture recognition and rule-governed Morse code text entry.
-
----
-
-## Chapter 2: Theoretical Background, Hand Landmark Model & Gesture Rules
-
-### 2.1. MediaPipe Hands 21-Landmark Diagram
-**MediaPipe Hands** detects and tracks **21 3D landmarks** on the human hand per frame. Each landmark consists of three coordinates $(x, y, z)$, producing a feature representation of $21 \times 3 = 63$ values per hand:
-
-```text
-                 8 (INDEX_TIP)       12 (MIDDLE_TIP)  16 (RING_TIP)
-                     ●                   ●                ●
-                     |                   |                |
-                     7                   11               15          20 (PINKY_TIP)
-                     |                   |                |            ●
-                     6                   10               14           |
-                     |                   |                |           19
-    4 (THUMB_TIP)    5 (INDEX_MCP)       9 (MIDDLE_MCP)   13 (RING)    |
-        ●            ●-------------------●----------------●           18
-         \          /                                      \           |
-          3        /                                        \         17 (PINKY_MCP)
-           \      /                                          \-------●
-            2    /                                                  /
-             \  /                    PALM AREA                     /
-              1 (THUMB_CMC)                                       /
-               \                                                 /
-                \--------------------- 0 -----------------------/
-                                    (WRIST)
-```
-
-#### Key Landmarks Used in Morse Control:
-- **`0` (WRIST)**: Origin reference point for translation normalization.
-- **`4` (THUMB_TIP)**: Tip of the thumb — primary anchor for pinch gestures.
-- **`8` (INDEX_FINGER_TIP)**: Tip of the index finger — primary active finger.
-- **`12` (MIDDLE_FINGER_TIP)**: Tip of the middle finger.
-- **`16` (RING_FINGER_TIP)**: Tip of the ring finger.
-- **`20` (PINKY_TIP)**: Tip of the pinky (little) finger.
-
----
-
-### 2.2. Defined Morse Control Gestures
-> *Note: These gestures are custom application control conventions designed for reliable webcam interaction, not standard sign language alphabet signs.*
-
-| ID | Label | Gesture Convention | Hold / Tap Rule | Function |
-| :-: | :--- | :--- | :--- | :--- |
-| **1** | `DOT` (`.`) | **Index (`8`) & Thumb (`4`)** touch quickly | **1 quick tap** ($T_{\text{min}} \le \Delta t < T_{\text{dash}}$) | Appends a dot (`.`) to the current Morse buffer |
-| **2** | `DASH` (`-`) | **Index (`8`) & Thumb (`4`)** *(or Middle finger)* hold touch | **1 sustained hold** ($\Delta t \ge T_{\text{dash}}$) | Appends a dash (`-`) to the current Morse buffer |
-| **3** | `CONFIRM` | **Index (`8`) & Ring (`16`)** *(or Thumb & Ring)* touch twice | **2 consecutive taps** within window $T_{\text{double}}$ | Finalizes current Morse sequence and decodes it into a character |
-| **4** | `SPACE` | **Index (`8`) & Ring (`16`)** *(or Thumb & Ring)* touch once | **1 single tap** (no second tap within $T_{\text{double}}$) | Inserts a whitespace (` `) between words |
-| **5** | `DELETE` | **Index (`8`) & Pinky (`20`)** *(or Thumb & Pinky)* touch | **1 single tap** | Deletes the last Morse signal (or last confirmed character) |
-
----
-
-### 2.3. Mathematical Formulation & Recognition Rules
-
-#### 1. Normalized Euclidean Distance
-To determine whether two fingertips $i$ and $j$ are touching, the system computes their Euclidean distance normalized by the hand's reference scale $L_{\text{ref}}$ (distance from Wrist `0` to Middle MCP `9`):
-
-$$d(i, j) = \sqrt{(x_i - x_j)^2 + (y_i - y_j)^2}$$
-
-$$\hat{d}(i, j) = \frac{\sqrt{(x_i - x_j)^2 + (y_i - y_j)^2}}{\sqrt{(x_9 - x_0)^2 + (y_9 - y_0)^2 + \epsilon}}$$
-
-- **Touch Trigger:** $\hat{d}(i, j) < \theta_{\text{touch}}$
-- **Release Trigger (Hysteresis):** $\hat{d}(i, j) > \theta_{\text{release}}$ (where $\theta_{\text{release}} > \theta_{\text{touch}}$ to prevent boundary flickering).
-
-#### 2. Time-Based Classification (`DOT` vs. `DASH`)
-Given contact start time $t_{\text{start}}$ and release time $t_{\text{end}}$, the contact duration is $\Delta t = t_{\text{end}} - t_{\text{start}}$:
-- If $\Delta t < T_{\text{noise}}$ (e.g., $< 50\text{ ms}$): Ignored as transient tracking noise.
-- If $T_{\text{noise}} \le \Delta t < T_{\text{dash}}$ (e.g., $50\text{ ms} \le \Delta t < 400\text{ ms}$): Emits **`DOT` (`.`)**.
-- If $\Delta t \ge T_{\text{dash}}$ (e.g., $\ge 400\text{ ms}$): Emits **`DASH` (`-`)** and locks state until the user returns to the open-hand `IDLE` state.
-
-#### 3. Tap Counter Window (`SPACE` vs. `CONFIRM`)
-When fingertips (`8` & `16`) complete their first tap at $t_1$:
-- A timer window $T_{\text{double}}$ (e.g., $350\text{ ms}$) starts.
-- If a **second tap** occurs within $(t_1, t_1 + T_{\text{double}}]$: Emits **`CONFIRM`** (decodes the active Morse buffer into a letter).
-- If $T_{\text{double}}$ expires with no second tap: Emits **`SPACE`** (inserts a word space).
-
----
-
-## Chapter 3: Data Collection, Labeling & Exploratory Data Research
-
-### 3.1. Data Labeling Rules & Quality Principles
-Each sample represents one hand configuration mapped to a single ground-truth label (`DOT`, `DASH`, `CONFIRM`, `SPACE`, `DELETE`, or `IDLE`/`UNKNOWN`):
-- **Single-Label Assignment:** Every sample corresponds strictly to one well-defined gesture label.
-- **Environmental Diversity:** Samples are collected across varied lighting conditions, camera angles, backgrounds, and hand-to-camera distances.
-- **Strict Filtering:** Frames with severe motion blur, occluded fingers, failed MediaPipe detection, or ambiguous transitions are removed.
-- **Label Consistency:** Label definitions remain identical across collection, preprocessing, training, validation, and testing pipelines.
-
-### 3.2. Leakage-Free Data Splitting Strategy
-
-| Split | Target Ratio | Purpose | Mandatory Splitting Rule |
-| :--- | :-: | :--- | :--- |
-| **Train** | **70%** | Fit KNN, SVM, and Random Forest classifiers. | **Split by Subject (Person) or Recording Session BEFORE extracting frames.** An entire video clip must belong exclusively to one split. |
-| **Validation** | **15%** | Select best model, tune hyperparameters, and calibrate thresholds ($\theta_{\text{touch}}, T_{\text{dash}}, \tau_{\text{conf}}$). | Must not share video sessions with Train. |
-| **Test** | **15%** | Final unbiased evaluation of classification and system generalization. | Evaluated on held-out sessions/users to reflect true real-world performance. |
-
-### 3.3. Data Research Questions Addressed in the Report
-1. **Data Source:** Was the dataset self-collected or sourced externally? Are usage permissions documented?
-2. **Label Semantics:** What exact action or sign does each class represent?
-3. **Dataset Scale:** How many classes, total samples, participants (subjects), and recording sessions are included?
-4. **Class Distribution:** Is the dataset balanced across all classes, or is re-balancing required?
-5. **Data Quality:** Were blurry frames, mislabeled instances, missing hands, or near-duplicate frames identified and cleaned?
-6. **Gesture Characteristics:** Which gestures are static vs. temporal/dynamic? One-handed vs. two-handed?
-7. **Inter-class Separability:** Which classes have visually similar finger postures (e.g., `SPACE`/`CONFIRM` ring-finger touch vs. `DELETE` pinky touch at oblique angles), and how did adding multi-angle samples improve validation accuracy?
-8. **Real-world Applicability:** Does the training distribution match actual live webcam usage conditions?
-
----
-
-## Chapter 4: Model Architecture, Finite State Machine (FSM) & Optimization
-
-### 4.1. Feature Extraction & Preprocessing (21 Landmarks $\rightarrow$ 63 Features)
-1. **Quality Check:** Discard samples where MediaPipe fails to detect all 21 landmarks.
-2. **Wrist-Centered Translation:** Subtract wrist coordinates $(x_0, y_0, z_0)$ from all 21 landmarks so the representation is invariant to hand position in the frame.
-3. **Scale Normalization:** Divide relative coordinates by hand size $M$ so features are invariant to distance from the webcam.
-4. **Handedness & Mirror Consistency:** Flip the horizontal axis $\tilde{x}_i \leftarrow -\tilde{x}_i$ when necessary so left/right hands and mirrored webcam feeds share a unified coordinate space.
-5. **Vectorization:** Flatten the normalized coordinates into a 63-dimensional feature vector $\mathbf{v} \in \mathbb{R}^{63}$ paired with its gesture label.
-
-### 4.2. Model Training & Comparison
-The system trains and compares three supervised Machine Learning classifiers on the 63-feature vectors:
-- **KNN (K-Nearest Neighbors):** Classifies gestures based on the majority label among the $K$ closest training vectors in Euclidean space.
-- **SVM (Support Vector Machine):** Finds the optimal maximum-margin decision boundary (using an RBF kernel) separating gesture clusters.
-- **Random Forest:** Builds an ensemble of decision trees using bootstrap aggregation to classify gestures robustly.
-
-Meanwhile, **Model Morse (Signal-to-Text Decoder)** requires no ML training: it uses deterministic rule processing and a **Dictionary Lookup** table to convert Morse strings (e.g., `.-` $\rightarrow$ `A`, `...` $\rightarrow$ `S`, `---` $\rightarrow$ `O`) into characters.
-
-### 4.3. Real-Time Optimization & Anti-Repeat Stabilization
-To prevent holding a single gesture in front of a 30 FPS webcam from registering dozens of repeated inputs, six stabilization mechanisms are enforced:
-- **Confidence Threshold:** Reject predictions whose maximum class probability falls below threshold $\tau_{\text{conf}}$.
-- **Frame Smoothing:** Require consistent predictions across $N$ consecutive frames (majority voting window) to suppress single-frame jitter.
-- **Time-based Classification:** Measure continuous contact duration to distinguish quick taps (`DOT`) from sustained holds (`DASH`).
-- **Debouncing (Return-to-Rest Rule):** Each gesture execution is recorded **exactly once**. The state machine enters `LOCKED_WAIT_RELEASE` and ignores further frames until the user opens their hand back to the neutral `IDLE` state.
-- **Finite State Machine (FSM):** Manages transitions between `IDLE`, `TOUCHING`, `WAIT_SECOND_TAP`, `CONFIRMING`, `DELETING`, and `LOCKED_WAIT_RELEASE`.
-- **Unknown State:** Safely handles frames with no visible hand or out-of-distribution hand poses without corrupting the Morse buffer.
-
----
-
-## Chapter 5: Website UI Design & User Interaction Guide
-
-### 5.1. Main Interface Layout
-The web interface is organized into 6 clear functional zones:
-
-| UI Zone | Content & Functionality |
-| :--- | :--- |
-| **1. Webcam Feed** | Displays live video stream with 21 hand landmarks, skeletal connections, and hold-duration progress overlay. |
-| **2. Current Prediction** | Shows the currently detected gesture label, confidence score (%), and FSM state (`IDLE`, `HOLDING`, `LOCKED`). |
-| **3. Morse Buffer** | Displays the active sequence of dots and dashes being entered (e.g., `...`) along with a live character preview. |
-| **4. Decoded Text** | Shows the accumulated letters and words that have been confirmed. |
-| **5. Controls** | Action buttons to toggle camera on/off, switch operating modes, delete a single character/signal, or clear all text. |
-| **6. Visual Guide** | Illustrated reference cards showing how to perform each finger gesture and the complete A–Z / 0–9 Morse chart. |
+### 1.2. Two Operating Modes
+- **Morse Mode (Primary):** User performs finger pinches $\rightarrow$ System measures hold duration and tap count $\rightarrow$ Decodes Morse into text.
+- **Static Sign Mode:** User shows static hand shapes $\rightarrow$ Classified directly by ML model into discrete letters.
 
 > [!NOTE]
-> **Streamlit Real-Time Video Implementation Note:**
-> Streamlit's built-in `st.camera_input` widget only captures static snapshots and **cannot** handle continuous real-time gesture recognition streams on its own. Continuous frame streaming requires `streamlit-webrtc` (WebRTC video processor) or an OpenCV/WebSocket video loop.
+> **Project Scope Clarification:**
+> Recognizing discrete finger gestures for Morse input is **not full Sign Language Translation**. Natural sign language involves continuous arm movement, facial expressions, and body orientation. This project focuses on a practical, well-bounded scope: discrete gesture recognition for Morse code data entry.
 
 ---
 
-## Chapter 6: System Evaluation & Experimental Framework
+## Chapter 2: Hand Landmark Model & Morse Code Table
 
-Both the offline classifiers and the live interactive pipeline are evaluated rigorously:
+### 2.1. MediaPipe Hands 21 Landmarks
+MediaPipe detects 21 3D points $(x, y, z)$ on each hand:
+- `0`: Wrist — baseline origin point for coordinate normalization.
+- `4`: Thumb Tip.
+- `8`: Index Finger Tip — primary active finger touching other fingers.
+- `16`: Ring Finger Tip.
+- `20`: Pinky Tip.
 
-| Evaluation Target | Metrics & Inspection Method |
-| :--- | :--- |
-| **Gesture Classification** | **Accuracy, Precision, Recall, F1-score**, and **Inference Time (ms/frame)** on the held-out Test set across KNN, SVM, and Random Forest. |
-| **Per-Class Error Analysis** | **Confusion Matrix** to identify visually similar gestures that are frequently confused. |
-| **Live Real-Time Execution** | **FPS (Frames Per Second)** and end-to-end response latency during webcam operation. |
-| **Text Assembly & Debouncing** | Check for duplicate entries while holding a pose, dropped characters, or false triggers during hand transitions. |
-| **Morse Decoding Accuracy** | Character Error Rate (CER) and Word Accuracy when entering benchmark phrases. |
-| **Real-World Generalization** | Testing with unseen users, different lighting setups, cluttered backgrounds, and varying camera distances. |
+### 2.2. Morse Code Dictionary (ITU Standard)
+- Letters A–Z (e.g., `A` = `.-`, `S` = `...`, `O` = `---`).
+- Digits 0–9 (e.g., `1` = `.----`, `0` = `-----`).
 
 ---
 
-## Chapter 7: Tech Stack, Project Structure & Installation Guide
+## Chapter 3: Data Labeling Rules & Label Analysis
 
-### 7.1. Core Technologies
-- **Computer Vision:** OpenCV, MediaPipe Hands (21 3D Landmarks)
-- **Machine Learning:** Scikit-learn (`KNeighborsClassifier`, `SVC`, `RandomForestClassifier`), NumPy, Pandas
-- **Web Interface:** Streamlit + `streamlit-webrtc` (or FastAPI/Flask)
-- **Evaluation & Visualization:** Matplotlib, Seaborn
+### 3.1. Five Control Labels
+The dataset is annotated with 5 control gestures to drive input:
 
-### 7.2. Quick Start
+| ID | Label | User Gesture | Action / Timing | Function |
+| :-: | :--- | :--- | :--- | :--- |
+| **1** | `DOT` | Index (`8`) touches Thumb (`4`) | Quick tap ($< 0.4$ s) | Appends a dot `.` to Morse buffer |
+| **2** | `DASH` | Index (`8`) touches Thumb (`4`) | Sustained hold ($\ge 0.4$ s) | Appends a dash `-` to Morse buffer |
+| **3** | `CONFIRM` | Index (`8`) touches Ring finger (`16`) | Double-tap within $0.45$ s | Decodes current Morse buffer into a letter |
+| **4** | `SPACE` | Index (`8`) touches Ring finger (`16`) | Single tap | Inserts a whitespace ` ` between words |
+| **5** | `DELETE` | Index (`8`) touches Pinky (`20`) | Single tap | Deletes last Morse signal or character |
+| *Aux* | `IDLE` | Open neutral hand, no fingers touching | Rest state | Ready state / No command |
+
+### 3.2. Mapping Static Hand Poses to Dynamic Morse Labels
+A single static video frame cannot differentiate between a quick tap (`DOT`) and a sustained hold (`DASH`), nor between a single tap (`SPACE`) and the first tap of a double tap (`CONFIRM`).
+
+Therefore, the system cleanly separates the workflow into two levels:
+1. **Machine Learning Classifier (Static Hand Pose Recognition):**
+   Classifies the 21 landmarks of each individual frame into 4 physical hand poses:
+   - `IDLE` (open hand)
+   - `PINCH_THUMB` (index + thumb)
+   - `PINCH_RING` (index + ring)
+   - `PINCH_PINKY` (index + pinky)
+2. **State & Timing Logic (Generating Final Morse Labels):**
+   - `PINCH_THUMB` released under $0.4\text{s}$ $\rightarrow$ Emits **`DOT`**.
+   - `PINCH_THUMB` held $\ge 0.4\text{s}$ $\rightarrow$ Emits **`DASH`**.
+   - `PINCH_RING` tapped once $\rightarrow$ Emits **`SPACE`**; tapped twice quickly $\rightarrow$ Emits **`CONFIRM`**.
+   - `PINCH_PINKY` $\rightarrow$ Emits **`DELETE`**.
+
+### 3.3. Confusable Labels Analysis
+- **Most confusable pair:** Ring-finger pinch (`PINCH_RING`) vs. Pinky pinch (`PINCH_PINKY`).
+  - *Cause:* The ring and pinky fingers are anatomically adjacent. When the hand is angled towards the camera, the ring finger can occlude the pinky, causing landmark coordinates to overlap.
+  - *Solution:* Collect diverse samples at various camera angles ($15^\circ - 30^\circ$) and include relative fingertip distances as features.
+
+### 3.4. Session-Wise Data Splitting (70% Train - 15% Val - 15% Test)
+- Avoid random frame-level splitting because consecutive video frames are near-duplicates.
+- **Rule:** Entire recording sessions must be assigned to Train, Val, or Test as complete blocks to evaluate true model generalization on unseen recordings or users.
+
+---
+
+## Chapter 4: Data Preprocessing & Machine Learning Models
+
+### 4.1. Why 21 Landmarks Instead of Full Images?
+- Feeding entire webcam images into deep neural networks (CNNs) requires heavy compute, graphics cards (GPUs), and suffers from background clutter.
+- **Our Approach:** MediaPipe isolates the 21 hand landmarks first. We feed only **63 numerical coordinates** into lightweight machine learning classifiers.
+- **Benefits:** Small model file size ($< 5\text{ MB}$), trains in seconds, runs at $30+\text{ FPS}$ on any standard laptop CPU.
+
+### 4.2. Feature Normalization (63 Features)
+1. **Translation:** Subtract wrist coordinates $(x_0, y_0, z_0)$ from all points so hand position on screen does not affect prediction.
+2. **Scale:** Divide relative coordinates by the maximum wrist-to-finger distance so distance from camera (near vs. far) is normalized to a $[0, 1]$ range.
+3. **Handedness:** Mirror the horizontal axis for left hands so left and right hands share the same coordinate representation.
+
+### 4.3. Machine Learning Algorithms
+1. **$K$-Nearest Neighbors ($K$-NN):** Classifies poses based on majority vote of the $K$ closest training examples in Euclidean space. Intuitive and requires no complex training.
+2. **Support Vector Machine (SVM):** Finds the optimal decision boundary separating gesture clusters with an RBF kernel. Fast inference ($\approx 1\text{ ms/frame}$) and high accuracy.
+3. **Random Forest:** Ensemble of decision trees asking sequential threshold questions, voting on the final label. Highly resilient to overfitting.
+
+---
+
+## Chapter 5: Timing Logic, State Machine (FSM) & Decoding
+
+### 5.1. Anti-Repeat Debouncing Rule
+At 30 FPS, holding a gesture for 1 second without debouncing would trigger 30 repeated inputs.
+- **Mandatory Rule:** Each physical gesture registers **exactly once**.
+- The state machine immediately enters a `LOCKED` state after triggering a command and ignores further input until the user returns their hand to the open-hand `IDLE` pose.
+
+### 5.2. Example Walkthrough (Inputting 'S' = `...`)
+1. Position hand in open `IDLE` pose.
+2. Quick pinch index and thumb $\rightarrow$ Buffer displays `.`. Return to `IDLE`.
+3. Quick pinch index and thumb $\rightarrow$ Buffer displays `..`. Return to `IDLE`.
+4. Quick pinch index and thumb $\rightarrow$ Buffer displays `...`. Return to `IDLE`.
+5. Double-tap index and ring finger (`CONFIRM`) $\rightarrow$ System decodes `...` to **`S`**, appends **`S`** to text output, and clears the Morse buffer.
+
+---
+
+## Chapter 6: Model & System Evaluation
+
+- **Offline Classifier Metrics:** Accuracy, Macro-Precision, Macro-Recall, Macro-F1, Inference Latency (ms), and Confusion Matrix.
+- **Live System Evaluation:** Real-time FPS ($\ge 25\text{ FPS}$), zero unwanted duplicate inputs during sustained holds, and Character/Word Accuracy on benchmark words (`SOS`, `HELLO`).
+
+---
+
+## Chapter 7: Project Structure, Installation & Usage
+
 ```bash
-# 1. Clone repository & create virtual environment
-git clone https://github.com/your-username/morse-code-decoder-webcam.git
-cd morse-code-decoder-webcam
-python -m venv venv
+# 1. Create and activate virtual environment
+python3 -m venv venv
 source venv/bin/activate
 
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run data preprocessing, model training, and evaluation
-python src/preprocessing.py
-python src/train_models.py
-python src/evaluate.py
+# 3. Run unit tests
+python3 -m unittest discover tests -v
 
-# 4. Launch the interactive Webcam Web App
-streamlit run app/main.py
+# 4. Record training data
+python3 src/data_collection.py --task morse --subject user_01 --session s01
+
+# 5. Preprocess and split data
+python3 src/preprocessing.py --task morse
+
+# 6. Train and tune models (KNN, SVM, Random Forest)
+python3 src/train_models.py --task morse
+
+# 7. Evaluate on test set and plot confusion matrices
+python3 src/evaluate.py --task morse
 ```
 
 ---
 
-## Chapter 8: Report Structure, Final Deliverables & Implementation Roadmap
+## Chapter 8: Report Outline & Deliverables Checklist
 
-### 8.1. Standard 6-Chapter Report Structure
-1. **Chapter 1 – Project Overview:** Motivation, objectives, scope, target users, and expected deliverables.
-2. **Chapter 2 – Theoretical Background & Related Work:** Sign conventions, Morse code, MediaPipe hand tracking, feature extraction, and ML classifiers (KNN, SVM, Random Forest).
-3. **Chapter 3 – Data Collection & Preprocessing:** Data sources, collection protocol, labeling rules, dataset statistics, cleaning, normalization, and session-wise splitting (70/15/15).
-4. **Chapter 4 – System Analysis & Design:** Functional requirements, system architecture, UI design, dual-mode processing pipeline, and FSM debouncing logic.
-5. **Chapter 5 – Implementation & Experiments:** Training setup, model comparison tables, webcam integration, real-time evaluation, and confusion matrix error analysis.
-6. **Chapter 6 – Conclusion & Future Work:** Achievements, limitations, and future extensions (dynamic sequence models, two-handed signing, multi-user adaptation).
-- **References & Appendices:** Label dictionary, installation manual, user guide, and experimental screenshots.
+### 8.1. Academic Report Outline (6 Chapters)
+1. **Chapter 1 – Introduction:** Motivation, goals, and Morse input scope.
+2. **Chapter 2 – Theoretical Background:** MediaPipe 21 landmarks, KNN, SVM, Random Forest principles, Morse standards.
+3. **Chapter 3 – Data Collection & Labeling:** 5 control labels, collection protocol, cleaning, and session-wise splitting.
+4. **Chapter 4 – System Design:** Feature extraction pipeline, FSM architecture, debouncing, and Morse decoding logic.
+5. **Chapter 5 – Experimental Results:** Comparison table (KNN vs. SVM vs. RF), confusion matrix analysis, and real-world live testing.
+6. **Chapter 6 – Conclusion & Future Work:** Summary of achievements, limitations, and future extensions.
 
-### 8.2. Recommended Implementation Sequence
-`Finalize Gesture Set` $\rightarrow$ `Collect Pilot Dataset` $\rightarrow$ `Prototype Webcam Recognition` $\rightarrow$ `Expand & Clean Full Dataset` $\rightarrow$ `Train & Compare KNN/SVM/RF` $\rightarrow$ `Integrate Web UI & Morse FSM` $\rightarrow$ `Conduct End-to-End Evaluation & Write Report`.
+### 8.2. Deliverables Checklist
+- [ ] **1. Dataset:** Annotated landmark CSVs with documentation in `data/dataset_description.md`.
+- [ ] **2. Clean Codebase:** Modules for collection, preprocessing, training, evaluation, and unit tests.
+- [ ] **3. Trained Models:** Persisted `.pkl` models and configuration file in `models/`.
+- [ ] **4. Experimental Results:** Metric tables and confusion matrix figures in `reports/figures/`.
+- [ ] **5. Report & Presentation:** Complete academic report and slide deck.

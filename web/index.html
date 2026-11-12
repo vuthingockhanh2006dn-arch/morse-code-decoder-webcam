@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morse Gesture Decoder — Interactive Test Lab</title>
+  
+  <!-- MediaPipe Hands & Camera Utils CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --bg-base: #0c0f17;
+      --bg-card: #141b2d;
+      --bg-card-sub: #1b243b;
+      --border-color: #263353;
+      --text-main: #e2e8f0;
+      --text-muted: #8b9bb4;
+      --color-primary: #38bdf8;
+      --color-success: #22c55e;
+      --color-warning: #f59e0b;
+      --color-danger: #ef4444;
+      --color-purple: #a855f7;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 16px 24px;
+      background: #0f1523;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-title span.badge {
+      font-size: 0.75rem;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--color-primary);
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      font-weight: 600;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: #1e293b;
+      border: 1px solid var(--border-color);
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-warning);
+    }
+    .status-dot.online { background: var(--color-success); box-shadow: 0 0 8px var(--color-success); }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 20px 24px;
+      flex: 1;
+    }
+
+    @media (max-width: 1024px) {
+      .main-grid { grid-template-columns: 1fr; }
+    }
+
+    .panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+    }
+
+    .panel-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Video & Canvas container */
+    .video-viewport {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #webcam-video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scaleX(-1);
+    }
+
+    #output-canvas {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: scaleX(-1);
+    }
+
+    .camera-placeholder {
+      position: absolute;
+      text-align: center;
+      color: var(--text-muted);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Distance bars */
+    .distance-meters {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: var(--bg-card-sub);
+      padding: 12px 16px;
+      border-radius: 8px;
+    }
+
+    .meter-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .meter-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .meter-label span.val {
+      font-family: var(--font-mono);
+      font-weight: bold;
+      color: var(--text-main);
+    }
+
+    .progress-bar-bg {
+      height: 8px;
+      background: #0f172a;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 4px;
+      transition: width 0.08s ease, background-color 0.2s ease;
+      background-color: var(--color-primary);
+    }
+
+    .progress-bar-fill.pinched {
+      background-color: var(--color-success);
+      box-shadow: 0 0 10px var(--color-success);
+    }
+
+    /* Interactive Buttons */
+    .test-pads-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .gesture-pad {
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 14px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: flex-start;
+      transition: all 0.15s ease;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gesture-pad:hover {
+      border-color: var(--color-primary);
+      background: #232e4d;
+    }
+
+    .gesture-pad:active, .gesture-pad.active {
+      transform: scale(0.98);
+      background: #2a3861;
+      border-color: var(--color-success);
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.3);
+    }
+
+    .pad-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .pad-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Right Panel Displays */
+    .hud-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .hud-card {
+      background: var(--bg-card-sub);
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    .hud-val {
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-top: 4px;
+    }
+
+    .hud-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* FSM State Badge */
+    .fsm-state-box {
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border-color);
+      padding: 16px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .fsm-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 6px;
+      background: #0f172a;
+      border: 1px solid #334155;
+    }
+
+    .fsm-badge.IDLE { color: var(--color-success); border-color: rgba(34, 197, 94, 0.4); }
+    .fsm-badge.THUMB_DOWN { color: var(--color-warning); border-color: rgba(245, 158, 11, 0.4); }
+    .fsm-badge.RING_DOWN { color: var(--color-primary); border-color: rgba(56, 189, 248, 0.4); }
+    .fsm-badge.WAIT_SECOND { color: var(--color-purple); border-color: rgba(168, 85, 247, 0.4); }
+    .fsm-badge.LOCKED { color: var(--color-danger); border-color: rgba(239, 68, 68, 0.4); }
+
+    .signal-led {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #334155;
+      transition: background 0.1s ease, box-shadow 0.1s ease;
+    }
+    .signal-led.active {
+      background: #22c55e;
+      box-shadow: 0 0 16px #22c55e;
+    }
+
+    /* Morse Buffer & Text */
+    .display-block {
+      background: #0a0e1a;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      position: relative;
+    }
+
+    .display-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .morse-code-display {
+      font-family: var(--font-mono);
+      font-size: 2.2rem;
+      letter-spacing: 0.3em;
+      min-height: 48px;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+    }
+
+    .morse-code-display:empty::before {
+      content: "Chờ tín hiệu...";
+      font-size: 1rem;
+      letter-spacing: normal;
+      color: #475569;
+    }
+
+    .decoded-text-box {
+      font-family: var(--font-mono);
+      font-size: 1.8rem;
+      min-height: 72px;
+      color: #f8fafc;
+      word-break: break-all;
+      background: #070a12;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px dashed var(--border-color);
+      display: flex;
+      align-items: center;
+    }
+
+    .decoded-text-box:empty::before {
+      content: "Chữ sẽ hiển thị tại đây khi xác nhận (CONFIRM)";
+      font-size: 0.95rem;
+      color: #475569;
+      font-family: sans-serif;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      background: var(--bg-card-sub);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: background 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn:hover { background: #263353; }
+    .btn.primary { background: #0284c7; border-color: #38bdf8; color: #fff; }
+    .btn.primary:hover { background: #0369a1; }
+    .btn.danger { color: #f87171; }
+    .btn.danger:hover { background: rgba(239, 68, 68, 0.15); border-color: #ef4444; }
+
+    /* Cheat sheet table */
+    .cheat-sheet-details {
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .cheat-sheet-details summary {
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+    .morse-table {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+      gap: 6px;
+      margin-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+    .morse-cell {
+      background: #0c1222;
+      padding: 4px 6px;
+      border-radius: 4px;
+      text-align: center;
+      border: 1px solid #1e293b;
+    }
+    .morse-cell b { color: #fff; margin-right: 4px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-title">
+      <span>📡 Morse Code Gesture Lab</span>
+      <span class="badge">KNN • SVM • RF</span>
+    </div>
+    <div class="header-controls">
+      <div class="status-pill">
+        <div id="conn-dot" class="status-dot"></div>
+        <span id="conn-text">Checking Backend...</span>
+      </div>
+      <label style="display:flex; align-items:center; gap:6px; font-size:0.85rem; cursor:pointer;">
+        <input type="checkbox" id="audio-toggle" checked>
+        <span>🔊 Beeper Sound</span>
+      </label>
+    </div>
+  </header>
+
+  <main class="main-grid">
+    <!-- CỘT TRÁI: CAMERA & VẬT LÝ TƯƠNG TÁC -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span>📷 Webcam Hand Tracking</span>
+        </div>
+        <div class="btn-group">
+          <button id="camera-btn" class="btn primary">Bật Camera</button>
+        </div>
+      </div>
+
+      <div class="video-viewport">
+        <video id="webcam-video" playsinline muted autoplay></video>
+        <canvas id="output-canvas"></canvas>
+        <div id="camera-placeholder" class="camera-placeholder">
+          <div id="camera-status-text" style="font-size:0.95rem; line-height:1.5;">
+            Nhấn <b>"Bật Camera"</b> để bắt đầu nhận diện cử chỉ MediaPipe Hands.<br>
+            <span style="font-size:0.8rem; color:#94a3b8;">Hoặc dùng bảng nút ảo bên dưới để thử nghiệm ngay mà không cần webcam.</span>
+          </div>
+        </div>
+      </div>
+      <div id="protocol-warning" style="display:none; background:rgba(239, 68, 68, 0.15); border:1px solid #ef4444; border-radius:6px; padding:10px 12px; font-size:0.82rem; color:#fca5a5;">
+        ⚠️ <b>Lưu ý:</b> Bạn đang mở trang bằng giao thức <code>file://</code>. Trình duyệt (Chrome/Safari) chặn quyền truy cập Webcam trên file://.
+        Hãy chạy lệnh <code>python3 src/web_server.py</code> và mở địa chỉ <a href="http://localhost:8000" style="color:#38bdf8; font-weight:bold;">http://localhost:8000</a> để camera hoạt động!
+      </div>
+
+      <!-- Đồng hồ đo 3 khoảng cách chụm (quy ước: ngón cái làm điểm tựa) -->
+      <div class="distance-meters">
+        <div class="meter-row">
+          <div class="meter-label">
+            <span>Chụm Cái–Trỏ (Thumb + Index): DOT (.) / DASH (-)</span>
+            <span id="val-thumb" class="val">--</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div id="bar-thumb" class="progress-bar-fill"></div>
+          </div>
+        </div>
+
+        <div class="meter-row">
+          <div class="meter-label">
+            <span>Chụm Cái–Áp út (Thumb + Ring): SPACE / CONFIRM</span>
+            <span id="val-ring" class="val">--</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div id="bar-ring" class="progress-bar-fill"></div>
+          </div>
+        </div>
+
+        <div class="meter-row">
+          <div class="meter-label">
+            <span>Chụm Cái–Út (Thumb + Pinky): DELETE</span>
+            <span id="val-pinky" class="val">--</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div id="bar-pinky" class="progress-bar-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phím mô phỏng ảo (Virtual Gesture Test Pads) -->
+      <div class="panel-header" style="margin-top:4px;">
+        <div class="panel-title">
+          <span>🎮 Bảng Nút Thử Nghiệm Nhanh (Simulator)</span>
+        </div>
+      </div>
+      <div class="test-pads-grid">
+        <button id="pad-thumb" class="gesture-pad">
+          <span class="pad-title">👍 Chụm Cái + Trỏ (PINCH_THUMB)</span>
+          <span class="pad-desc">Bấm nhả nhanh = DOT (.)<br>Giữ >= 0.40s = DASH (-)</span>
+        </button>
+
+        <button id="pad-ring" class="gesture-pad">
+          <span class="pad-title">💍 Chụm Cái + Áp út (PINCH_RING)</span>
+          <span class="pad-desc">Bấm 1 lần = SPACE (Dấu cách)<br>Bấm 2 lần nhanh = CONFIRM (Chốt chữ)</span>
+        </button>
+
+        <button id="pad-pinky" class="gesture-pad">
+          <span class="pad-title">🤙 Chụm Cái + Út (PINCH_PINKY)</span>
+          <span class="pad-desc">Bấm 1 lần = DELETE (Xóa ký tự cuối)</span>
+        </button>
+
+        <button id="pad-rest" class="gesture-pad">
+          <span class="pad-title">✋ Thả tay nghỉ (REST / UNKNOWN)</span>
+          <span class="pad-desc">Đưa tay về trạng thái nghỉ</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- CỘT PHẢI: FSM, THUẬT TOÁN & BỘ GIẢI MÃ MORSE -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span>⚙️ Thuật toán & Trạng thái Giải mã</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <label style="font-size:0.8rem; color:var(--text-muted)">Thuật toán:</label>
+          <select id="algo-select" style="background:var(--bg-card-sub); color:#fff; border:1px solid var(--border-color); padding:4px 8px; border-radius:6px;">
+            <option value="auto">Tự động (RF / Heuristic)</option>
+            <option value="knn">KNN (k=5)</option>
+            <option value="svm">SVM (RBF Kernel)</option>
+            <option value="rf">Random Forest</option>
+            <option value="heuristic">Heuristic Khoảng cách Euclid</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- HUD Thông số suy luận -->
+      <div class="hud-grid">
+        <div class="hud-card">
+          <div class="hud-label">Tư thế nhận diện</div>
+          <div id="hud-pose" class="hud-val" style="font-size:0.95rem;">UNKNOWN</div>
+        </div>
+        <div class="hud-card">
+          <div class="hud-label">Độ tin cậy</div>
+          <div id="hud-conf" class="hud-val">--%</div>
+        </div>
+        <div class="hud-card">
+          <div class="hud-label">Độ trễ suy luận</div>
+          <div id="hud-latency" class="hud-val">-- ms</div>
+        </div>
+        <div class="hud-card">
+          <div class="hud-label">Tốc độ khung hình</div>
+          <div id="hud-fps" class="hud-val">-- fps</div>
+        </div>
+      </div>
+
+      <!-- Máy trạng thái FSM -->
+      <div class="fsm-state-box">
+        <div>
+          <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase;">Trạng thái Máy FSM</div>
+          <div id="fsm-badge" class="fsm-badge IDLE" style="margin-top:6px;">IDLE</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:6px;">Tín hiệu đầu vào</div>
+          <div id="signal-led" class="signal-led"></div>
+        </div>
+      </div>
+
+      <!-- Bộ đệm Morse (Đang gõ) -->
+      <div class="display-block">
+        <div class="display-label">
+          <span>CHUỖI KÝ HIỆU MORSE ĐANG GÕ</span>
+          <span id="preview-char" style="color:var(--color-primary); font-weight:600;"></span>
+        </div>
+        <div id="morse-buffer-view" class="morse-code-display"></div>
+      </div>
+
+      <!-- Văn bản đã giải mã -->
+      <div class="display-block">
+        <div class="display-label">
+          <span>VĂN BẢN ĐÃ GIẢI MÃ (TEXT OUTPUT)</span>
+          <div class="btn-group">
+            <button id="copy-btn" class="btn" style="padding:2px 8px; font-size:0.75rem;">Sao chép</button>
+            <button id="clear-btn" class="btn danger" style="padding:2px 8px; font-size:0.75rem;">Xóa hết</button>
+          </div>
+        </div>
+        <div id="decoded-text-view" class="decoded-text-box"></div>
+      </div>
+
+      <!-- Bảng tra mã Morse quốc tế -->
+      <details class="cheat-sheet-details">
+        <summary>📖 Xem Bảng Tra Cứu Mã Morse Quốc Tế (A–Z, 0–9)</summary>
+        <div id="morse-table" class="morse-table"></div>
+      </details>
+    </div>
+  </main>
+
+  <script>
+    // --- 1. TỪ ĐIỂN MORSE QUỐC TẾ ---
+    const MORSE_MAP = {
+      ".-": "A", "-...": "B", "-.-.": "C", "-..": "D", ".": "E", "..-.": "F",
+      "--.": "G", "....": "H", "..": "I", ".---": "J", "-.-": "K", ".-..": "L",
+      "--": "M", "-.": "N", "---": "O", ".--.": "P", "--.-": "Q", ".-.": "R",
+      "...": "S", "-": "T", "..-": "U", "...-": "V", ".--": "W", "-..-": "X",
+      "-.--": "Y", "--..": "Z",
+      "-----": "0", ".----": "1", "..---": "2", "...--": "3", "....-": "4",
+      ".....": "5", "-....": "6", "--...": "7", "---..": "8", "----.": "9"
+    };
+
+    // Tạo bảng tra cứu
+    const tableEl = document.getElementById("morse-table");
+    for (const [code, char] of Object.entries(MORSE_MAP)) {
+      const cell = document.createElement("div");
+      cell.className = "morse-cell";
+      cell.innerHTML = `<b>${char}</b>${code}`;
+      tableEl.appendChild(cell);
+    }
+
+    // --- 2. BỘ ĐỆM MORSE & WEB AUDIO BEEPER ---
+    let audioCtx = null;
+    function playBeep(durationMs) {
+      if (!document.getElementById("audio-toggle").checked) return;
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === "suspended") audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = "sine";
+        osc.frequency.value = 800; // 800 Hz
+        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + durationMs / 1000);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + durationMs / 1000);
+      } catch (e) {
+        console.warn("Audio play error:", e);
+      }
+    }
+
+    class ClientMorseBuffer {
+      constructor() {
+        this.buffer = "";
+        this.text = "";
+      }
+      apply(event) {
+        if (event === "DOT") {
+          if (this.buffer.length < 5) this.buffer += ".";
+          playBeep(80);
+        } else if (event === "DASH") {
+          if (this.buffer.length < 5) this.buffer += "-";
+          playBeep(240);
+        } else if (event === "CONFIRM") {
+          if (this.buffer) {
+            this.text += (MORSE_MAP[this.buffer] || "?");
+            this.buffer = "";
+          }
+        } else if (event === "SPACE") {
+          if (this.buffer) {
+            this.text += (MORSE_MAP[this.buffer] || "?");
+            this.buffer = "";
+          }
+          this.text += " ";
+        } else if (event === "DELETE") {
+          if (this.buffer.length > 0) {
+            this.buffer = this.buffer.slice(0, -1);
+          } else if (this.text.length > 0) {
+            this.text = this.text.slice(0, -1);
+          }
+        }
+        this.render();
+      }
+      clear() {
+        this.buffer = "";
+        this.text = "";
+        this.render();
+      }
+      render() {
+        document.getElementById("morse-buffer-view").innerText = this.buffer;
+        document.getElementById("decoded-text-view").innerText = this.text;
+        const preview = MORSE_MAP[this.buffer];
+        document.getElementById("preview-char").innerText = preview ? `(Ký tự tiếp theo: "${preview}")` : "";
+      }
+    }
+
+    // --- 3. MÁY TRẠNG THÁI CLIENT-SIDE FSM (Thuần JavaScript) ---
+    class ClientMorseFSM {
+      constructor(onEvent) {
+        this.onEvent = onEvent;
+        this.state = "IDLE";
+        this.touchStart = 0;
+        this.firstTapRelease = 0;
+        this.dashTime = 0.40;
+        this.doubleTapWindow = 0.45;
+        this.releaseFrames = 3;
+        this.restCount = 0;
+        this.history = [];
+      }
+
+      reset() {
+        this.state = "IDLE";
+        this.restCount = 0;
+        this.updateBadge();
+      }
+
+      update(rawPose, now) {
+        // Lọc nhiễu cửa sổ 3 khung hình
+        this.history.push(rawPose);
+        if (this.history.length > 3) this.history.shift();
+        const counts = {};
+        for (const p of this.history) counts[p] = (counts[p] || 0) + 1;
+        let pose = rawPose;
+        for (const [p, c] of Object.entries(counts)) {
+          if (c >= 2) { pose = p; break; }
+        }
+
+        const isRest = (pose === "UNKNOWN" || !pose);
+        if (isRest) this.restCount++; else this.restCount = 0;
+
+        if (this.state === "WAIT_SECOND") {
+          if (now - this.firstTapRelease > this.doubleTapWindow) {
+            this.onEvent("SPACE");
+            this.state = "IDLE";
+          } else if (pose === "PINCH_RING") {
+            this.onEvent("CONFIRM");
+            this.state = "LOCKED";
+            this.updateBadge();
+            return;
+          } else if (pose === "PINCH_THUMB" || pose === "PINCH_PINKY") {
+            this.onEvent("SPACE");
+            this.state = "IDLE";
+          }
+        }
+
+        if (this.state === "IDLE") {
+          if (pose === "PINCH_THUMB") {
+            this.touchStart = now;
+            this.state = "THUMB_DOWN";
+          } else if (pose === "PINCH_RING") {
+            this.touchStart = now;
+            this.state = "RING_DOWN";
+          } else if (pose === "PINCH_PINKY") {
+            this.onEvent("DELETE");
+            this.state = "LOCKED";
+          }
+        } else if (this.state === "THUMB_DOWN") {
+          if (now - this.touchStart >= this.dashTime) {
+            this.onEvent("DASH");
+            this.state = "LOCKED";
+          } else if (isRest && this.restCount >= this.releaseFrames) {
+            this.onEvent("DOT");
+            this.state = "IDLE";
+          }
+        } else if (this.state === "RING_DOWN") {
+          if (isRest && this.restCount >= this.releaseFrames) {
+            this.firstTapRelease = now;
+            this.state = "WAIT_SECOND";
+          }
+        } else if (this.state === "LOCKED") {
+          if (isRest && this.restCount >= this.releaseFrames) {
+            this.state = "IDLE";
+          }
+        }
+
+        this.updateBadge();
+      }
+
+      updateBadge() {
+        const badge = document.getElementById("fsm-badge");
+        badge.className = `fsm-badge ${this.state}`;
+        badge.innerText = this.state;
+      }
+    }
+
+    const morseBuffer = new ClientMorseBuffer();
+    const morseFSM = new ClientMorseFSM((ev) => morseBuffer.apply(ev));
+
+    // --- 4. KIỂM TRA KẾT NỐI PYTHON BACKEND SERVER ---
+    let backendOnline = false;
+    async function checkBackend() {
+      try {
+        const res = await fetch("/api/status", { method: "GET" });
+        if (res.ok) {
+          const data = await res.json();
+          backendOnline = true;
+          document.getElementById("conn-dot").classList.add("online");
+          document.getElementById("conn-text").innerText = `Python API Online (${data.loaded_models.length} models)`;
+        } else {
+          throw new Error();
+        }
+      } catch (e) {
+        backendOnline = false;
+        document.getElementById("conn-dot").classList.remove("online");
+        document.getElementById("conn-text").innerText = "Chạy độc lập (Client-side)";
+      }
+    }
+    checkBackend();
+    setInterval(checkBackend, 5000);
+
+    // --- 5. TÍNH TOÁN 3 KHOẢNG CÁCH EUCLID TRÊN BROWSER ---
+    function computePinchDistances(landmarks) {
+      // 0: Wrist, 4: Thumb, 8: Index, 9: Middle MCP, 16: Ring, 20: Pinky
+      const wrist = landmarks[0];
+      const middleMcp = landmarks[9];
+      const palm = Math.hypot(middleMcp.x - wrist.x, middleMcp.y - wrist.y) || 1e-6;
+
+      const dist = (i1, i2) => {
+        return Math.hypot(landmarks[i1].x - landmarks[i2].x, landmarks[i1].y - landmarks[i2].y) / palm;
+      };
+
+      return {
+        dThumb: dist(4, 8),   // Thumb (4) + Index (8) -> DOT / DASH
+        dRing: dist(4, 16),   // Thumb (4) + Ring (16)  -> SPACE / CONFIRM
+        dPinky: dist(4, 20)   // Thumb (4) + Pinky (20) -> DELETE
+      };
+    }
+
+    function classifyPoseByDistances(d) {
+      const THRESH = 0.38;
+      if (d.dThumb < THRESH && d.dThumb < Math.min(d.dRing, d.dPinky)) return "PINCH_THUMB";
+      if (d.dRing < THRESH && d.dRing < Math.min(d.dThumb, d.dPinky)) return "PINCH_RING";
+      if (d.dPinky < THRESH && d.dPinky < Math.min(d.dThumb, d.dRing)) return "PINCH_PINKY";
+      return "UNKNOWN";
+    }
+
+    function updateMeters(d) {
+      const setMeter = (valId, barId, val, thresh = 0.38) => {
+        const pct = Math.min(100, Math.max(0, (val / 1.0) * 100));
+        document.getElementById(valId).innerText = val.toFixed(3);
+        const bar = document.getElementById(barId);
+        bar.style.width = `${pct}%`;
+        if (val < thresh) {
+          bar.classList.add("pinched");
+        } else {
+          bar.classList.remove("pinched");
+        }
+      };
+
+      setMeter("val-thumb", "bar-thumb", d.dThumb);
+      setMeter("val-ring", "bar-ring", d.dRing);
+      setMeter("val-pinky", "bar-pinky", d.dPinky);
+    }
+
+    // --- 6. VIRTUAL GESTURE TEST PADS (SIMULATOR) ---
+    let virtualInterval = null;
+    let virtualPose = "UNKNOWN";
+
+    function startVirtualPose(pose) {
+      virtualPose = pose;
+      document.getElementById("signal-led").classList.add("active");
+      processFramePose(pose, 1.0, 0.1);
+      if (virtualInterval) clearInterval(virtualInterval);
+      virtualInterval = setInterval(() => {
+        processFramePose(virtualPose, 1.0, 0.1);
+      }, 50); // 20 FPS simulation
+    }
+
+    function stopVirtualPose() {
+      virtualPose = "UNKNOWN";
+      document.getElementById("signal-led").classList.remove("active");
+      if (virtualInterval) {
+        clearInterval(virtualInterval);
+        virtualInterval = null;
+      }
+      processFramePose("UNKNOWN", 1.0, 0.1);
+    }
+
+    // Pad Listeners
+    const pThumb = document.getElementById("pad-thumb");
+    pThumb.addEventListener("mousedown", () => startVirtualPose("PINCH_THUMB"));
+    pThumb.addEventListener("mouseup", stopVirtualPose);
+    pThumb.addEventListener("mouseleave", stopVirtualPose);
+    pThumb.addEventListener("touchstart", (e) => { e.preventDefault(); startVirtualPose("PINCH_THUMB"); });
+    pThumb.addEventListener("touchend", stopVirtualPose);
+
+    const pRing = document.getElementById("pad-ring");
+    pRing.addEventListener("mousedown", () => startVirtualPose("PINCH_RING"));
+    pRing.addEventListener("mouseup", stopVirtualPose);
+    pRing.addEventListener("mouseleave", stopVirtualPose);
+    pRing.addEventListener("touchstart", (e) => { e.preventDefault(); startVirtualPose("PINCH_RING"); });
+    pRing.addEventListener("touchend", stopVirtualPose);
+
+    const pPinky = document.getElementById("pad-pinky");
+    pPinky.addEventListener("mousedown", () => startVirtualPose("PINCH_PINKY"));
+    pPinky.addEventListener("mouseup", stopVirtualPose);
+    pPinky.addEventListener("mouseleave", stopVirtualPose);
+    pPinky.addEventListener("touchstart", (e) => { e.preventDefault(); startVirtualPose("PINCH_PINKY"); });
+    pPinky.addEventListener("touchend", stopVirtualPose);
+
+    const pRest = document.getElementById("pad-rest");
+    pRest.addEventListener("click", () => {
+      stopVirtualPose();
+      morseFSM.reset();
+    });
+
+    // --- 7. ĐIỀU PHỐI KHUNG HÌNH (PROCESS FRAME) ---
+    let lastFrameTime = performance.now();
+    let frameCount = 0;
+    let fps = 0;
+
+    function processFramePose(pose, conf, latencyMs) {
+      const nowSec = performance.now() / 1000;
+      morseFSM.update(pose, nowSec);
+
+      // Cập nhật HUD
+      document.getElementById("hud-pose").innerText = pose;
+      document.getElementById("hud-conf").innerText = `${(conf * 100).toFixed(0)}%`;
+      document.getElementById("hud-latency").innerText = `${latencyMs.toFixed(1)} ms`;
+
+      // Cập nhật LED
+      const led = document.getElementById("signal-led");
+      if (pose !== "UNKNOWN" && pose !== null) {
+        led.classList.add("active");
+      } else {
+        led.classList.remove("active");
+      }
+    }
+
+    // --- 8. TÍCH HỢP WEBCAM & MEDIAPIPE HANDS ---
+    const videoEl = document.getElementById("webcam-video");
+    const canvasEl = document.getElementById("output-canvas");
+    const canvasCtx = canvasEl.getContext("2d");
+    const cameraPlaceholder = document.getElementById("camera-placeholder");
+    const statusTextEl = document.getElementById("camera-status-text");
+    const cameraBtn = document.getElementById("camera-btn");
+
+    // Cảnh báo giao thức file://
+    if (window.location.protocol === "file:") {
+      const warn = document.getElementById("protocol-warning");
+      if (warn) warn.style.display = "block";
+    }
+
+    let mediaStream = null;
+    let handsInstance = null;
+    let isStreaming = false;
+    let isProcessing = false;
+
+    // Khởi tạo MediaPipe Hands
+    function initMediaPipeHands() {
+      if (handsInstance) return handsInstance;
+      try {
+        handsInstance = new Hands({
+          locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`
+        });
+        handsInstance.setOptions({
+          maxNumHands: 1,
+          modelComplexity: 1,
+          minDetectionConfidence: 0.5, // Giảm từ 0.65 xuống 0.5 để bắt nhạy hơn
+          minTrackingConfidence: 0.5
+        });
+        handsInstance.onResults(onResults);
+        return handsInstance;
+      } catch (err) {
+        console.error("Lỗi nạp MediaPipe Hands:", err);
+        return null;
+      }
+    }
+
+    async function onResults(results) {
+      // Tính FPS
+      frameCount++;
+      const now = performance.now();
+      if (now - lastFrameTime >= 1000) {
+        fps = frameCount;
+        frameCount = 0;
+        lastFrameTime = now;
+        document.getElementById("hud-fps").innerText = `${fps} fps`;
+      }
+
+      // Đảm bảo kích thước canvas khớp với video thực tế
+      if (videoEl.videoWidth && canvasEl.width !== videoEl.videoWidth) {
+        canvasEl.width = videoEl.videoWidth;
+        canvasEl.height = videoEl.videoHeight;
+      }
+
+      canvasCtx.save();
+      canvasCtx.clearRect(0, 0, canvasEl.width, canvasEl.height);
+
+      if (results.multiHandLandmarks && results.multiHandLandmarks.length > 0) {
+        const landmarks = results.multiHandLandmarks[0];
+        const handedness = (results.multiHandedness && results.multiHandedness[0] && results.multiHandedness[0].label) || "Right";
+
+        // Vẽ bộ xương và điểm mốc bàn tay
+        drawHandSkeleton(canvasCtx, landmarks, canvasEl.width, canvasEl.height, handedness);
+
+        // 1. Tính toán 3 khoảng cách chụm
+        const dists = computePinchDistances(landmarks);
+        updateMeters(dists);
+
+        // 2. Phân loại tư thế
+        const t0 = performance.now();
+        const selectedAlgo = document.getElementById("algo-select").value;
+
+        if (backendOnline && selectedAlgo !== "heuristic") {
+          try {
+            const pts = landmarks.map(p => [p.x, p.y, p.z]);
+            const res = await fetch("/api/predict", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                landmarks: pts,
+                handedness: handedness,
+                algo: selectedAlgo,
+                step_fsm: false
+              })
+            });
+            const data = await res.json();
+            const latency = performance.now() - t0;
+            processFramePose(data.pose, data.confidence, latency);
+          } catch (e) {
+            const pose = classifyPoseByDistances(dists);
+            processFramePose(pose, 0.95, performance.now() - t0);
+          }
+        } else {
+          const pose = classifyPoseByDistances(dists);
+          processFramePose(pose, 0.95, performance.now() - t0);
+        }
+      } else {
+        // Chưa thấy bàn tay: vẽ khung hướng dẫn
+        drawTargetGuide(canvasCtx, canvasEl.width, canvasEl.height);
+        updateMeters({ dThumb: 1.0, dRing: 1.0, dPinky: 1.0 });
+        processFramePose("UNKNOWN", 0.0, 0.0);
+      }
+      canvasCtx.restore();
+      isProcessing = false;
+    }
+
+    // Vẽ khung ngắm hướng dẫn khi chưa có bàn tay
+    function drawTargetGuide(ctx, w, h) {
+      if (!w || !h) return;
+      ctx.save();
+      ctx.strokeStyle = "rgba(56, 189, 248, 0.4)";
+      ctx.lineWidth = 2;
+      ctx.setLineDash([8, 8]);
+      const boxW = w * 0.45;
+      const boxH = h * 0.6;
+      const boxX = (w - boxW) / 2;
+      const boxY = (h - boxH) / 2;
+      ctx.strokeRect(boxX, boxY, boxW, boxH);
+
+      ctx.fillStyle = "rgba(56, 189, 248, 0.8)";
+      ctx.font = "14px sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("✋ Đưa bàn tay vào vùng này", w / 2, boxY + boxH / 2);
+      ctx.restore();
+    }
+
+    function drawHandSkeleton(ctx, landmarks, w, h, handedness) {
+      const connections = [
+        [0, 1], [1, 2], [2, 3], [3, 4],
+        [0, 5], [5, 6], [6, 7], [7, 8],
+        [5, 9], [9, 10], [10, 11], [11, 12],
+        [9, 13], [13, 14], [14, 15], [15, 16],
+        [13, 17], [17, 18], [18, 19], [19, 20],
+        [0, 17]
+      ];
+
+      // Khớp nối
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = "rgba(56, 189, 248, 0.85)";
+      for (const [a, b] of connections) {
+        ctx.beginPath();
+        ctx.moveTo(landmarks[a].x * w, landmarks[a].y * h);
+        ctx.lineTo(landmarks[b].x * w, landmarks[b].y * h);
+        ctx.stroke();
+      }
+
+      // Điểm mốc
+      for (let i = 0; i < landmarks.length; i++) {
+        const pt = landmarks[i];
+        ctx.beginPath();
+        ctx.arc(pt.x * w, pt.y * h, (i === 4 || i === 8 || i === 16 || i === 20) ? 6 : 4, 0, 2 * Math.PI);
+        if (i === 4 || i === 8 || i === 16 || i === 20) {
+          ctx.fillStyle = "#22c55e"; // Fingertips
+        } else {
+          ctx.fillStyle = "#ffffff";
+        }
+        ctx.fill();
+      }
+
+      // Nhãn tay
+      ctx.fillStyle = "#22c55e";
+      ctx.font = "bold 13px monospace";
+      ctx.fillText(`${handedness} Hand`, landmarks[0].x * w - 30, landmarks[0].y * h + 24);
+    }
+
+    // Vòng lặp camera trực tiếp native
+    async function videoProcessingLoop() {
+      if (!isStreaming) return;
+      if (videoEl.readyState >= 2 && !videoEl.paused && !isProcessing) {
+        isProcessing = true;
+        try {
+          await handsInstance.send({ image: videoEl });
+        } catch (e) {
+          console.warn("Send frame warning:", e);
+          isProcessing = false;
+        }
+      }
+      if (isStreaming) {
+        requestAnimationFrame(videoProcessingLoop);
+      }
+    }
+
+    // Nút Bật/Tắt Camera
+    cameraBtn.addEventListener("click", async () => {
+      if (isStreaming) {
+        // Dừng camera
+        isStreaming = false;
+        if (mediaStream) {
+          mediaStream.getTracks().forEach(track => track.stop());
+          mediaStream = null;
+        }
+        videoEl.srcObject = null;
+        cameraBtn.innerText = "Bật Camera";
+        cameraBtn.className = "btn primary";
+        cameraPlaceholder.style.display = "flex";
+        statusTextEl.innerHTML = `Nhấn <b>"Bật Camera"</b> để nhận diện cử chỉ MediaPipe Hands.<br><span style="font-size:0.8rem; color:#94a3b8;">Hoặc dùng bảng nút ảo bên dưới.</span>`;
+        canvasCtx.clearRect(0, 0, canvasEl.width, canvasEl.height);
+        return;
+      }
+
+      try {
+        cameraBtn.innerText = "Đang khởi động...";
+        cameraBtn.disabled = true;
+        statusTextEl.innerHTML = `⏳ <b>Đang xin quyền truy cập Camera & tải mô hình MediaPipe Hands...</b>`;
+
+        const hands = initMediaPipeHands();
+        if (!hands) throw new Error("Không thể khởi tạo MediaPipe Hands.");
+
+        // Yêu cầu quyền truy cập Webcam trực tiếp qua Web API
+        mediaStream = await navigator.mediaDevices.getUserMedia({
+          video: {
+            width: { ideal: 640 },
+            height: { ideal: 480 },
+            facingMode: "user"
+          },
+          audio: false
+        });
+
+        videoEl.srcObject = mediaStream;
+        await new Promise((resolve) => {
+          videoEl.onloadedmetadata = () => {
+            videoEl.play();
+            resolve();
+          };
+        });
+
+        canvasEl.width = videoEl.videoWidth || 640;
+        canvasEl.height = videoEl.videoHeight || 480;
+
+        isStreaming = true;
+        cameraBtn.innerText = "Tắt Camera";
+        cameraBtn.className = "btn danger";
+        cameraBtn.disabled = false;
+        cameraPlaceholder.style.display = "none";
+
+        // Bắt đầu vòng lặp xử lý
+        requestAnimationFrame(videoProcessingLoop);
+
+      } catch (err) {
+        console.error("Camera start error:", err);
+        isStreaming = false;
+        cameraBtn.disabled = false;
+        cameraBtn.innerText = "Bật Camera";
+        cameraBtn.className = "btn primary";
+
+        let errorMsg = err.message;
+        if (err.name === "NotAllowedError" || err.name === "PermissionDeniedError") {
+          errorMsg = "Trình duyệt chưa được cấp quyền dùng Camera. Vui lòng nhấn vào biểu tượng ổ khóa cạnh URL để cấp quyền Camera!";
+        } else if (err.name === "NotFoundError" || err.name === "DevicesNotFoundError") {
+          errorMsg = "Không tìm thấy thiết bị Webcam kết nối trên máy tính!";
+        } else if (window.location.protocol === "file:") {
+          errorMsg = "Trình duyệt chặn webcam khi mở file://. Hãy chạy 'python3 src/web_server.py' rồi mở http://localhost:8000 !";
+        }
+
+        statusTextEl.innerHTML = `<span style="color:#ef4444; font-weight:bold;">❌ Không thể mở Camera:</span><br>${errorMsg}`;
+        alert("Lỗi Camera: " + errorMsg);
+      }
+    });
+
+    // Các nút thao tác text
+    document.getElementById("clear-btn").addEventListener("click", () => morseBuffer.clear());
+    document.getElementById("copy-btn").addEventListener("click", () => {
+      const txt = document.getElementById("decoded-text-view").innerText;
+      if (txt) {
+        navigator.clipboard.writeText(txt);
+        alert("Đã sao chép: " + txt);
+      }
+    });
+  </script>
+</body>
+</html>

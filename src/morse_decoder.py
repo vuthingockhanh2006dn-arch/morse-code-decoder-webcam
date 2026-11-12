@@ -1,8 +1,4 @@
-"""Morse code dictionary lookup and text buffer.
-
-This part needs no machine learning: a confirmed sequence of dots and dashes is
-looked up in the International Morse Code table.
-"""
+"""Tra bảng Morse và bộ đệm văn bản. Không dùng học máy."""
 from __future__ import annotations
 
 from typing import Dict, Optional
@@ -18,72 +14,66 @@ MORSE_TO_CHAR: Dict[str, str] = {
 }
 CHAR_TO_MORSE: Dict[str, str] = {v: k for k, v in MORSE_TO_CHAR.items()}
 
-MAX_SYMBOLS = 5      # longest code in the table above
-UNKNOWN_CHAR = "?"   # written when a confirmed code is not in the table
+MAX_SYMBOLS = 5      # mã dài nhất trong bảng
+UNKNOWN_CHAR = "?"   # ghi ra khi chuỗi đã xác nhận không có trong bảng
 
 
 def decode_symbol(code: str) -> Optional[str]:
-    """Return the character for one Morse code (e.g. ``"..."`` -> ``"S"``)."""
+    """``"..."`` -> ``"S"``; không có trong bảng thì trả về None."""
     return MORSE_TO_CHAR.get(code)
 
 
 def decode_message(message: str) -> str:
-    """Decode a full message: letters separated by spaces, words by ``" / "``."""
-    words = []
-    for word in message.strip().split(" / "):
-        words.append("".join(MORSE_TO_CHAR.get(code, UNKNOWN_CHAR) for code in word.split()))
-    return " ".join(words)
+    """Chữ cách nhau bằng khoảng trắng, từ cách nhau bằng ``" / "``."""
+    return " ".join(
+        "".join(MORSE_TO_CHAR.get(code, UNKNOWN_CHAR) for code in word.split())
+        for word in message.strip().split(" / ")
+    )
 
 
 def encode_message(text: str) -> str:
-    """Inverse of :func:`decode_message`; handy for tests and the guide panel."""
-    words = []
-    for word in text.upper().split():
-        words.append(" ".join(CHAR_TO_MORSE[c] for c in word if c in CHAR_TO_MORSE))
-    return " / ".join(words)
+    """Ngược lại của ``decode_message``, dùng trong kiểm thử."""
+    return " / ".join(
+        " ".join(CHAR_TO_MORSE[c] for c in word if c in CHAR_TO_MORSE)
+        for word in text.upper().split()
+    )
 
 
 class MorseBuffer:
-    """Holds the Morse symbols being typed and the confirmed text.
+    """Giữ chuỗi chấm/gạch đang gõ và văn bản đã xác nhận.
 
-    Event semantics:
-      * ``DOT`` / ``DASH`` append ``.`` / ``-`` to the current buffer
-        (ignored once the buffer already holds ``MAX_SYMBOLS`` symbols).
-      * ``CONFIRM`` decodes the buffer into one character (``?`` if unknown).
-      * ``SPACE`` decodes any pending buffer first, then adds a single space.
-      * ``DELETE`` removes the last symbol; if the buffer is empty it removes
-        the last confirmed character instead.
+    DOT / DASH   thêm "." / "-" vào bộ đệm (bỏ qua nếu đã đủ MAX_SYMBOLS).
+    CONFIRM      giải mã bộ đệm thành một ký tự ("?" nếu không có trong bảng).
+    SPACE        giải mã phần đang chờ (nếu có) rồi thêm một dấu cách.
+    DELETE       xóa ký hiệu cuối; bộ đệm rỗng thì xóa ký tự cuối của văn bản.
     """
 
     def __init__(self) -> None:
         self.buffer = ""
         self.text = ""
-        self.last_decoded: Optional[str] = None
 
-    # ------------------------------------------------------------------ #
     def apply(self, event: str) -> None:
-        handler = {
-            "DOT": lambda: self._append("."),
-            "DASH": lambda: self._append("-"),
-            "CONFIRM": self.confirm,
-            "SPACE": self.space,
-            "DELETE": self.delete,
-        }.get(event)
-        if handler is None:
-            raise ValueError(f"Unknown event: {event}")
-        handler()
+        if event == "DOT":
+            self._append(".")
+        elif event == "DASH":
+            self._append("-")
+        elif event == "CONFIRM":
+            self.confirm()
+        elif event == "SPACE":
+            self.space()
+        elif event == "DELETE":
+            self.delete()
+        else:
+            raise ValueError(f"Sự kiện không hợp lệ: {event}")
 
     def _append(self, symbol: str) -> None:
         if len(self.buffer) < MAX_SYMBOLS:
             self.buffer += symbol
 
     def confirm(self) -> None:
-        if not self.buffer:
-            return
-        char = decode_symbol(self.buffer) or UNKNOWN_CHAR
-        self.text += char
-        self.last_decoded = char
-        self.buffer = ""
+        if self.buffer:
+            self.text += decode_symbol(self.buffer) or UNKNOWN_CHAR
+            self.buffer = ""
 
     def space(self) -> None:
         self.confirm()
@@ -99,10 +89,3 @@ class MorseBuffer:
     def clear(self) -> None:
         self.buffer = ""
         self.text = ""
-        self.last_decoded = None
-
-    # ------------------------------------------------------------------ #
-    @property
-    def preview(self) -> Optional[str]:
-        """Character the current buffer would decode to, if any."""
-        return decode_symbol(self.buffer) if self.buffer else None

@@ -1,6 +1,6 @@
-"""Unit tests for the parts that need no camera: Morse lookup and the FSM.
+"""Kiểm thử máy trạng thái và bộ giải mã Morse (không cần webcam hay thư viện ngoài).
 
-Run with:  python -m unittest discover tests
+Chạy: python3 -m unittest discover tests -v
 """
 import sys
 import unittest
@@ -9,7 +9,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
 from config import DEFAULT_CONFIG  # noqa: E402
-from fsm_controller import MorseFSM, SignCommitter  # noqa: E402
+from fsm_controller import MorseFSM  # noqa: E402
 from morse_decoder import MorseBuffer, decode_message, encode_message  # noqa: E402
 
 FPS = 30
@@ -17,12 +17,11 @@ DT = 1.0 / FPS
 
 
 class Clock:
-    def __init__(self):
-        self.t = 0.0
+    t = 0.0
 
 
 def feed(fsm, clock, pose, seconds):
-    """Feed `pose` for `seconds` at 30 FPS and collect emitted events."""
+    """Đưa `pose` vào FSM trong `seconds` giây ở 30 FPS, trả về các sự kiện."""
     events = []
     for _ in range(max(1, round(seconds * FPS))):
         clock.t += DT
@@ -42,21 +41,33 @@ class MorseDecoderTest(unittest.TestCase):
         self.assertEqual(b.text, "SOS")
         self.assertEqual(b.buffer, "")
 
-    def test_unknown_code(self):
+    def test_unknown_code_becomes_question_mark(self):
         b = MorseBuffer()
         for ev in ["DOT", "DOT", "DASH", "DASH", "CONFIRM"]:
             b.apply(ev)
         self.assertEqual(b.text, "?")
+
+    def test_space_confirms_pending_symbols(self):
+        b = MorseBuffer()
+        for ev in ["DOT", "SPACE"]:
+            b.apply(ev)
+        self.assertEqual(b.text, "E ")
+
+    def test_buffer_is_capped(self):
+        b = MorseBuffer()
+        for _ in range(8):
+            b.apply("DOT")
+        self.assertEqual(b.buffer, "." * 5)
 
 
 class MorseFSMTest(unittest.TestCase):
     def setUp(self):
         self.fsm = MorseFSM(DEFAULT_CONFIG)
         self.clock = Clock()
-        feed(self.fsm, self.clock, "IDLE", 0.3)
+        feed(self.fsm, self.clock, "UNKNOWN", 0.3)
 
     def gesture(self, pose, hold, rest=0.3):
-        return feed(self.fsm, self.clock, pose, hold) + feed(self.fsm, self.clock, "IDLE", rest)
+        return feed(self.fsm, self.clock, pose, hold) + feed(self.fsm, self.clock, "UNKNOWN", rest)
 
     def test_dot(self):
         self.assertEqual(self.gesture("PINCH_THUMB", 0.2), ["DOT"])
@@ -69,49 +80,58 @@ class MorseFSMTest(unittest.TestCase):
 
     def test_confirm_double_ring_tap(self):
         events = feed(self.fsm, self.clock, "PINCH_RING", 0.2)
-        events += feed(self.fsm, self.clock, "IDLE", 0.2)
+        events += feed(self.fsm, self.clock, "UNKNOWN", 0.2)
         events += feed(self.fsm, self.clock, "PINCH_RING", 0.2)
-        events += feed(self.fsm, self.clock, "IDLE", 0.8)
+        events += feed(self.fsm, self.clock, "UNKNOWN", 0.8)
         self.assertEqual(events, ["CONFIRM"])
+
+    def test_slow_second_tap_is_a_new_space(self):
+        events = self.gesture("PINCH_RING", 0.2, rest=0.8) + self.gesture("PINCH_RING", 0.2, rest=0.8)
+        self.assertEqual(events, ["SPACE", "SPACE"])
 
     def test_delete_once_while_holding(self):
         self.assertEqual(self.gesture("PINCH_PINKY", 2.0), ["DELETE"])
+
+    def test_locked_state_needs_rest_pose_to_unlock(self):
+        feed(self.fsm, self.clock, "PINCH_THUMB", 1.0)           # DASH, rồi khóa
+        self.assertEqual(feed(self.fsm, self.clock, "PINCH_THUMB", 1.0), [])
+        feed(self.fsm, self.clock, "UNKNOWN", 0.3)               # nghỉ, mở khóa
+        self.assertEqual(self.gesture("PINCH_THUMB", 0.2), ["DOT"])
 
     def test_no_hand_produces_nothing(self):
         self.assertEqual(feed(self.fsm, self.clock, None, 2.0), [])
 
     def test_single_frame_glitch_is_ignored(self):
-        events = feed(self.fsm, self.clock, "PINCH_THUMB", DT) + feed(self.fsm, self.clock, "IDLE", 0.5)
+        events = feed(self.fsm, self.clock, "PINCH_THUMB", DT) + feed(self.fsm, self.clock, "UNKNOWN", 0.5)
+        self.assertEqual(events, [])
+
+    def test_low_confidence_is_ignored(self):
+        events = []
+        for _ in range(60):
+            self.clock.t += DT
+            events += self.fsm.update("PINCH_THUMB", 0.3, self.clock.t)
         self.assertEqual(events, [])
 
     def test_type_sos(self):
         b = MorseBuffer()
-        seq = [("PINCH_THUMB", 0.2)] * 3 + [("RING2", 0)] + [("PINCH_THUMB", 0.8)] * 3 + \
-              [("RING2", 0)] + [("PINCH_THUMB", 0.2)] * 3 + [("RING2", 0)]
-        for pose, hold in seq:
-            if pose == "RING2":
-                evs = feed(self.fsm, self.clock, "PINCH_RING", 0.15) + feed(self.fsm, self.clock, "IDLE", 0.15) \
-                    + feed(self.fsm, self.clock, "PINCH_RING", 0.15) + feed(self.fsm, self.clock, "IDLE", 0.6)
-            else:
-                evs = self.gesture(pose, hold)
-            for ev in evs:
-                b.apply(ev)
+
+        def confirm():
+            return (feed(self.fsm, self.clock, "PINCH_RING", 0.15) + feed(self.fsm, self.clock, "UNKNOWN", 0.15)
+                    + feed(self.fsm, self.clock, "PINCH_RING", 0.15) + feed(self.fsm, self.clock, "UNKNOWN", 0.6))
+
+        events = []
+        for hold in [0.2] * 3:
+            events += self.gesture("PINCH_THUMB", hold)
+        events += confirm()
+        for hold in [0.8] * 3:
+            events += self.gesture("PINCH_THUMB", hold)
+        events += confirm()
+        for hold in [0.2] * 3:
+            events += self.gesture("PINCH_THUMB", hold)
+        events += confirm()
+        for ev in events:
+            b.apply(ev)
         self.assertEqual(b.text, "SOS")
-
-
-class SignCommitterTest(unittest.TestCase):
-    def test_commit_once_until_rest(self):
-        c = SignCommitter(DEFAULT_CONFIG)
-        out = [c.update("A", 0.9) for _ in range(60)]
-        self.assertEqual([x for x in out if x], ["A"])
-        for _ in range(10):
-            c.update("NOTHING", 0.9)
-        out = [c.update("A", 0.9) for _ in range(60)]
-        self.assertEqual([x for x in out if x], ["A"])
-
-    def test_low_confidence_ignored(self):
-        c = SignCommitter(DEFAULT_CONFIG)
-        self.assertFalse(any(c.update("A", 0.3) for _ in range(60)))
 
 
 if __name__ == "__main__":

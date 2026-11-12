@@ -1,17 +1,24 @@
-"""Shared paths, label definitions and runtime thresholds.
+"""Cấu hình dùng chung: đường dẫn, nhãn, tên cột và ngưỡng chạy.
 
-Runtime thresholds live in ``models/scaler_config.json`` so they can be tuned on
-the validation set without touching code. Values missing from that file fall
-back to ``DEFAULT_CONFIG`` below.
+Thiết kế nhãn (xem README, chương 3):
+  * Một khung hình chỉ cho biết TƯ THẾ bàn tay (đang chụm cặp ngón nào).
+    Mô hình học máy phân loại 4 tư thế: ``POSE_LABELS``.
+  * Chạm nhanh hay giữ, chạm một hay hai lần là chuyện của thời gian, nên do
+    máy trạng thái (``fsm_controller.py``) quyết định. Kết quả là 5 sự kiện
+    ``EVENTS``: DOT, DASH, CONFIRM, SPACE, DELETE.
+  * Khi thu dữ liệu, người quay chọn nhãn cử chỉ (``GESTURE_LABELS``). Hệ thống
+    lưu cả nhãn cử chỉ lẫn nhãn tư thế suy ra từ ``GESTURE_TO_POSE``.
+
+File này không tạo thư mục khi import; mỗi script tự tạo thư mục nó ghi vào.
 """
 from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 # --------------------------------------------------------------------------- #
-# Paths
+# Đường dẫn
 # --------------------------------------------------------------------------- #
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT_DIR / "data"
@@ -20,80 +27,100 @@ PROCESSED_DIR = DATA_DIR / "processed"
 MODELS_DIR = ROOT_DIR / "models"
 REPORTS_DIR = ROOT_DIR / "reports"
 FIGURES_DIR = REPORTS_DIR / "figures"
-CONFIG_PATH = MODELS_DIR / "scaler_config.json"
+CONFIG_PATH = MODELS_DIR / "runtime_config.json"
 
 # --------------------------------------------------------------------------- #
-# Tasks & labels
+# Nhãn
 # --------------------------------------------------------------------------- #
-# The Morse classifier recognises static *hand poses* from a single frame.
-# A single frame cannot tell a quick tap (DOT) from a long hold (DASH), or one
-# tap (SPACE) from two taps (CONFIRM). Those are decided over time by the FSM
-# in ``fsm_controller.py``:
-#
-#   PINCH_THUMB  (index + thumb)  -> short tap = DOT,   long hold = DASH
-#   PINCH_RING   (index + ring)   -> 1 tap     = SPACE, 2 taps    = CONFIRM
-#   PINCH_PINKY  (index + pinky)  -> 1 tap     = DELETE
-#   IDLE         (open hand / rest pose)
-MORSE_POSE_LABELS = ["IDLE", "PINCH_THUMB", "PINCH_RING", "PINCH_PINKY"]
+# Nhãn cử chỉ: 5 cử chỉ quy ước + UNKNOWN (tay nghỉ hoặc tư thế ngoài quy ước).
+GESTURE_LABELS: List[str] = ["DOT", "DASH", "CONFIRM", "SPACE", "DELETE", "UNKNOWN"]
 
-# Command events produced by the FSM (the 5 labels from the README).
-EVENTS = ["DOT", "DASH", "CONFIRM", "SPACE", "DELETE"]
+# Nhãn tư thế: đây là nhãn mà mô hình học máy dự đoán trên từng khung hình.
+POSE_LABELS: List[str] = ["PINCH_THUMB", "PINCH_RING", "PINCH_PINKY", "UNKNOWN"]
 
-# Default labels for the static-sign mode. Change them with
-# ``data_collection.py --task sign --labels A,B,C,...``.
-DEFAULT_SIGN_LABELS = ["NOTHING", "A", "B", "C", "D", "E"]
+GESTURE_TO_POSE: Dict[str, str] = {
+    "DOT": "PINCH_THUMB",       # cái + trỏ, chạm nhanh
+    "DASH": "PINCH_THUMB",      # cái + trỏ, giữ
+    "CONFIRM": "PINCH_RING",    # cái + áp út, chạm 2 lần
+    "SPACE": "PINCH_RING",      # cái + áp út, chạm 1 lần
+    "DELETE": "PINCH_PINKY",    # cái + út, chạm 1 lần
+    "UNKNOWN": "UNKNOWN",
+}
 
-TASKS = ("morse", "sign")
+EVENTS: List[str] = ["DOT", "DASH", "CONFIRM", "SPACE", "DELETE"]
 
-# MediaPipe landmark indices used by the rule-based detector.
-WRIST, THUMB_TIP, INDEX_TIP, MIDDLE_MCP, MIDDLE_TIP, RING_TIP, PINKY_TIP = 0, 4, 8, 9, 12, 16, 20
+GESTURE_COLUMN = "gesture"
+TARGET_COLUMN = "pose"  # cột nhãn dùng để huấn luyện
 
+# --------------------------------------------------------------------------- #
+# Kịch bản thu thập
+# --------------------------------------------------------------------------- #
+LIGHTING_CHOICES = ["daylight", "room_light", "dim_light"]
+ANGLE_CHOICES = ["front_0deg", "angle_30deg"]
+DISTANCE_CHOICES = ["near_35cm", "mid_50cm", "far_70cm"]
+BACKGROUND_CHOICES = ["plain_wall", "cluttered"]
+
+# Ngưỡng loại mẫu lỗi khi thu (xem data_collection.py)
+MIN_HAND_SCORE = 0.6   # độ tin cậy tối thiểu phân loại tay (hạ từ 0.8 để tránh loại oan khi chụm ngón)
+MAX_WRIST_JUMP = 0.08  # cổ tay dịch quá mức này giữa 2 khung hình = tay quá nhanh/mờ
+FRAME_MARGIN = 0.02    # landmark nằm ngoài khung hình quá mức này = tay bị cắt/che
+
+# --------------------------------------------------------------------------- #
+# Landmark MediaPipe (21 điểm) và đặc trưng
+# --------------------------------------------------------------------------- #
 N_LANDMARKS = 21
-FEATURE_COLUMNS = [f"{axis}{i}" for i in range(N_LANDMARKS) for axis in ("x", "y", "z")]
-META_COLUMNS = ["subject", "session", "label", "handedness", "timestamp"]
+WRIST = 0
+THUMB_TIP = 4
+INDEX_TIP = 8
+MIDDLE_MCP = 9
+RING_TIP = 16
+PINKY_TIP = 20
 
+# 63 giá trị: x0, y0, z0, ..., x20, y20, z20
+LANDMARK_COLUMNS: List[str] = [f"{axis}{i}" for i in range(N_LANDMARKS) for axis in ("x", "y", "z")]
+
+# 3 khoảng cách Euclid bổ sung (chuẩn hóa theo độ dài lòng bàn tay, lấy ngón cái làm mốc)
+DISTANCE_COLUMNS: List[str] = ["dist_thumb_index", "dist_thumb_ring", "dist_thumb_pinky"]
+
+# Vector đưa vào mô hình: 63 + 3 = 66
+FEATURE_COLUMNS: List[str] = LANDMARK_COLUMNS + DISTANCE_COLUMNS
+
+CONDITION_COLUMNS: List[str] = ["lighting", "angle", "distance", "background"]
+METADATA_COLUMNS: List[str] = (
+    ["subject", "session", GESTURE_COLUMN, TARGET_COLUMN, "handedness"] + CONDITION_COLUMNS + ["timestamp"]
+)
+
+# --------------------------------------------------------------------------- #
+# Chia tập và mô hình
+# --------------------------------------------------------------------------- #
+SPLIT_RATIOS = (0.70, 0.15, 0.15)
+SPLIT_NAMES = ("train", "val", "test")
 ALGORITHMS = ("knn", "svm", "rf")
 
 
-def model_path(task: str, algo: str) -> Path:
-    """File name of a trained model, e.g. ``models/gesture_svm_model.pkl``."""
-    prefix = "gesture" if task == "morse" else "sign"
-    return MODELS_DIR / f"{prefix}_{algo}_model.pkl"
+def model_path(algo: str) -> Path:
+    return MODELS_DIR / f"gesture_{algo}_model.pkl"
 
 
 # --------------------------------------------------------------------------- #
-# Runtime configuration
+# Tham số chạy của máy trạng thái (có thể chỉnh trong models/runtime_config.json)
 # --------------------------------------------------------------------------- #
 DEFAULT_CONFIG: Dict[str, Any] = {
-    # Rule-based touch detection (normalised Euclidean distance).
-    "touch_threshold": 0.25,      # d_hat < touch_threshold  -> touching
-    "release_threshold": 0.35,    # d_hat > release_threshold -> released (hysteresis)
-    # Timing (seconds).
-    "noise_time": 0.05,           # touches shorter than this are ignored
-    "dash_time": 0.40,            # hold >= dash_time -> DASH
-    "double_tap_window": 0.45,    # second ring tap must start within this window -> CONFIRM
-    # Stabilisation.
-    "confidence_threshold": 0.75, # ML predictions below this become UNKNOWN
-    "smoothing_window": 5,        # frames used for majority voting
-    "release_frames": 3,          # consecutive non-touch frames needed to count a release
-    # Static-sign mode.
-    "sign_stable_frames": 10,     # frames a sign must stay stable before it is committed
-    # Filled in by train_models.py.
-    "best_model": {"morse": None, "sign": None},
+    "noise_time": 0.05,           # chạm ngắn hơn mức này (giây) bị bỏ qua
+    "dash_time": 0.40,            # giữ >= mức này = DASH, ngắn hơn = DOT
+    "double_tap_window": 0.45,    # lần chạm thứ 2 phải đến trong khoảng này = CONFIRM
+    "confidence_threshold": 0.75, # xác suất thấp hơn mức này coi như UNKNOWN
+    "smoothing_window": 5,        # số khung hình bỏ phiếu đa số
+    "release_frames": 3,          # số khung hình liên tiếp để tính là đã nhả/đã nghỉ
+    "best_model": None,           # train_models.py ghi vào đây
 }
 
 
 def load_config() -> Dict[str, Any]:
-    """Return DEFAULT_CONFIG overridden by values in ``models/scaler_config.json``."""
-    cfg = json.loads(json.dumps(DEFAULT_CONFIG))  # deep copy
+    cfg = dict(DEFAULT_CONFIG)
     if CONFIG_PATH.exists():
         with CONFIG_PATH.open(encoding="utf-8") as f:
-            user_cfg = json.load(f)
-        for key, value in user_cfg.items():
-            if isinstance(value, dict) and isinstance(cfg.get(key), dict):
-                cfg[key].update(value)
-            else:
-                cfg[key] = value
+            cfg.update(json.load(f))
     return cfg
 
 

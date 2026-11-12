@@ -117,13 +117,13 @@ class MorseFSM:
                 self._go("LOCKED")
 
         elif self.state == "THUMB_DOWN":
-            if now - self.touch_start >= self.dash_time:
+            if pose == "PINCH_THUMB" and now - self.touch_start >= self.dash_time:
                 events.append("DASH")
                 self._go("LOCKED")
             elif self._released(pose, "PINCH_THUMB", now):
                 end = self._count_start if self._count_start is not None else now
                 if end - self.touch_start >= self.noise_time:
-                    events.append("DOT")
+                    events.append("DASH" if end - self.touch_start >= self.dash_time else "DOT")
                 self._go("IDLE")
 
         elif self.state == "RING_DOWN":

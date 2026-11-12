@@ -106,6 +106,10 @@ def model_path(algo: str) -> Path:
 # Tham số chạy của máy trạng thái (có thể chỉnh trong models/runtime_config.json)
 # --------------------------------------------------------------------------- #
 DEFAULT_CONFIG: Dict[str, Any] = {
+    "touch_threshold": 0.25,
+    "release_threshold": 0.35,
+    "ambiguity_margin": 0.08,
+    "contact_stable_time": 0.07,
     "noise_time": 0.05,           # chạm ngắn hơn mức này (giây) bị bỏ qua
     "dash_time": 0.40,            # giữ >= mức này = DASH, ngắn hơn = DOT
     "double_tap_window": 0.45,    # lần chạm thứ 2 phải đến trong khoảng này = CONFIRM

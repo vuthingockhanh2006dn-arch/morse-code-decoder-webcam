@@ -1,41 +1,53 @@
-# Giao diện nhận diện cử chỉ tay
+# Chạy giao diện web Morse
 
-## Cài đặt và chạy trên Windows
+## Cài đặt trên Windows
 
-Dùng **Python 3.9–3.12** (khuyến nghị 3.11). MediaPipe 0.10.14 trong dự án sử dụng API `solutions.hands`; Python 3.14 không phù hợp với bộ phụ thuộc này.
+Dùng Python 3.9–3.12, khuyến nghị 3.11. Nếu đã tạo `.venv` và cài thư viện, chỉ cần chạy dòng cuối.
 
 ```powershell
 py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe src/app.py
+.\.venv\Scripts\python.exe -X utf8 src/web_server.py
 ```
 
-Giao diện desktop dùng Tkinter có sẵn trong bản Python Windows thông thường. Không cần huấn luyện mô hình hoặc tải dataset để thử bộ nhận diện hình học. Chọn camera `0` (hoặc `1` nếu có webcam ngoài), sau đó bấm **Bật camera**. Webcam chỉ được xử lý trên máy; ứng dụng không lưu ảnh/video.
+Giữ terminal hoạt động và mở **http://localhost:8000** trong trình duyệt. Không mở `web/index.html` bằng `file://`. Nếu cổng bận, thêm `--port 8001` rồi mở http://localhost:8001. Nhấn Ctrl+C để dừng máy chủ.
 
-## Cách nhập
+Ứng dụng dùng thư viện chuẩn `http.server`; không cần FastAPI hay Uvicorn. Giao diện desktop `app.py` và kiểm thử Tkinter đã được bỏ. Xem bố cục ở `web/index.html`, mã tương tác ở `web/app.js`.
 
-| Lệnh | Cử chỉ |
+## Cử chỉ
+
+Ngón cái là ngón chạm chính, thống nhất với dữ liệu huấn luyện và giao diện:
+
+| Lệnh | Thao tác |
 | --- | --- |
-| Dot `.` | Ngón trỏ chạm ngón cái nhanh rồi thả, dưới 0,40 giây |
-| Dash `-` | Ngón trỏ chạm ngón cái và giữ ít nhất 0,40 giây |
-| Space | Ngón trỏ chạm ngón áp út một lần rồi thả; chờ cửa sổ chạm đúp kết thúc |
-| Chốt chữ | Ngón trỏ chạm ngón áp út hai lần nhanh, cách nhau dưới 0,45 giây |
-| Delete | Ngón trỏ chạm ngón út; xóa tín hiệu cuối, hoặc chữ cuối nếu chuỗi tín hiệu trống |
+| Dot `.` | Cái–trỏ chạm nhanh rồi thả |
+| Dash `-` | Cái–trỏ chạm giữ ít nhất 0,40 giây |
+| Space | Cái–áp út chạm một lần rồi thả, chờ hết cửa sổ chạm đúp |
+| Chốt chữ | Cái–áp út chạm hai lần nhanh, trong cửa sổ 0,45 giây |
+| Delete | Cái–út chạm: xóa tín hiệu cuối hoặc chữ cuối nếu chuỗi tín hiệu trống |
 
-Mở tay giữa các lệnh để mở khóa chống lặp. Space chốt chữ đang nhập và thêm khoảng trắng. Ví dụ nhập `...`, chốt chữ → `S`. Giữ nguyên cử chỉ không lặp lệnh. Có thể dừng camera và dùng các nút để thử bộ giải mã, sao chép văn bản hoặc xóa toàn bộ.
+Mở tay trước khi bắt đầu và giữa các thao tác. Chốt chữ giữ lại chữ trong văn bản để nhập chữ tiếp theo; Space chốt chữ rồi thêm dấu cách. Ví dụ: dot, dash, chốt chữ → A; tiếp tục dash, dot, chốt chữ → AN.
 
-## Thuật toán và điều chỉnh
+Khi camera tắt, có thể nhấn giữ/thả các nút mô phỏng. Các khung nghỉ vẫn được gửi sau khi thả nút để xử lý dot và chạm đơn/chạm đúp. Không trộn camera với nút mô phỏng. Nút nghỉ thả cử chỉ; nút Xóa hết xóa cả mã và văn bản. Dừng camera hoặc mất tracking chỉ hủy cử chỉ đang thực hiện, giữ văn bản đã nhập.
 
-`src/gesture_detector.py` đo khoảng cách 3D từ đầu ngón trỏ đến đầu ngón cái, áp út và út. Tọa độ được sửa tỷ lệ khung hình, rồi chia cho kích thước lòng bàn tay (lớn hơn giữa chiều ngang lòng bàn tay và đoạn cổ tay–gốc ngón giữa). Nhờ đó ngưỡng ít phụ thuộc khoảng cách camera, tay trái/phải và xoay tay trong mặt phẳng ảnh.
+## Một luồng xử lý
 
-Ngưỡng chạm mặc định 0,25; ngưỡng thả cao hơn 0,10 để chống rung. Chọn cặp gần nhất; khi hai cặp gần như bằng nhau, trả về UNKNOWN để giảm nhầm áp út/út. FSM hiện có làm mượt nhãn, lọc chạm quá ngắn, đo thời gian dot/dash và chạm đúp, khóa chống lặp. Mất bàn tay hoặc đổi tay sẽ hủy cử chỉ dở dang để tránh nhập nhầm khi mất tracking.
+1. MediaPipe trong trình duyệt lấy 21 điểm bàn tay, gửi tọa độ và kích thước ảnh về `/api/predict`.
+2. `gesture_detector.py` sửa tỷ lệ ảnh, chuẩn hóa theo lòng bàn tay, kiểm tra cặp ngón ổn định 70 ms và dùng ngưỡng chạm/thả riêng. Các cặp quá sát hoặc đổi ngón khi giữ bị loại.
+3. Nếu chọn mô hình ML, máy chủ đối chiếu dự đoán với cặp ngón hình học; không chấp nhận hai kết quả trái nhau. Tự động chọn `best_model` trong cấu hình, hoặc mô hình sẵn có, hoặc hình học khi chưa huấn luyện. Mô hình chưa có sẽ bị vô hiệu hóa trong danh sách.
+4. `fsm_controller.py` là nơi duy nhất đo thời gian, chống lặp và sinh lệnh. `morse_decoder.py` là nơi duy nhất lưu bảng Morse và văn bản. JavaScript chỉ nhận kết quả để hiển thị/phát âm báo.
 
-Thanh tiến trình hiển thị thời gian giữ đến dash. Hai thanh điều chỉnh ngưỡng chạm và thời gian dash có hiệu lực khi bật lại camera. Tăng ngưỡng nếu khó bắt chạm, giảm nếu nhận chạm khi ngón còn cách nhau. Các con số THUMB/RING/PINKY bên dưới webcam là khoảng cách đã chuẩn hóa, không phải độ tin cậy dự đoán.
+Chỉnh ngưỡng trong `models/runtime_config.json` rồi khởi động lại máy chủ. Các khóa: `touch_threshold` (0.25), `release_threshold` (0.35), `ambiguity_margin` (0.08), `contact_stable_time` (0.07), `dash_time` (0.40), `double_tap_window` (0.45). Tệp cấu hình chưa tồn tại thì dùng mặc định trong `src/config.py`.
 
-Đặt bàn tay đủ sáng, thấy đủ các đầu ngón; tránh để áp út và út che nhau. Chuẩn hóa hình học không giải quyết hoàn toàn che khuất hoặc sai số độ sâu của MediaPipe. Cần thử webcam thực tế với nhiều người để điều chỉnh và đo độ chính xác; các kiểm thử hình học không thay thế đánh giá này.
+Máy chủ chỉ lắng nghe trên máy cục bộ. Hiện bộ đệm dùng chung cho các tab của cùng máy chủ: nên dùng một tab để tương tác. Văn bản giữ trong bộ nhớ đến khi xóa hoặc tắt máy chủ, chưa lưu xuống đĩa.
 
-## Kiểm thử không cần webcam
+Không lưu ảnh/video. MediaPipe được tải từ CDN nên lần mở trang cần Internet; nhận diện trên trình duyệt và gửi tọa độ về Python cục bộ. Độ chính xác thực tế phụ thuộc ánh sáng, che khuất và góc tay; kiểm thử tọa độ không thay thế đánh giá webcam với người dùng.
+
+## Kiểm thử
 
 ```powershell
-python -m unittest discover -s tests
+.\.venv\Scripts\python.exe -X utf8 -m unittest discover -s tests
+node tests/test_web_client.js
 ```
+
+`hand_tracker.py` vẫn cần cho `data_collection.py`. Các tệp dữ liệu, chia tập, huấn luyện và đánh giá vẫn cần cho đề tài; không phải phần dư của giao diện.

@@ -3,7 +3,7 @@
 Từ 21 landmark (x, y, z) tạo vector 66 giá trị:
   * 63 giá trị: tọa độ đã dời gốc về cổ tay, lật gương nếu là tay trái, chia
     cho khoảng cách xa nhất tới cổ tay (bất biến vị trí, tay trái/phải, xa/gần).
-  * 3 giá trị: khoảng cách Euclid trỏ-cái, trỏ-áp út, trỏ-út, chia cho độ dài
+  * 3 giá trị: khoảng cách Euclid cái-trỏ, cái-áp út, cái-út, chia cho độ dài
     lòng bàn tay (cổ tay -> gốc ngón giữa).
 
 Đầu vào chấp nhận list lồng nhau (21, 3), list phẳng 63 phần tử, hoặc mảng numpy.

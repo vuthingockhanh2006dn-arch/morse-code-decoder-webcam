@@ -2,6 +2,15 @@
 
 Hand gesture recognition for typing Morse code with a webcam.
 
+**Chạy giao diện web / Run the web UI:**
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 src/web_server.py
+```
+
+Mở / Open **http://localhost:8000**. Cài đặt, cử chỉ và kiểm thử: [QUICKSTART.md](QUICKSTART.md).
+Giao diện `web/index.html` + `web/app.js` dùng chung bộ nhận diện, FSM và bộ giải mã Python; không còn ứng dụng desktop `app.py`.
+
 [Tiếng Việt](#tiếng-việt) | [English](#english)
 
 ---
@@ -219,6 +228,8 @@ morse-code-decoder-webcam/
 │   ├── train_models.py         huấn luyện KNN, SVM, Random Forest
 │   ├── evaluate.py             đánh giá trên tập test
 │   ├── fsm_controller.py       máy trạng thái và chống nhập lặp
+│   ├── gesture_detector.py     xác định cặp ngón, chống rung và nhầm ngón
+│   ├── web_server.py           API web nối detector, mô hình, FSM và bộ đệm
 │   └── morse_decoder.py        bảng Morse và bộ đệm văn bản
 ├── tests/                      29 test, chỉ cần thư viện chuẩn của Python
 ├── requirements.txt

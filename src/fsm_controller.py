@@ -1,41 +1,37 @@
-"""Finite State Machine that turns per-frame hand poses into Morse commands.
+"""Máy trạng thái (FSM): biến chuỗi tư thế theo thời gian thành lệnh Morse.
 
-Input per frame: a pose label (``IDLE``, ``PINCH_THUMB``, ``PINCH_RING``,
-``PINCH_PINKY``, ``UNKNOWN`` or ``None`` when no hand is visible), its
-confidence, and a timestamp in seconds.
+Đầu vào mỗi khung hình: nhãn tư thế (PINCH_THUMB, PINCH_RING, PINCH_PINKY,
+UNKNOWN, hoặc None nếu không thấy tay), độ tin cậy, và thời điểm (giây).
+Đầu ra: danh sách sự kiện (DOT, DASH, CONFIRM, SPACE, DELETE), thường rỗng.
 
-Output: at most one command event per gesture (``DOT``, ``DASH``, ``CONFIRM``,
-``SPACE``, ``DELETE``).
+UNKNOWN và None đều được coi là tư thế nghỉ.
 
-Anti-repeat rules (debouncing):
-  * Poses are smoothed with a majority vote over the last N frames.
-  * A touch only counts as released after ``release_frames`` consecutive
-    frames without that touch.
-  * After DASH, CONFIRM or DELETE the machine is LOCKED until the hand returns
-    to the rest pose (IDLE) or leaves the frame, so holding a gesture in front
-    of a 30 FPS camera never produces repeated input.
+Chống nhập lặp:
+  * Bỏ phiếu đa số trên N khung hình gần nhất, loại các khung nhiễu lẻ.
+  * Một lần chạm chỉ tính là đã nhả sau ``release_frames`` khung liên tiếp.
+  * Sau DASH, CONFIRM, DELETE máy chuyển sang LOCKED và chỉ mở khóa khi tay
+    đã nghỉ ``release_frames`` khung. Giữ tay mãi cũng chỉ ra một sự kiện.
 
-State diagram::
-
-    IDLE --PINCH_THUMB--> THUMB_DOWN --release (<dash_time)--> IDLE        emit DOT
-                                     --held >= dash_time-----> LOCKED      emit DASH
-    IDLE --PINCH_RING---> RING_DOWN  --release--------------> WAIT_SECOND
-    WAIT_SECOND --PINCH_RING within window-------------------> LOCKED      emit CONFIRM
-    WAIT_SECOND --window expires / other pose----------------> IDLE        emit SPACE
-    IDLE --PINCH_PINKY--------------------------------------->  LOCKED     emit DELETE
-    LOCKED --IDLE or no hand for release_frames--------------> IDLE
+Sơ đồ:
+    IDLE --PINCH_THUMB--> THUMB_DOWN --nhả, ngắn hơn dash_time--> IDLE      phát DOT
+                                     --giữ từ dash_time---------> LOCKED    phát DASH
+    IDLE --PINCH_RING---> RING_DOWN  --nhả---------------------> WAIT_SECOND
+    WAIT_SECOND --PINCH_RING trong double_tap_window-----------> LOCKED     phát CONFIRM
+    WAIT_SECOND --hết cửa sổ hoặc có tư thế chạm khác----------> IDLE       phát SPACE
+    IDLE --PINCH_PINKY-----------------------------------------> LOCKED     phát DELETE
+    LOCKED --tay nghỉ đủ release_frames------------------------> IDLE
 """
 from __future__ import annotations
 
 from collections import Counter, deque
 from typing import Any, Deque, Dict, List, Optional
 
-IDLE_POSES = {"IDLE", None}
+REST_POSES = {"UNKNOWN", "IDLE", None}
 TOUCH_POSES = {"PINCH_THUMB", "PINCH_RING", "PINCH_PINKY"}
 
 
 class PoseSmoother:
-    """Confidence threshold + majority vote over a sliding window."""
+    """Ngưỡng tin cậy cộng bỏ phiếu đa số trên cửa sổ trượt."""
 
     def __init__(self, window: int = 5, confidence_threshold: float = 0.75) -> None:
         self.window: Deque[Optional[str]] = deque(maxlen=max(1, window))
@@ -46,7 +42,7 @@ class PoseSmoother:
             pose = "UNKNOWN"
         self.window.append(pose)
         winner, count = Counter(self.window).most_common(1)[0]
-        # Require a strict majority; otherwise report UNKNOWN (transition frames).
+        # Không có đa số tuyệt đối (khung chuyển tiếp) thì coi là UNKNOWN.
         return winner if count > len(self.window) // 2 else "UNKNOWN"
 
     def reset(self) -> None:
@@ -54,8 +50,6 @@ class PoseSmoother:
 
 
 class MorseFSM:
-    """Converts smoothed poses into Morse command events."""
-
     def __init__(self, cfg: Dict[str, Any]) -> None:
         self.noise_time = float(cfg["noise_time"])
         self.dash_time = float(cfg["dash_time"])
@@ -68,52 +62,48 @@ class MorseFSM:
         self.state = "IDLE"
         self.touch_start = 0.0
         self.first_tap_release = 0.0
-        self._release_count = 0
-        self._release_time: Optional[float] = None
-        self.hold_progress = 0.0  # 0..1, how close the current thumb hold is to a DASH
+        self._count = 0
+        self._count_start: Optional[float] = None
         self.smoother.reset()
-
-    # ------------------------------------------------------------------ #
-    def _released(self, pose: Optional[str], touch_pose: str, now: float) -> bool:
-        """True once ``touch_pose`` has been absent for ``release_frames`` frames."""
-        if pose == touch_pose:
-            self._release_count = 0
-            self._release_time = None
-            return False
-        if self._release_count == 0:
-            self._release_time = now
-        self._release_count += 1
-        return self._release_count >= self.release_frames
-
-    def _rest(self, pose: Optional[str]) -> bool:
-        """True once the hand has been at rest for ``release_frames`` frames."""
-        if pose in IDLE_POSES:
-            self._release_count += 1
-        else:
-            self._release_count = 0
-        return self._release_count >= self.release_frames
 
     def _go(self, state: str) -> None:
         self.state = state
-        self._release_count = 0
-        self._release_time = None
+        self._count = 0
+        self._count_start = None
 
-    # ------------------------------------------------------------------ #
+    def _released(self, pose: Optional[str], touch_pose: str, now: float) -> bool:
+        """True khi ``touch_pose`` đã vắng mặt ``release_frames`` khung liên tiếp.
+        ``_count_start`` ghi lại lúc bắt đầu nhả để tính thời gian chạm chính xác."""
+        if pose == touch_pose:
+            self._count = 0
+            self._count_start = None
+            return False
+        if self._count == 0:
+            self._count_start = now
+        self._count += 1
+        return self._count >= self.release_frames
+
+    def _at_rest(self, pose: Optional[str]) -> bool:
+        self._count = self._count + 1 if pose in REST_POSES else 0
+        return self._count >= self.release_frames
+
     def update(self, raw_pose: Optional[str], confidence: float, now: float) -> List[str]:
-        """Feed one frame; return the list of events emitted (usually empty)."""
+        """Đưa vào một khung hình, trả về các sự kiện phát sinh."""
         pose = self.smoother.update(raw_pose, confidence)
         events: List[str] = []
-        self.hold_progress = 0.0
 
         if self.state == "WAIT_SECOND":
-            if pose == "PINCH_RING":
+            if now - self.first_tap_release > self.double_tap_window:
+                events.append("SPACE")
+                self._go("IDLE")
+            elif pose == "PINCH_RING":
                 events.append("CONFIRM")
                 self._go("LOCKED")
                 return events
-            if now - self.first_tap_release > self.double_tap_window or pose in TOUCH_POSES:
+            elif pose in TOUCH_POSES:
                 events.append("SPACE")
                 self._go("IDLE")
-                # fall through so a new touch in this frame is handled below
+            # Nếu vừa về IDLE, rơi xuống dưới để xử lý chạm mới ngay khung này.
 
         if self.state == "IDLE":
             if pose == "PINCH_THUMB":
@@ -127,76 +117,26 @@ class MorseFSM:
                 self._go("LOCKED")
 
         elif self.state == "THUMB_DOWN":
-            held = now - self.touch_start
-            self.hold_progress = min(1.0, held / self.dash_time)
-            if held >= self.dash_time:
+            if now - self.touch_start >= self.dash_time:
                 events.append("DASH")
                 self._go("LOCKED")
             elif self._released(pose, "PINCH_THUMB", now):
-                release_time = self._release_time if self._release_time is not None else now
-                if release_time - self.touch_start >= self.noise_time:
+                end = self._count_start if self._count_start is not None else now
+                if end - self.touch_start >= self.noise_time:
                     events.append("DOT")
                 self._go("IDLE")
 
         elif self.state == "RING_DOWN":
             if self._released(pose, "PINCH_RING", now):
-                release_time = self._release_time if self._release_time is not None else now
-                if release_time - self.touch_start >= self.noise_time:
-                    self.first_tap_release = release_time
+                end = self._count_start if self._count_start is not None else now
+                if end - self.touch_start >= self.noise_time:
+                    self.first_tap_release = end
                     self._go("WAIT_SECOND")
                 else:
                     self._go("IDLE")
 
         elif self.state == "LOCKED":
-            if self._rest(pose):
+            if self._at_rest(pose):
                 self._go("IDLE")
 
         return events
-
-    @property
-    def last_smoothed(self) -> Optional[str]:
-        return self.smoother.window[-1] if self.smoother.window else None
-
-
-class SignCommitter:
-    """Debouncing for the static-sign mode.
-
-    A sign is committed once it has been the smoothed prediction for
-    ``stable_frames`` frames. The same sign is not committed again until the
-    hand leaves the frame or shows the rest label (e.g. ``NOTHING``) or a
-    different sign.
-    """
-
-    def __init__(self, cfg: Dict[str, Any], rest_label: str = "NOTHING") -> None:
-        self.stable_frames = int(cfg["sign_stable_frames"])
-        self.rest_label = rest_label
-        self.smoother = PoseSmoother(int(cfg["smoothing_window"]), float(cfg["confidence_threshold"]))
-        self.reset()
-
-    def reset(self) -> None:
-        self.candidate: Optional[str] = None
-        self.count = 0
-        self.locked_label: Optional[str] = None
-        self.smoother.reset()
-
-    def update(self, raw_label: Optional[str], confidence: float) -> Optional[str]:
-        label = self.smoother.update(raw_label, confidence)
-        if label in (None, self.rest_label):
-            self.locked_label = None
-            self.candidate, self.count = None, 0
-            return None
-        if label == "UNKNOWN":
-            return None
-        if label != self.candidate:
-            self.candidate, self.count = label, 0
-        self.count += 1
-        if self.count >= self.stable_frames and label != self.locked_label:
-            self.locked_label = label
-            return label
-        return None
-
-    @property
-    def progress(self) -> float:
-        if self.candidate is None or self.candidate == self.locked_label:
-            return 0.0
-        return min(1.0, self.count / self.stable_frames)

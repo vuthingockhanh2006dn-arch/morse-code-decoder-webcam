@@ -1,18 +1,18 @@
-"""Evaluate the trained models on the held-out test set.
+"""Đánh giá các mô hình đã huấn luyện trên tập test.
 
-Outputs (in ``reports/``):
-  * ``<task>_test_results.csv`` / ``.md`` - Accuracy, macro Precision/Recall/F1,
-    inference time (ms per single-frame prediction) for KNN, SVM and RF.
-  * ``<task>_<algo>_classification_report.txt`` - per-class metrics.
-  * ``figures/<task>_<algo>_confusion_matrix.png`` - confusion matrices.
+Ghi ra reports/:
+  test_results.csv, test_results.md       Accuracy, macro Precision/Recall/F1, thời gian suy luận
+  <algo>_classification_report.txt        chỉ số theo từng nhãn
+  figures/<algo>_confusion_matrix.png     ma trận nhầm lẫn
 
-Usage::
+Thời gian suy luận đo bằng predict_proba trên từng khung hình riêng lẻ, giống cách
+dùng với webcam (cần xác suất để áp ngưỡng tin cậy).
 
-    python src/evaluate.py --task morse
+Chạy:
+    python3 src/evaluate.py
 """
 from __future__ import annotations
 
-import argparse
 import sys
 import time
 from pathlib import Path
@@ -20,86 +20,90 @@ from pathlib import Path
 import joblib
 import numpy as np
 import pandas as pd
-from sklearn.metrics import (
-    accuracy_score, classification_report, confusion_matrix, precision_recall_fscore_support,
-)
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, precision_recall_fscore_support
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from config import ALGORITHMS, FIGURES_DIR, REPORTS_DIR, model_path  # noqa: E402
-from train_models import load_split  # noqa: E402
+from dataset_io import load_processed_split  # noqa: E402
 
 
-def inference_ms(model, X: np.ndarray, n: int = 300) -> float:
-    """Mean latency of predicting ONE frame at a time, as in the live app."""
+def latency_ms(model, X: np.ndarray, n: int = 300) -> float:
     idx = np.random.default_rng(0).choice(len(X), size=min(n, len(X)), replace=False)
-    model.predict_proba(X[idx[:1]])  # warm-up
-    t0 = time.perf_counter()
+    model.predict_proba(X[idx[:1]])  # khởi động
+    start = time.perf_counter()
     for i in idx:
         model.predict_proba(X[i:i + 1])
-    return (time.perf_counter() - t0) / len(idx) * 1000
+    return (time.perf_counter() - start) / len(idx) * 1000
 
 
 def plot_confusion(cm: np.ndarray, labels, title: str, path: Path) -> None:
-    import matplotlib
-    matplotlib.use("Agg")
-    import matplotlib.pyplot as plt
-    import seaborn as sns
-
-    norm = cm / np.maximum(cm.sum(axis=1, keepdims=True), 1)
-    annot = np.array([[f"{c}\n{p:.0%}" for c, p in zip(r1, r2)] for r1, r2 in zip(cm, norm)])
+    try:
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+        import seaborn as sns
+    except ImportError:
+        print("Chưa cài matplotlib/seaborn, bỏ qua hình ma trận nhầm lẫn.")
+        return
+    ratio = cm / np.maximum(cm.sum(axis=1, keepdims=True), 1)
+    text = np.array([[f"{c}\n{r:.0%}" for c, r in zip(rc, rr)] for rc, rr in zip(cm, ratio)])
     plt.figure(figsize=(1.4 * len(labels) + 2, 1.2 * len(labels) + 1.5))
-    sns.heatmap(norm, annot=annot, fmt="", cmap="Blues", vmin=0, vmax=1,
+    sns.heatmap(ratio, annot=text, fmt="", cmap="Blues", vmin=0, vmax=1,
                 xticklabels=labels, yticklabels=labels, cbar=False)
-    plt.xlabel("Predicted"); plt.ylabel("True"); plt.title(title)
-    plt.tight_layout(); plt.savefig(path, dpi=150); plt.close()
+    plt.xlabel("Du doan")
+    plt.ylabel("Thuc te")
+    plt.title(title)
+    plt.tight_layout()
+    plt.savefig(path, dpi=150)
+    plt.close()
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--task", choices=["morse", "sign"], default="morse")
-    args = parser.parse_args()
-
-    X_te, y_te = load_split(args.task, "test")
+    X_test, y_test = load_processed_split("test")
     FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+
     rows = []
     for algo in ALGORITHMS:
-        path = model_path(args.task, algo)
+        path = model_path(algo)
         if not path.exists():
-            print(f"skip {algo}: {path.name} not found (run train_models.py)")
+            print(f"Bỏ qua {algo}: chưa có {path.name} (chạy train_models.py trước)")
             continue
         model = joblib.load(path)
         labels = list(model.classes_)
-        pred = model.predict(X_te)
-        p, r, f1, _ = precision_recall_fscore_support(y_te, pred, average="macro", zero_division=0)
+        pred = model.predict(X_test)
+        precision, recall, f1, _ = precision_recall_fscore_support(y_test, pred, average="macro", zero_division=0)
         rows.append({
-            "model": algo, "accuracy": accuracy_score(y_te, pred),
-            "macro_precision": p, "macro_recall": r, "macro_f1": f1,
-            "inference_ms_per_frame": inference_ms(model, X_te),
+            "model": algo.upper(),
+            "accuracy": round(accuracy_score(y_test, pred), 4),
+            "macro_precision": round(precision, 4),
+            "macro_recall": round(recall, 4),
+            "macro_f1": round(f1, 4),
+            "inference_ms_per_frame": round(latency_ms(model, X_test), 2),
         })
-        report = classification_report(y_te, pred, labels=labels, zero_division=0, digits=4)
-        (REPORTS_DIR / f"{args.task}_{algo}_classification_report.txt").write_text(report, encoding="utf-8")
-        print(f"\n=== {algo} ===\n{report}")
 
-        cm = confusion_matrix(y_te, pred, labels=labels)
-        plot_confusion(cm, labels, f"{args.task} - {algo.upper()} (test)",
-                       FIGURES_DIR / f"{args.task}_{algo}_confusion_matrix.png")
-        # Most confused pairs, useful for the error analysis in the report.
-        off = [(cm[i, j], labels[i], labels[j]) for i in range(len(labels))
-               for j in range(len(labels)) if i != j and cm[i, j] > 0]
-        for c, t, pr in sorted(off, reverse=True)[:3]:
-            print(f"  confused: true {t} -> predicted {pr}: {c} samples")
+        report = classification_report(y_test, pred, labels=labels, zero_division=0, digits=4)
+        (REPORTS_DIR / f"{algo}_classification_report.txt").write_text(report, encoding="utf-8")
+        print(f"\n=== {algo.upper()} ===\n{report}")
+
+        cm = confusion_matrix(y_test, pred, labels=labels)
+        plot_confusion(cm, labels, f"{algo.upper()} (test)", FIGURES_DIR / f"{algo}_confusion_matrix.png")
+        confused = sorted(((cm[i, j], labels[i], labels[j]) for i in range(len(labels))
+                           for j in range(len(labels)) if i != j and cm[i, j] > 0), reverse=True)[:3]
+        for count, true, predicted in confused:
+            print(f"  nhầm nhiều: {true} -> {predicted}: {count} mẫu")
 
     if not rows:
-        raise SystemExit("No trained models found.")
+        raise SystemExit("Chưa có mô hình nào. Chạy `python3 src/train_models.py` trước.")
+
     table = pd.DataFrame(rows).sort_values("macro_f1", ascending=False)
-    table.to_csv(REPORTS_DIR / f"{args.task}_test_results.csv", index=False)
-    md = ["| Model | Accuracy | Macro Precision | Macro Recall | Macro F1 | Inference (ms/frame) |",
-          "|---|---|---|---|---|---|"]
-    for r in table.itertuples():
-        md.append(f"| {r.model.upper()} | {r.accuracy:.4f} | {r.macro_precision:.4f} | "
-                  f"{r.macro_recall:.4f} | {r.macro_f1:.4f} | {r.inference_ms_per_frame:.2f} |")
-    (REPORTS_DIR / f"{args.task}_test_results.md").write_text("\n".join(md) + "\n", encoding="utf-8")
-    print("\n" + "\n".join(md))
+    table.to_csv(REPORTS_DIR / "test_results.csv", index=False)
+    lines = ["| Mô hình | Accuracy | Macro Precision | Macro Recall | Macro F1 | Suy luận (ms/khung) |",
+             "|---|---|---|---|---|---|"]
+    lines += [f"| {r.model} | {r.accuracy:.4f} | {r.macro_precision:.4f} | {r.macro_recall:.4f} | "
+              f"{r.macro_f1:.4f} | {r.inference_ms_per_frame:.2f} |" for r in table.itertuples()]
+    (REPORTS_DIR / "test_results.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print("\n" + "\n".join(lines))
 
 
 if __name__ == "__main__":

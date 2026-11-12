@@ -54,11 +54,11 @@ KEY_ORDER = ["UNKNOWN", "DOT", "DASH", "CONFIRM", "SPACE", "DELETE"]  # phím 0.
 
 HINTS = {  # chỉ dùng ASCII vì cv2.putText không vẽ được dấu tiếng Việt
     "UNKNOWN": "Tay nghi hoac tu the ngoai quy uoc",
-    "DOT": "Giu chum ngon tro + ngon cai",
-    "DASH": "Giu chum ngon tro + ngon cai",
-    "CONFIRM": "Giu chum ngon tro + ngon ap ut",
-    "SPACE": "Giu chum ngon tro + ngon ap ut",
-    "DELETE": "Giu chum ngon tro + ngon ut",
+    "DOT": "Giu chum ngon cai + ngon tro (tap nhanh)",
+    "DASH": "Giu chum ngon cai + ngon tro (giu lau)",
+    "CONFIRM": "Chum ngon cai + ngon ap ut (cham dup 2 lan)",
+    "SPACE": "Chum ngon cai + ngon ap ut (cham 1 lan)",
+    "DELETE": "Chum ngon cai + ngon ut (cham 1 lan)",
 }
 
 

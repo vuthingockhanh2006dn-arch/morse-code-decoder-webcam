@@ -46,8 +46,16 @@ class FeatureEngineeringTest(unittest.TestCase):
 
     def test_touching_fingers_give_zero_distance(self):
         pts = make_hand()
-        pts[4] = list(pts[8])  # đầu ngón cái trùng đầu ngón trỏ
+        pts[4] = list(pts[8])  # ngón cái trùng ngón trỏ (DOT / DASH)
         self.assertAlmostEqual(compute_additional_distances(pts)["dist_thumb_index"], 0.0, places=6)
+
+        pts2 = make_hand()
+        pts2[4] = list(pts2[16])  # ngón cái trùng ngón áp út (SPACE / CONFIRM)
+        self.assertAlmostEqual(compute_additional_distances(pts2)["dist_thumb_ring"], 0.0, places=6)
+
+        pts3 = make_hand()
+        pts3[4] = list(pts3[20])  # ngón cái trùng ngón út (DELETE)
+        self.assertAlmostEqual(compute_additional_distances(pts3)["dist_thumb_pinky"], 0.0, places=6)
 
     def test_degenerate_hand_raises(self):
         with self.assertRaises(ValueError):

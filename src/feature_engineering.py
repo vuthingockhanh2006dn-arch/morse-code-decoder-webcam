@@ -74,7 +74,11 @@ def _palm_length(pts: Sequence[Sequence[float]]) -> float:
 
 
 def compute_additional_distances(landmarks) -> Dict[str, float]:
-    """3 khoảng cách Euclid 2D chuẩn hóa theo độ dài lòng bàn tay."""
+    """3 khoảng cách Euclid 2D chuẩn hóa theo độ dài lòng bàn tay:
+    - dist_thumb_index: khoảng cách ngón cái - ngón trỏ (DOT / DASH)
+    - dist_thumb_ring: khoảng cách ngón cái - ngón áp út (SPACE / CONFIRM)
+    - dist_thumb_pinky: khoảng cách ngón cái - ngón út (DELETE)
+    """
     pts = _to_points(landmarks)
     palm = _palm_length(pts)
 
@@ -83,8 +87,8 @@ def compute_additional_distances(landmarks) -> Dict[str, float]:
 
     return {
         "dist_thumb_index": dist(THUMB_TIP, INDEX_TIP),
-        "dist_index_ring": dist(INDEX_TIP, RING_TIP),
-        "dist_index_pinky": dist(INDEX_TIP, PINKY_TIP),
+        "dist_thumb_ring": dist(THUMB_TIP, RING_TIP),
+        "dist_thumb_pinky": dist(THUMB_TIP, PINKY_TIP),
     }
 
 
@@ -93,6 +97,6 @@ def extract_full_feature_vector(landmarks, handedness: Optional[str] = "Right") 
     d = compute_additional_distances(landmarks)
     return normalize_landmarks(landmarks, handedness) + [
         d["dist_thumb_index"],
-        d["dist_index_ring"],
-        d["dist_index_pinky"],
+        d["dist_thumb_ring"],
+        d["dist_thumb_pinky"],
     ]

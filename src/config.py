@@ -39,11 +39,11 @@ GESTURE_LABELS: List[str] = ["DOT", "DASH", "CONFIRM", "SPACE", "DELETE", "UNKNO
 POSE_LABELS: List[str] = ["PINCH_THUMB", "PINCH_RING", "PINCH_PINKY", "UNKNOWN"]
 
 GESTURE_TO_POSE: Dict[str, str] = {
-    "DOT": "PINCH_THUMB",       # trỏ + cái, chạm nhanh
-    "DASH": "PINCH_THUMB",      # trỏ + cái, giữ
-    "CONFIRM": "PINCH_RING",    # trỏ + áp út, chạm 2 lần
-    "SPACE": "PINCH_RING",      # trỏ + áp út, chạm 1 lần
-    "DELETE": "PINCH_PINKY",    # trỏ + út, chạm 1 lần
+    "DOT": "PINCH_THUMB",       # cái + trỏ, chạm nhanh
+    "DASH": "PINCH_THUMB",      # cái + trỏ, giữ
+    "CONFIRM": "PINCH_RING",    # cái + áp út, chạm 2 lần
+    "SPACE": "PINCH_RING",      # cái + áp út, chạm 1 lần
+    "DELETE": "PINCH_PINKY",    # cái + út, chạm 1 lần
     "UNKNOWN": "UNKNOWN",
 }
 
@@ -61,7 +61,7 @@ DISTANCE_CHOICES = ["near_35cm", "mid_50cm", "far_70cm"]
 BACKGROUND_CHOICES = ["plain_wall", "cluttered"]
 
 # Ngưỡng loại mẫu lỗi khi thu (xem data_collection.py)
-MIN_HAND_SCORE = 0.8   # độ tin cậy tối thiểu của MediaPipe
+MIN_HAND_SCORE = 0.6   # độ tin cậy tối thiểu phân loại tay (hạ từ 0.8 để tránh loại oan khi chụm ngón)
 MAX_WRIST_JUMP = 0.08  # cổ tay dịch quá mức này giữa 2 khung hình = tay quá nhanh/mờ
 FRAME_MARGIN = 0.02    # landmark nằm ngoài khung hình quá mức này = tay bị cắt/che
 
@@ -79,8 +79,8 @@ PINKY_TIP = 20
 # 63 giá trị: x0, y0, z0, ..., x20, y20, z20
 LANDMARK_COLUMNS: List[str] = [f"{axis}{i}" for i in range(N_LANDMARKS) for axis in ("x", "y", "z")]
 
-# 3 khoảng cách Euclid bổ sung (chuẩn hóa theo độ dài lòng bàn tay)
-DISTANCE_COLUMNS: List[str] = ["dist_thumb_index", "dist_index_ring", "dist_index_pinky"]
+# 3 khoảng cách Euclid bổ sung (chuẩn hóa theo độ dài lòng bàn tay, lấy ngón cái làm mốc)
+DISTANCE_COLUMNS: List[str] = ["dist_thumb_index", "dist_thumb_ring", "dist_thumb_pinky"]
 
 # Vector đưa vào mô hình: 63 + 3 = 66
 FEATURE_COLUMNS: List[str] = LANDMARK_COLUMNS + DISTANCE_COLUMNS

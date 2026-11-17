@@ -222,3 +222,5 @@ __marimo__/
 # Assistant / AI rules & cache
 .gemini/
 
+
+**/.DS_Store

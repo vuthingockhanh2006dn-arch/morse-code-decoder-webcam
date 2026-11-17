@@ -1,0 +1,9 @@
+{
+  "verified_real_images": 2062,
+  "required_minimum": 2000,
+  "requirement_met": true,
+  "morse_labeled_samples": 0,
+  "video_count": 0,
+  "source": "https://github.com/ardamavi/Sign-Language-Digits-Dataset",
+  "note": "Source labels are digits 0-9, NOT Morse gesture classes. Videos must be collected separately."
+}

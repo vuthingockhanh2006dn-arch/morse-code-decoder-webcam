@@ -106,18 +106,27 @@ def model_path(algo: str) -> Path:
 # Tham số chạy của máy trạng thái (có thể chỉnh trong models/runtime_config.json)
 # --------------------------------------------------------------------------- #
 DEFAULT_CONFIG: Dict[str, Any] = {
+    # Ngưỡng phát hiện chạm (khoảng cách chuẩn hóa)
     "touch_threshold": 0.25,
     "release_threshold": 0.35,
     "ambiguity_margin": 0.08,
     "contact_stable_time": 0.07,
-    "noise_time": 0.05,           # chạm ngắn hơn mức này (giây) bị bỏ qua
-    "dash_time": 0.40,            # giữ >= mức này = DASH, ngắn hơn = DOT
-    "double_tap_window": 0.45,    # lần chạm thứ 2 phải đến trong khoảng này = CONFIRM
-    "confidence_threshold": 0.75, # xác suất thấp hơn mức này coi như UNKNOWN
-    "smoothing_window": 5,        # số khung hình bỏ phiếu đa số
-    "release_frames": 3,          # số khung hình liên tiếp để tính là đã nhả/đã nghỉ
-    "best_model": None,           # train_models.py ghi vào đây
+
+    # Thời gian (giây)
+    "noise_time": 0.05,
+    "dash_time": 0.40,
+    "double_tap_window": 0.45,
+
+    # Ổn định
+    "confidence_threshold": 0.75,
+    "smoothing_window": 5,
+    "release_frames": 3,
+    "sign_stable_frames": 10,
+    "best_model": None,
 }
+
+
+
 
 
 def load_config() -> Dict[str, Any]:

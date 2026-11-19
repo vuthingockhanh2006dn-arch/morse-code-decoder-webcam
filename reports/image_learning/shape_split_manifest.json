@@ -1,0 +1,3922 @@
+[
+  {
+    "path": "P01\\S01\\PINCH_PINKY\\1f4fac232ec164f89e8fc12dbf0477d465d7ac10999f17ae291d1967f9731094.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_PINKY\\37477c80b7b7f31ff2ee511a49abad889fe23ccdc6db380df166d3105545e807.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_PINKY\\589cabb1d019950260d1a06bb3228702f0ee7bf981b662e44b36bcd6e2f553a6.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_PINKY\\670a8f08d820bb7fe7d0c6a620081c05a38966899037b5616f6ec9e8564da67e.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_PINKY\\819c020cdbaeef07b594bcde056025b3d493e1672b1199f71e20ebc378df42f7.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_PINKY\\966e2103b8163164c1f0b5482c776d47e054a7bac3e3ce3d123e52f770e7088a.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_PINKY\\9698dfbef4c45284d3b6efa96928e36e3ea6859e1fefa1879e76c0df62530863.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_PINKY\\c875d432ae9372cbe05b393d0f86a2032bd0c611eafd414e3413630a0910f94b.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_PINKY\\daca9053f8d1376c8374ceb110bcfc63f8af60f01e2063e93252b165458d74af.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_PINKY\\fe39f979c23256a2079c0770345a6b20a4547344159fafd137b388e8685c488d.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_RING\\09a40934360185ef8e5bddba614a9bf8ec08ba33c33fdd28b2a152af690d8949.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_RING\\291319c67c4bf90bd3a818a7afa93872bea627c6c18af5a8bd9a102c29d9db14.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_RING\\581c7d0fb6aea35a41f30220ac588b68fea6def9f316ac48fd3ab9be0b3bf0ab.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_RING\\973cff9123f00e75e9cc80451507deb3adcffb51c4210be057731a594a90ab52.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_RING\\b59d281673e5654832d3ef20246e2852a93cb6818158ac12ad4b55ae1a9ba7b9.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_RING\\b62d21a2b2e84e69faf29fef1b10dab9fd70dc334c831f662e7f4c5f6cd3e5aa.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_RING\\bd4a2934250663c75d43540dc0b1eaa71c9f2128ae024a7a26896ddcbb5340fa.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_RING\\db7b4326643f62801b9fbf9b6ed155064e9b3a2deb3f04d645560773e5436a9e.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_THUMB\\17d3f463a53b463b61af863abcc722b964e62cc298294eec8079cb5beadb147b.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_THUMB\\433fc492f6e440ac5edaa2a6a9c3ed776e187ea7b7c0cff0e9d7311fd090edcf.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_THUMB\\454246aeaa034f33a838c9fce4edd3a1a9078a41242fa9a3802b5b93bb0e07f6.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_THUMB\\55bb033d50faf420815e92933ce087abd2537c5e66992cb7a3ace043078cc9da.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_THUMB\\63e43a586968121f5db106f9e8caa6f0b67453883e2911e6f314fa10faef93a1.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_THUMB\\681ae5c34cabbb9759e738971b70b99ceee8bba16a3091a7356a72e3c696da35.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_THUMB\\7f2b0c68cea6b33be7818ca5ec7a2f23b374da6a53c71caf8c28fba5b773d1b6.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_THUMB\\a6725ae3e0c4f36d64bf0b8fe2309370f50606b46e634bd819db01d441ff1f40.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_THUMB\\cc9f1877fb4a38756fe8816b1f3e47d5d68dae4f51e539aca83ba6b0fd52a315.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_THUMB\\cfdc4021dc285315786e13cf2fe92411fe87d0281748d1029926d86b99763177.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\PINCH_THUMB\\e9f58ec9d7c8f9edac28722d42f787a1c218f979b764556f0ba4bad4c816c1ff.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\UNKNOWN\\08e71fecbfe33001f8bdcdaa9a44253561090efd94a110a039c0b23464802f16.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\UNKNOWN\\18e3dc84bddead5727d256a9b024d3f5fd732364f78ad837cda4982bab50b48e.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\UNKNOWN\\3cf73fb0c5cdaef77be3663f72b6c6e9b137ba93d2d95ccf6d64c625e4a83c2a.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\UNKNOWN\\6f889fd34618d7e028b9a578c05f0044d6a895ed46a2920cd02669957b2bce9a.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\UNKNOWN\\764113973cb29048b439dbf170c78bc86d68cac0f4422f5e073e488d6291845a.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\UNKNOWN\\a9d3fb81f3640b1864c212109bc23cf52283331a094b3fbc09c774d4eab578a5.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\UNKNOWN\\d65ed6f74a88840136d8ec56b6e01dbfd4dae73dbfade57e67dea03927d98c58.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\UNKNOWN\\d76ca0aec4de9c122fcb60d344750156ba7a0e4391b01fed943d52fdcc2e7185.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "P01\\S01\\UNKNOWN\\ea438b0980f9979037c83f529980836c40f5e8ee7e9d70a31936af27739572f0.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_PINKY\\05b4a494843e748e4bb55cf9bfafa5c1fa63bad6ecf31806c64bf1e2f98e091b.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_PINKY\\2290432afea510219859f0ad7a2f44a64d2279f0948a2e9ee105d76b982b8252.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_PINKY\\2b259838e912988f94b6f29ff52eb0a0f18603d1b3f8ed2db38dbf21a2023579.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_PINKY\\46de4c8a6c822fdbc9350be54abdcd72fd292f17caace513eb76e5fdb2c99738.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_PINKY\\565263ee060f0c532ddc702cf5632b1866623fa5e1cf8c281be40f6f03e915f9.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_PINKY\\9671a0c1d0d7a3fc7144e6ec9131f8fe647b099387370a4652d0075eef9e1372.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_PINKY\\e2970e0891b6171960170af845339718fb0dc165fee448d991590d4c7e5896f5.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_PINKY\\ed9b7c539b2ea9dacd96cbce57da4618ad61d8a7198567d3e5420f42870caa55.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_RING\\3b728fc6854e08a350943399dbcd83a1c4291f6fa3045c66d4477f51618eef0e.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_RING\\446e85989707f5194b293eed300950f8703af68bfdeb04bfdc02c9f676a6e9c6.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_RING\\54e10f4c7105cb1b3c68258c229177ac1ca99cbdc6439e1ea410cf274f1c7c4e.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_RING\\65095af9d153785e2378b42b03a4299934f5713fed5eacdaabefb9126630175d.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_RING\\8821b0277b9db174f6ed8e6cbe3ee0828686a5f6cfb43737fc8c70c2801931f7.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_RING\\9e6a5afcf782922664f44855b49213430d2df60c5eebff03ed2bde82d9c7cfc4.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_RING\\a5a561044dc34fe2866f9d3b8b4c352691eb40aff24692d65b9afd5d9f04ec61.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_RING\\db567a353c8deab4e8fcd0ab172f3f27ac4aa320b951db2f7e2750cc154b8d45.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_THUMB\\023834594b8fdee5d865dd8b52013455b1333ec5fbb0d94f387cf6b3eb2afdfc.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_THUMB\\045965ae467e616b9f6f176c9f5fb11c6395e855c1825652a06bdb7a1d3a35c4.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_THUMB\\4cf1f159a5911ccaf47e25af999543b52e7d5095baae7accc5e7f023ff19028b.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_THUMB\\6116bd244c6301eb48d33316f30a61fb9e73f674cecb332d1a2be5894e2e6aad.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_THUMB\\9270b156caaf4689358b65458200aaf2aa1fdb787bfbf0200d417c8d88b5151f.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_THUMB\\a09550f343ee0c318cbda4f27c68db90152a8b0efb24f9aae55bc2ad974e737b.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_THUMB\\a16f4fde38f1f00fafc612885c0521b80845d65a30e15456bd5dd1de1c2efae4.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\PINCH_THUMB\\daeff66884f97b201f3f2f00fab5b7bbe3997c6e5fc1640dd313d98357ec875a.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\UNKNOWN\\05f1c1f4cb8d891c66babc5ae8450122935500fee7428bd778fba1be809ebfd9.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\UNKNOWN\\39967e3c1b63df0c0d572e0e0a51ccf901fb6fd167bb5dd0d57e1e571fa67625.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\UNKNOWN\\841599444f8c817b235cdf8fd918742f2e66115dc0f766e3500a91a4bb6c0554.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\UNKNOWN\\9ed6b76970557c74902c12d3575af572e9c2d5c88cfe9bcc1527960eaeedef48.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\UNKNOWN\\9ee7eb1bd015d3e6c4ea39c58454dcba286cf3744d625d8e4c193cec7c84d4cc.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\UNKNOWN\\d81fed7a9553c1d43f383643e4ae146403adce26d1ac1b566fa34caee0484061.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\UNKNOWN\\e09674fb2d82c9c4b6ab72bf8b84b9d28559d63bbada69eca5af4c0104f5c182.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0011\\UNKNOWN\\fe992cf55cccc759fa398ad820cdf3092ed316515232fd610eed0a86781e4bca.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_PINKY\\1253f4fedf787ca661d7d3d9532d53639eaa440f81ae697343bae11b070ec9c5.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_PINKY\\14ab5a88c2523c75522a15d7a5e205a7a686ddde4af8d893aa3b17ab3b26d369.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_PINKY\\263f4c7a18a0d761003cba01b00c530360d55c59bbf5fc723fe881fa12f9d014.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_PINKY\\3537df189deb8b37f0f9bf5de860671eedc28e3613bacc68975aed6397b1b028.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_PINKY\\750b80858094d5599b7e6e735c1f1f1fc14a42f723f897c92e95687c9982ecba.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_PINKY\\93743b6643926181ce7bdcb6d1166838f67ab042315f531e174db36a21f79a01.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_PINKY\\9b52012a6b147566cfded619b35c1a6ffe886f010484829a8eb7fcd5dd4444fc.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_PINKY\\f434e30683b8501da5f1c9a6561aa75bbdd24c30e9d2e45937f61e904a11b348.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_RING\\044cd2fd5a238e2effbd62d874aa5ba7664ca9fc62759beeb703acb9716e6dc8.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_RING\\15fd458a44854a8e31d73a2388e638fd9510b5e495f5c2484343a23b86cf78ec.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_RING\\2c7c4cd076acb2ac460bf8fb8c489706709bfc91aa96e5b1bfc962c7c70b25cb.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_RING\\32bc924965e2ca880a1dc2e44b71a043774599f5fbe4714b3945f5fdcb3d77a6.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_RING\\3a51d14cad83828bee2ce1c584048be15d0173a8137000d2c04be4f1ad26d14e.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_RING\\6bc6ded6d4b7a86eef27401964b096963377c4e795789c3d613326b8159b66f4.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_RING\\7ba553e63f71af0acf2e0e5b36fa341a0088bc670d4de94cecf91ef19b2b8c43.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_RING\\bb142af3befb134405c30003559e2ef7d030b5f574c7b1c8acb3b6e553f34013.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_RING\\f596002923714aa2c478c3269ca8c7bd9e90b14f38dfced319201a5ae23ce9f4.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_THUMB\\1859e3755c519c08182c63f3cfcfaa50b5bcaa6a9b5eb88570bc64782287b2af.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_THUMB\\254b5a49a3a87699c57149865967f6df2a718d777f92971e6fea0345f11d28e2.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_THUMB\\39b227b2321967d653e8d6a5ad3c23221f98a03a562cc4ee80da41d39d491665.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_THUMB\\62b6f33e61198cec86972cb996d746e08ea88468c0aa04ef3f3804070cb65306.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_THUMB\\bc1a5aea59ff93b7e0ddf9589d7d21ca5236f4c4115864c02e903844547a6254.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_THUMB\\c449c77aa89e272201c824a3c80b0e980526097b24ba10718b1adb048af0792a.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_THUMB\\d2f1ba55f68b4de36d162b8f261690812730de0da22344d7b60a8e182c86acdf.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_THUMB\\e03f3961ea245e042d2d33b9fa7e3702579d0d2045dbc9a339d679e0c4d0ddcc.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\PINCH_THUMB\\f2af4c128d4bf0169b2d8bae60c3efa44b8ab2c4ec56d3181a831b1c662b588d.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\UNKNOWN\\10ccbd1ddb8d8e9fa061a97b6e6354cf5c3fddf6f0013a671d395d1c36a7a7e4.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\UNKNOWN\\434e6ee41a7a5a42f04209aba8acbc5b3d6ac0b5ac046032e3802d84f4191283.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\UNKNOWN\\7e4b160d42e2fde6b8766cbd019ea984d76e0b7f43430a5209627094befa01e0.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\UNKNOWN\\983c27bcb89b4d50382eff8ef6164de408537adb2a0057e2e1fdb55f7479b2e0.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\UNKNOWN\\c6358384778af8730121cde72cfa5cb98c7efe3f0661ff65fbd457ea7fe1c425.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\UNKNOWN\\dbeb4fd0750a5341f87c3cc97ec54d417a6462fccf03606709dab028f9048ead.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\UNKNOWN\\e04f73ca22f4d5dff5e6fd512369ede3f75db5c4a000c229f262d35f2d224247.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\UNKNOWN\\e1d47fcb4d89d50bf472c1dbf1e751a5c6015907858cc2eef15cb343118bdded.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\UNKNOWN\\f892febfa885e164674ee5941f20a3d9fd76acc766c1692305e347339253b936.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0012\\UNKNOWN\\fbea29137a5362b5afcbd438dfd8e696266285aa994582b77f32245ffbef1989.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0013\\PINCH_RING\\32c0662b8de3b36f7f549bd8e5aa35652018f832a9e9e40f65e0af6c60f4ba5f.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0013\\PINCH_RING\\d1f3d7ff75af4826825bc22dd95ee2d2f1db41349bbd96aeee05a24d19149a73.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0013\\PINCH_THUMB\\655ab609eef04edb5b84f31d1bc4a30da2e8dad3d593524bee99e7839680b780.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0013\\PINCH_THUMB\\a053fc676c77353bdf70e1391c740c910c4d20caf0e9343b6191c501236eca14.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0013\\PINCH_THUMB\\ab750d1ac643ac0b244655ebdf1bbe44ad14c2c7e4702bfba1c00e5cb04f3718.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0013\\UNKNOWN\\37346053ff3d0598f5c29784b8ed61e10fa3cd2125448390f63457976c40fce3.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0013\\UNKNOWN\\8f94bca11e307f1a97229b1347d6b7a1261fe3d9493a0976e17718ae45c508c4.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0013\\UNKNOWN\\de5fc8b44d3617c2ff754d507b37760c7f098762e09a88f266d80b579d1789ed.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_PINKY\\0994d931d914f60e733bc6377643469ac5aa90bd0af8dfc1dce5f0139a6ec397.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_PINKY\\193976e5d49b916df3dcffe46eb3ad4a486ceb940185de6ecf44bd5e8e0332e7.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_PINKY\\7d9dc7584ebf1fb06da473d44a95c1f79340e5a75ebb6098fd454883665ea605.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_PINKY\\c54aa4d0bd5902496361acd6c9983e5c52d0251a725f7e8b476f21737c21daa0.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_PINKY\\fd1dbc1cb5a4294e4b13ad7e762c26bbf3d7f5950c7deb3b285fcb3a004b0246.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_PINKY\\ff30a934ccca683b71e7ef2274f0880f0376905b9d2e4f2316673474bcee7c4e.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_RING\\26bf84fff1743f07c584d860695f1d3724cef4ec5c20a9409496eb68600998f6.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_RING\\285b100c18f95341954014e7e8404a6398c5a3a00c2c29f588fc18f5fb80c793.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_RING\\6f5573cdfccd582ed6c38dab8f006037dfa5e62eabc52df0331eec471a21ce2d.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_RING\\869c62dc3305d155a9812f4daabf113c163c4ad340b2676280ac622dd3afa216.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_RING\\9607e4a505ab4d95eb472ffafdd3b4defe1dfbcdbaa362843fdc059a2077d78e.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_RING\\98e3f36fd4d97fa2da620da566fe675706e3ebe3171201cd045c54d334f426f8.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_THUMB\\2e44221d2905dc2c2545e16eb4babce239fec3c9847268182daf291c1017d8ad.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_THUMB\\79bc8b7e4db2f95859b47535944257b97af65adf09feb0b66763a7a6ed3d1902.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_THUMB\\bcbe81b6f6a3f47b7c95f39f510e0688b8557e187bce09b5fb7d349a4234134c.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_THUMB\\ca5318458dcd2b610f155c9cdf7af8ea6868f7b8fd1d66f1b628582b8c17a4eb.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_THUMB\\d144c3c911a59f17c32503f48f4275a447f2830edb26e759922fb816d997321b.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\PINCH_THUMB\\e1d08e2e9d66c330e6d91fea143939dbf497c796d92d6b9936ba28fecc8f676b.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\UNKNOWN\\086f5018bfd1b1673c07c4d390fd1e028e06c39c6cdc37e5a28c4075aeff4690.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\UNKNOWN\\0f17e858486b37e78dff0c79720c50deacb9dc91025eb1514ba6241ac7b5d7aa.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\UNKNOWN\\2459669bdcde1d2cf3c1093265c207c8eff5601eb410fa191f4f718fa3870e05.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\UNKNOWN\\434df79b7e875da4916a45947753005728aaa869b50b846df64797358d7325ba.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\UNKNOWN\\51f8f9d23aaf27ac4280275846bc187a251155cb468eb0a285cc1ecabe8df24a.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0040\\UNKNOWN\\948850eee25649bfb20e23486da1a8a2747c18dcaa36b605d7d0bf04a48ec0e1.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_PINKY\\02221735113de323c9dad6d68b9209e2c80e881e84c768997c15c57964e40afd.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_PINKY\\0227d05b1e3a9cc31e994dfa1bed7f0111734e7b571eb0e4c8ffdc130faa0e84.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_PINKY\\058552c2368b3d0c69202166539a317b36c2e7b4b467e27a1ebea0a1df77bebb.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_PINKY\\2570c2ef5d10c0e01d407c162c657d0ea1e2bcb8147e06a05191a801bbf8a216.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_PINKY\\337ae9451899859b5fb0bdd9f223820c7107cd8c64d6bdb3df47ac4f5151e6c5.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_PINKY\\44b355d5d7f2d58fa8c774a7211da647a288db624bfe0c128053d13fbe504b94.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_PINKY\\67fcb644854f1eb100be39c03c1ecc4eaaf6e4a5fafa46a7635e648bd72b465c.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_PINKY\\bef63eb5c47ee2390ca3a8d727ec05d7b66ca611ad8c615561b2403a16b987f9.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_RING\\236cd269b0f2a9dc53a81bad7fff942c8cafcec885f20455ddf0f7f1481f2a7b.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_RING\\5c891f639e5dc358c41b95c4b5585151ee43c94bad9756a8181323041ee5eca9.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_RING\\99890f66fbf5f11b8e14ce42abed37c3e4103477e9aea2981a0490b6b11ca885.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_RING\\c352b88ad90521808d56a88703a6f87cf07db6238b0179824befb390b6f5236b.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_RING\\c94e89af7b39ab2b7a30f270144607af112552fdce63b615f8fdfdfba6a14054.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_RING\\d06da4e45b692181bef9568187152477387d07e11b96ae3e62ebbc55e56dadf1.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_RING\\d44388d7feb33b5896618e04bcd1edbc47fbd5f5ea5c2ffb6a317e48b26b8e98.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_RING\\e1f23fb0c701b9351a6cee3b56a3498a97bde5f8020dd9d24dde15cf4435feeb.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_RING\\f340dad52236a23c430a89fef2eb9a4c58c36888a0429ff0d017b23642acd2b2.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_THUMB\\47785b940306dffebbbab226c4e78ce294f40d4b8ea6622688516b402e06cb4d.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_THUMB\\4ae49a6cdefc305605a9671b072855cb7cf84b2e08989680747dac7e27030e46.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_THUMB\\50f375f53b7198cce164372daa099a67637c3e4f8a5fc34da9c0331b8bb2b002.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_THUMB\\6d477521df6d3e885f01ae3be1d900003ef25ea5562494be4c21710368fccf3a.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_THUMB\\7a88e303f8d675ef974832158b54e88c9b2ab5c909ba291f8dbae0d014dc708e.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_THUMB\\95518c5b73bf3b11b5a61beec9ec523bc69dec8713a1ef812df10f95c2c41a7c.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_THUMB\\d4deeed65830fed36980f2bd2211bec5ddf3fc7692b2df49385cc9975b19b8a3.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_THUMB\\d605c105f1589dc9f4b3bc2c7d3bab6777b8611843de3b0c90d635d1edccaf8d.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\PINCH_THUMB\\fc45bff694e4caeae943400fc541bb11487612b8052be49585196a8af79d2530.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\UNKNOWN\\3585adc782097b01326716f24e4e0bf3be8f7bf9cc32636c019e6f80464f595b.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\UNKNOWN\\3e96cb5dd1c618ebbe789958f9ce8d338a770e21f23f486365a6cb8487ade48f.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\UNKNOWN\\56657aecd3349470be5cf1133c0a9c1978a648e8fb5fb5b1128fa501705fea1d.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\UNKNOWN\\904c8bd23c1ac7fc1b784f85ef9ee3c965287e0fa9cec0f3116013171e72991f.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\UNKNOWN\\a1db2e1762bf432ce3e8fc1ff1c988b06d594829f4eba4391f1d44dda26f724a.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\UNKNOWN\\a3b5cb2c573ef1a9f98c0edba1ae88672c164639a8e72f2c9554abef64b8b64c.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\UNKNOWN\\bbf21bfa8e5d94cd59a6a40e1db2af5a0d64af269c85cdf9673ce236ecf8c9e0.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\UNKNOWN\\d407e1e0024c81bded70fc9720e8c43621d57ff23d9198044a6229fdb7632df9.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\UNKNOWN\\dac47abbc7f21271105809e571a6dae0e233fdef7b60648148a65af1105cebe2.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0041\\UNKNOWN\\f28b28820cda04dd46392ffb05c3d028dc6318c1f3b8eb82a506ed8ba3021535.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_PINKY\\0a274e3a3175687f87407bbd9134cce40a1ed0a8ddc1d01b9e514b0fc3236b65.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_PINKY\\1a9aa386c1f8b33ebdfea32bbdc1358f11d793b11fa229ccbb23f1dd6ad86985.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_PINKY\\1ba3669263bb1bca0cad0c769da23ba8b1e2da308415dcfe8cf601b7aa28f26e.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_PINKY\\4f7a284cd4967efde37ae09a64f38a1e3f7b1989047dc91c6ee4dcc5ec4a3cb8.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_PINKY\\57721a06790197936261310a2f1981fa22f7b0af2a1c876b04c707f53fafcd77.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_PINKY\\89821db87a8f227d49391aa6946ab5e2828bc7ca90c6fa19c2d00a357dc874ba.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_PINKY\\aa4974aa53369f5a125a8bdbf64620a653da532c7760098d4d9e264130ed6679.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_PINKY\\b4b49cf8be5f9996ccf99165db36615e6497a28bd37d82f94cf936d55c4b028c.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_RING\\1d247fa24190e783c74a5aa2bf54e34fdce917e0a1cd288b4b9f9a903355a408.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_RING\\32ebd7505f146174285805345bb9ae35c0696d8ec950f0de95a9998415c2a756.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_RING\\477ab2ce35e9202ad6b35de5851d706099016aaac033a6a5f5bfac72e8fdb8c6.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_RING\\48d96e169f1e7b97115cf5b008a84e5c5a38f249aeff208bedaebe589e41c500.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_RING\\52aefa2c9a674dcc686150bd2b736c9eaaf9d6cc88aa2437bfdf85b2daa53e35.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_RING\\7f426273fd5098ba4dc77c021cca05186eca692a779c98dccfd48ada83e0d084.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_RING\\a2446970f27a098360ae9c956f5e1c963a304ba8e771bac666c42712dc89ee7d.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_RING\\c0892aa5c7c4d15fbabc3d06fdbda2c66a8673a93e895778a69bd15a2e08ac4f.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_RING\\e23239eb5c7752f10087ba16c7e1cfd3d932582ac01eeac1cad1cbf29ba8fbfb.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_RING\\f319b0602d45e594b553a1a1c4ee4120887d3f6cefd3f59a36c8a56f3cada8d5.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_THUMB\\06f10b7bc55995b736932f5f97fb83a1f25892a27f3dbc58f257a678fef4045d.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_THUMB\\22f11194fa8a08b29501aaf605c8dec6df75c4e5958e003ee4e88757848796e4.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_THUMB\\2e554c21f1597338741fa0ea55645d075433090c97a5c7cdc2a2c19f8f89e28d.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_THUMB\\39e0cdd4214a18cc6f038920dca083db00e895558d0414297ee963d14ad5b1fe.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_THUMB\\53a9ea38bff6ee42f74dd22a23c767de70a5770d70f48765ffdc8967c85b2a68.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_THUMB\\5a4f7f37f07d5607345d1a91d4aa8c89a9e5e6a1650c0fba36c88c3a0f48aede.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_THUMB\\8239f12b0c3c94cc396212deda0f9436f5d9284ef3694712004db4b8e84187c2.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_THUMB\\8b4477bb036aca6d7cb49f14ae52d0126beb377112b904e0883db29948ca0c28.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_THUMB\\bdd94dc756f115e87a240eded88fa3ca85b9f803cbb3c59447f530eb2c6796b4.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\PINCH_THUMB\\e26d7cd34d083e584866e99a618082a3416c7f1017a834dab64ab141ef67bd90.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\UNKNOWN\\2a082e5703ca2bf2a313db4ced281c95994c07019d5dd980725198a4a5b2bcfa.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\UNKNOWN\\3c4bef8ec51d77a0f6a2018862da00806ffc338d3d8a9b8d7569a8f285e95820.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\UNKNOWN\\4cec60ced4ac4be4c9529cad4eb901a3d6446a2b60da684678601e1603052fb0.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\UNKNOWN\\7dc5b4e7cc981ec15fb2654c4be8707e013e59d3450c5f0e0897632e8472c6e5.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\UNKNOWN\\8940ab5388ac325052738a413e6e499d4a178183ee074ff56682012c99f269dd.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\UNKNOWN\\a310f9aa54cb3ec51524da7b0cb855c943217b3cad067d0239fa476fe039bee2.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\UNKNOWN\\ae7d10205a48fbabefe18af831c4ed58d7cdf4b8bd3a5e09d4c1ba983e4984dd.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\UNKNOWN\\c8ce2dee316e6771075456d9e3e992ad08ff2743dac447a8fea3db31d87526b4.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0042\\UNKNOWN\\d4d823bfcfac7158b277eafa3e6401c80a509a145161b0d9192c56da467cf443.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_PINKY\\00b058a58319c9142ead850e7c680510e923b8152cc0feae2129c208df64cd7e.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_PINKY\\0d6212726ba7fd80d259cce6fa3779dec1c2ec15309865afb55f72a73735f9a7.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_PINKY\\76f80d9ca22996a7bd14dc30e0921f26c946ab533bd7391908f8fdb80ee24e74.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_PINKY\\79b305d9c618738488adb570a5b9a3b9ae4847e7970781c45039946ddf14c386.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_PINKY\\99492d52e06e5e79d6324a35c36cb9b2d203046c8044ee8a02c7a50d50c27178.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_PINKY\\a59e9f98c216353762da357009052ab222cf656fc612ce39a1620b4c6270be64.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_PINKY\\ae136f6cfbbd7078414892ada86800ef0d6acf4a73a55a93cd4ca54a75aa8231.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_PINKY\\d9df5b9156cb25f4746aa164dc59985289a5759df4c1c83b82a96ecf6471e43b.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_PINKY\\e459624c41c5acd02be1da5b53e413acb30926d22194161fb62334e19ccb945a.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_PINKY\\e88b4d349aa675e41bed56c2ae8189e564f5b06c94cd01944160890a8497739c.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_RING\\18609b71556ff69d828d8a678af5e40f2b0e6e6b40d25af819fe37eef9f303b9.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_RING\\1f5f17a9348f7d3d5e37eb8f855e4cf0e38f7c95c389ac62ae1ab524b69b1349.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_RING\\2802b634c6400a1d8fac7391b1c58de5697f3f04339a9ac329041e06138a5e77.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_RING\\610764bb692df9bfd14e09344c60c79d1453166dd8272148832ce4cccb0be475.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_RING\\74a62e494243fa10811e65ddd1d6fd5fa3d00542d6978c42b6620df3f487edbd.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_RING\\8d53bb3e15ba19f5042b5541b7e705fc369ed772284be44068de2a2794d8e371.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_RING\\9b5945f865ca1b5bf6c0888521cfe5330f0ba7d762fb176f0a0698663307afb2.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_RING\\c7031db52c04db735e606bda563f2554b6b7f78de10a90c2dc74dc48a5bbcf7f.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_RING\\e844b942e962edb8e627c21116fcef0c1b9ed19bd1da5375dd1c10fb81169419.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_THUMB\\0370851873cdab36bc214a8883ef413b3c988af6ffa633857f0e6bbf6f8c8edf.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_THUMB\\0a0fa65dd8520af46c8481b37165ab22954da0f881a0e9d5f5a0298b9e2d9f59.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_THUMB\\0a74ba077cc7ae7269ee5c73a024151ca68d531d0a36419875a04414f5290ae2.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_THUMB\\2bb275f1ce7778f16c8b1f2b71533dfb002623fee427255f154a2fabd3c96f32.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_THUMB\\3bae9ed4d46141d4f6d7ada821d5bcc3563e9f2f3b419a6d5e55e2ea22f0365b.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_THUMB\\4182b6119495b78ea9e2debc70a638b81dc5af263e1821ebb60ac26dec3b2afc.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_THUMB\\702a3afaf748589ad3483d52d5bd47889d47ba36d888f6e1605e88129c40bc57.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_THUMB\\d0aaa66d53160fcd05aa941d4dbdb5858ab44a1927077d9b579922b2b706142f.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\PINCH_THUMB\\d5a47097c3a69f3917e90671889d02f231f4022bc31001c9c682f9d604e4ae87.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\UNKNOWN\\00c7dc21369e7fb61441a3098a844e70493184dbd73486888a6d7ee043120e78.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\UNKNOWN\\167598cac1f07169fdb3180d78f9a731f2cdbea6d4933f03e9bbe2fdd19d331b.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\UNKNOWN\\1ecb5542fbc801ca495e72a6683fe4eb1c4402b8f100e7bdd780e32bdb0af308.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\UNKNOWN\\2c1d612de6d4db679fbe8d6d2ea80c2360d27eada243b8d42a13a8674fef9f8b.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\UNKNOWN\\3a701abbceb01ffa0a881bedc09fe1ca7ce913b9200263502ae290904407636b.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\UNKNOWN\\6dd0c7402ebfedfedbc91881d073bf71f035fc12a57b3480001ea1db333bd758.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\UNKNOWN\\de26e97ab65c94e04a94f7a0ef82e18ca3beead1c628c344523fd8b80ff9b560.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\UNKNOWN\\e11d96e2aa181b8f6f4e83081f075a5b3b3f4692f8075a3dcb948bad87b9290f.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\UNKNOWN\\e2c2a56d9a77a21a34124da98121b8850f856447a1c78ab75d5d41b3948f2370.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0043\\UNKNOWN\\e37c47987e255bd449ca69daf524b2f862943417b18ac06d6f4b67d84568ea0a.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_PINKY\\3b3e54ee958bd3c3871ba7d38858ec3ce747b69be687c4209549186cdd60a1c4.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_PINKY\\5f0c00f38dd33c9f70e10c7d1b2025245872dbbaf31bd2eca3873304929426e6.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_PINKY\\949c03b55184f7ed049ede174c54a9ae8a55b60c838c89684d4e86eb39323be2.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_PINKY\\a243130f71c2aecb4dfdd7dfc787cd5bc9d6f65bc2cba652a5bfd80ee76a252f.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_PINKY\\c7499408a637fcd825e901a05576f2bd07f0d1dcf0048e05280caf370d3ecae2.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_PINKY\\e411c0e11e8be0c3cbe0eff0fb279df3b25b0f8f13a882e32feb4f203efdf012.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_PINKY\\ed1f1232034d13fab3df4fc34128d3d267cc20dc8fc203d1439159f3eb1a9e44.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_RING\\07313ca3378ae77feb9a6b808f9c5973190d9ac7340e80178e2b38ac3f64da4f.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_RING\\0b435e06d5de3788cab8de892a747b6496f5a2a2f2c7833891033b21a28e295e.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_RING\\8e9501d848a87a57da7bec6fc15d2c20090b98de15f81ef01c27ea67d92738c1.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_RING\\c4f846e5af420d48ec26103d1cd2e971eb17a458aac1a3a71f10dd1ead95ba57.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_RING\\d1251cb5fdb4eb777dc51ff720afc358d6ec555ff11f781c460dc3aabc3ae569.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_RING\\eaf608cd872d64f38ca3f887c34afaf8703f5c66f9c64acd68631681e7f38e6f.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_THUMB\\08cbd3d2f77922e0e8c732686359ad008da45df4c363dcdb2d5999177b4afc98.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_THUMB\\2758c9242218629f91ce4455e32a0ac9b483f36ac3a9ede4ed5a57a15395c529.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_THUMB\\4090dc362fe64eb0e4b58e9dd1ea5406859b401a0195ab71ff35848d415ef324.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_THUMB\\5e6fe0d833ab8f9b27a19e4f7e2830df862e67409983e4862d1c3a63657885f9.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_THUMB\\863ca3e5d3abea930ed6e4ca5e4fe1713c1c3127a7280e7ce147fb59658e0195.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_THUMB\\9c611420f571376c461b8bffb3b7b80a95bfcea41cd77a9c5b012b1bbcf25290.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_THUMB\\cc028354956dcb67f862f02ccab2fb5afec50693af047cb206518f7663131d93.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_THUMB\\d262868b67e80f176ac3571a0483e9ea681f7d90dbcd7f06b91869ea40df7e5b.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_THUMB\\f06117376c402cffeffb1ce767afa250d97f545bb0986a62d997d482b0d7e717.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\PINCH_THUMB\\fc4b60a7cb06540b9e07a91bb6d11fead4dde340037968d1e8bde353d866e4b8.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\UNKNOWN\\18751449261c6b386c55ee28b0a5c44984ce35ee02db730751e96e307014c408.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\UNKNOWN\\30e3acd40bb15336e231cbbb33f1ce4d76d7673a3ee700ba6f606b5d2a60d3f2.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\UNKNOWN\\47d8963b4e9d180c19154c951c14f6f708184e56df6311009059118330000404.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\UNKNOWN\\682c27e01c0dd015b7952d588c3b4c699ecf058947c9e9fe74ea9b9bf929a8b8.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\UNKNOWN\\6f76f92f7e36ffcbf189411930028e9eae417867454e42dbf66fd3a8ad515c1a.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\UNKNOWN\\77a76dc0c36f70eb7718388eb59dba812ee6097c61314e0d386d317dae9d1a0e.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\UNKNOWN\\7b42cfdd58422d6746c6f4bf2999d981c6247e3662994787dc4e23bcf5315749.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\UNKNOWN\\ea5a1c016b991dab6797bfcdb814e0b5f7d18e6574237a8722b1aa00bd95201e.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0044\\UNKNOWN\\efe56a2048e6aa729ebd0c86f5aecdef15b44db0e4dc0b8395de5e7dbc29d9c0.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\PINCH_PINKY\\3571d63baa402a5110b9782cb734e6ebbf7bd29bf16d2a21a35d1d90c276de91.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\PINCH_PINKY\\e5f74ea13cf228b71083da389c938c9a78daf68b0631b57f04af610090a07a6d.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\PINCH_PINKY\\e6b9fdb5ff49c5afa4cd373e812861a20dd9edd7f5dc946695baee7df6837734.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\PINCH_RING\\04a2a6c3f6d036c1899c1031498af15855525278d56fd3902a2d4ba1d24a1a2b.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\PINCH_RING\\2c39db2bfe96fa284e9bc2255f20c7c0b58ae390a2faf59aa68f98c105f4b070.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\PINCH_RING\\58b7027699b2fe8fa0a74897d93cdbec88804bbe1b3f3f246f7b0ed3228bd788.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\PINCH_RING\\688aa66e7fe6cf0a14d25a9c19cb9a250b89ec94c579435379359f3ef2a3c7d7.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\PINCH_RING\\bf10e875bb9e5645febae23ccb481e38a386429e5f4bf8ed30fa788d03bbe819.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\PINCH_THUMB\\06bc77228d682860d13e8c51ed291dda092764375b1ebe74e5e0dfb47b9ab76b.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\PINCH_THUMB\\1ef96e7753a72cc963ab4d35e7256e490c41b38219abc50d4267e4fef9e7f08f.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\PINCH_THUMB\\6bc1e5816ccd2b8b80ba27d737009db02fb1a170107c61eec19fa7629f5ff17b.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\PINCH_THUMB\\974ed531a2f8206e6dae945045856ed9046ec85ca722f00f80d56d92437d3106.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\PINCH_THUMB\\a2c74abc7de83345113c6d022302813dc8abfff2e89302a836426c2cc7cea022.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\PINCH_THUMB\\b184218e5a90d4991753485c614ebb4c1262f635237c5a0ac1cd9e0e3a3f016d.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\PINCH_THUMB\\c59b1f5ba7d802cc1b71e40828281b47f7edfe9419b79fecab9df73f3d14ef8b.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\PINCH_THUMB\\c5ae08d327e0d188ae75f655b93380e15050b5c3051d7a445a5636476a88a268.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\UNKNOWN\\26985733afb0cf9919542c2ff79ac83d8f821468f20a68c33f1755bd32bd9dcf.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\UNKNOWN\\2a335edaebda5d1d08fd9869ef3ba653b967b847e83643ed58b82d7908af3d33.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\UNKNOWN\\514ba042398331705ba76617162a3832b4085a34bf026e8a06087875969423fc.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\UNKNOWN\\681c92193155e4c5225203c90ed88f791d81a70dc6dea5c531c4919e55fe7d77.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\UNKNOWN\\6ca40af6db5c9a9c81f15a9ed20fb7e9ec82fa1f1842940033ca94fb4397ce3e.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\UNKNOWN\\92c5380d88c0994f7a6267a13da06bd012bc2c9523971faceff2fd3e81894bc0.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\UNKNOWN\\b1e3309f62ba9aaa4d3f23d63f29a8299aabfae65bd54d261720434f9efce665.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\UNKNOWN\\bdb151e5be246b4d2200069667581823a9ee8a54635ef47a74550287f9fe39a9.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0045\\UNKNOWN\\c654c81d16b91bf1f8065ccc1676478a1a0922ad725f9b933cdaf2ee9fe3b80e.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_PINKY\\3336e25d62d94da54ec395727b4e4fc94a6d33525c67d5cce4bf9ed488655d99.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_PINKY\\60a627f64c9e9e9db7e286b6e54f518a5be4f07d41a5c2178cec4eeea80ca0b6.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_PINKY\\7805997887cb51911211407dc5f3de6c0d7058e1162dd329ffea15e202b8a7cc.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_PINKY\\7be269e3842ec688bc20856d332436d8479bc7bd9842e1bed00963276fda0dfe.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_PINKY\\8f6f82e7ea91af50fcc60fcbe5efd01f5a7973fd553c7b2863b43e4f7e0145bc.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_PINKY\\af77137a8a63e2fd46176d06189f59b32549d381b502c47c28f22a8ea9f4850d.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_PINKY\\db099ba895462ac36d47e252054e82d78f82bb42e53f23063dc35a9f2e6529a2.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_PINKY\\f0832f6064c090d6182faae7eed9e7df505aed1c37c3d3367ec022a29f48947a.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_RING\\27c04f253a57437587047a3301a6efc7bfc45bebc540159506765a13d10361ef.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_RING\\59a01e8d4aa04a3d83910588ec095a2890acaf40612f67f2e30b72894cf0891f.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_RING\\5e5efe05fa3ddf9f029a861baaad3929566d89123cc3345a2d58219919830978.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_RING\\8c644cf1fc663b565d78884b7c5354c33510bd4f306c3fc13d438d6aa68e352e.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_RING\\94376eb13dee6f867b46fd4df44e8f520336cee9f114504d436758eea5f4994c.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_RING\\db891a9b15a24f0bb855232a67206e48caeb4c20d55c397355148836f34cef4f.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_RING\\dccd90d0531d4eb6df5ade6c64527b3b5a87a3273bd78f2446c12ed9f24edf62.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_THUMB\\0e94fc83058d23332116ad2da4e948ae915b5e29c8611188053390332700f716.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_THUMB\\89277b0e2ef97a099fb12e5cce595f6a126a1e959ddbce681ee09a6586486c98.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_THUMB\\99b5533ac08faf46914c413e25c78d589b4be0f058b765f9a15ee161ae0106b4.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_THUMB\\ab0be055e6512d7b28b1967b085b172897d27781731e9ee8ae5abdccb7ca3d7b.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_THUMB\\b8bd313b2095bce921b9cda08c8450e4f90807a8742d1dd1d849ca5b13f8a65e.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_THUMB\\dcfab30f8edcf00412233c835a26bb3325fb2695ed9601511892cfe551f7c985.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_THUMB\\e4a908418fedc0c9029e67f8d13682a94b50061901c82e2eb0c59a5bf466dc57.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\PINCH_THUMB\\f7a100a953b03afde05f95dfda6b8de7093f93c165055a30f2581232e9dd575c.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\UNKNOWN\\10e48fc5769293a0d42bf169dbd25e52b9118158cc2998002b1ef99e4b819111.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\UNKNOWN\\23980ccf356639375418ad2290dfe6e45206fdaadb31a51f6897397a6169918a.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\UNKNOWN\\4938c90ae570421e8c3f364dcc90019ef8c017f47c2fb091bc906c97be863a8b.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\UNKNOWN\\85e1e0f6df145bc4e82797f897187b6b0b54ad4c0dbf46603697dab721c6221d.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\UNKNOWN\\8f1b3e838cda9f9b2f56f0bc9e86160e440e64a1626b0b49bc5ad27655dd86db.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\UNKNOWN\\91de1394e017bacb6ac3255005d26a7469c25bfae8e407c76e08cfc00be4e612.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\UNKNOWN\\9cdcb79ab27c366d78ede560bc3524e7cabfbef190456d82ed68854e909ed2db.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\UNKNOWN\\cb15f5223d509cd38e584425eed4d680597e9b52b311ae09847f0b71ec3ff73d.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0046\\UNKNOWN\\df5de83c2e4d23bf621260b1e397ad89d4d49e4b3a743fe61567d47880af4381.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_PINKY\\6283bdbd33b38c80e256e1180a528fbd0c34ae3ba202b20bf45ac5fd86149150.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_PINKY\\7ceadd614ebb0aeb4f7ad7fc59f933fb17f9e4a420984d3e48989d2f0795db1d.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_PINKY\\893c7c177e2d70eed04d4d0eb58a932f18fafc132625e4eee882b3e609a28cc4.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_PINKY\\8fd863b54fe123a3956de43029ea2352f664d2ebc2eb6040b4cf228f505660f3.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_PINKY\\9a32d957fc45cffc82f0f3a392c5f34ceb36f2cbbea9f256334042f6ae6d1c0d.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_PINKY\\bbfaaabd1724523f84ae60882979129dd629ee011ca9b2c631b26d1b4eafe885.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_PINKY\\d116012c72c602963764e7a711cbacf219f02c9f7b708a048f57399dd29735eb.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_PINKY\\dcf7f7b0763da195358adbc1dd53156399c70220285b1f13388aeed2f3ea9e0b.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_RING\\10d432462338ed1ecce479abb73f7da2bbd56d62b217b1e5c51d15ac1956ae22.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_RING\\11278f27cb4152d7c3462466ff04e0660161d1c5ac2c0aca415e8af5c821e01e.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_RING\\1543491bdc8e4cf0d0fbdd61542f3e856244451a488d562d52cda6209aa954e3.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_RING\\3abb62aadfcfa8739c696bf926edd1713a36311d5036d202c5a4e582e08ebe98.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_RING\\53b487f07011b41b0f428c10cb31c7941ba5d85cdae8c7fdcc76fe8dfacd153c.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_RING\\638096f35ee2425ec4960c90c0e33ef20539ca52c27f16aeba24402939a12fd6.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_RING\\7dc49f68bb4b7cbab8784d9810a7718d162c22dfa3c7e7d0d1714777074d8486.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_RING\\8996c3f7e7c8caaaf11abdc3fe185f1e1989cdac06068b0af9b75bf2df8e8443.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_RING\\f9325fd0fc6c1da8bdb60a47d38b252f5e225423ac75db4597fb577a193a69db.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_THUMB\\09aa92766b5fdcf9bebd7101a2a82aa1d2d9976c77bba290aa658e557ed74954.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_THUMB\\0f38cda6fce5694dc5afb0b759ea3b97b0b5a49d7dbdaae48e4f75d59ef992b8.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_THUMB\\350844cc17912d960dd0150329e78830c82afa48865ccd4b502473661ea4277f.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_THUMB\\5a4e838752058bc255ebb2172adbeccb4dfdff441445acaf64fa4b26a7de748d.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_THUMB\\5da8854dd7187b76e5773b1bec4d07351ab1620c4a0d29ccab8a025a1adecb00.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_THUMB\\82c4aef28e9ff82cb8f54b11d6ddffbfe598b221639cf46b0eb24e0d8169de6d.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_THUMB\\ac8266e38704e18cea1fecf33664544573defc16f246c8dbeb8a1dc829cb8786.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_THUMB\\af88f1e1a6a9dcbb362e936eb3d1422fea1e5b777b3b112c14d8d1a50ddff906.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_THUMB\\c729dbd8aa73b7026ad049d86caaafe16c778bdcfcaac6323096e911ade97304.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\PINCH_THUMB\\e540c1e97ff773bc16b26c9aa1a0512fc1d3bffa880490ef6a52a989a0963e03.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\UNKNOWN\\172bb0a6054a9d13224e58b7771fbf3ea77ec2304af74571d75bd7fc9f1d50f5.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\UNKNOWN\\23eb66e374f8f764b777112ec277553a0ec92bb3950cd996d858a01e56482250.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\UNKNOWN\\27f8d505dc62008d350501e55be3b526ee2f6e0950038444f3f8878a560a4782.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\UNKNOWN\\2e777a3736c866118a5f62b42aec06c300c868094839bfbd2dbf52a11dc94ea9.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\UNKNOWN\\3d32653a0545bb3dfd98ca62a93795e7a8c3e3b8dfd80fb62d193080d63623ca.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\UNKNOWN\\48cecc6c6300a8f4e81668a179f5c79688a3bde5067de45b45958c5049cc9d84.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\UNKNOWN\\77bcfce42c36149de09a68d0ec793f144b762d1882c07e575c66bf8a11b44583.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\UNKNOWN\\8dd81b85cce9e2c567da8bc961d50b537cd3389db38cf13b1846b20ceb6bd0a9.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0047\\UNKNOWN\\fc622b24d8fbbbc27678de0e6a82ba6c6a2b66be0c48fb17a5a5eeb6ff15d7ab.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_PINKY\\0603a53ec23938174ea3e74d11e29251ea22f13c9bf80ba97ec893d427a8262c.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_PINKY\\15e9678e917ab3a2081540e548d14f3dea38a9405f784416072f0d006ff6d572.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_PINKY\\3a38a6f4af109556503a35b3ea311e235dd6215c9571ca6bb9a3fea21f471b90.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_PINKY\\6cadf1ffe9957068c2fca8efd89f952d82708320bd0ad4b518a271f019b2e4d5.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_PINKY\\8fdfc0805283b152a1e7bd05cb047ea995c73d5bb84bc3ef53ed86c8cfe5c125.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_RING\\0e737fa5fb48b50f7b9e997c8ef43472ef2d99fabc868549c9e0f932cf2a01f6.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_RING\\2b5036150fb5ad9e79dba32a0e4a633b48da8e7718f39b08cdaf5fb6fd539ef3.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_RING\\3c98142fab2f6a13dd594526d3fdd94e1a3ccf6266c90a1d393b3cff2e9675df.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_RING\\66047787a8c63345fee71aac7b2abd6bba3b91ddec3673171837a80acfc8c0b7.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_RING\\6dc442b953cc5b38fab6742d1a15adea5c7fd5c6c3b7f72cb3ba0567f9a4e6a1.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_RING\\e6077ba96b3fb2b627be8266739b5e47dae7aa5413e9111f1aa6577edd7771af.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_RING\\e6ae78f5015d99d8576861588eb873f9301bf6fcfa71601973d5c46d98233b45.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_THUMB\\16ff87d6e91377e7b7d6c1d8b2e2c1604dab6553d48dd2171fdcb0430280bc47.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_THUMB\\31c740df9a9a0a02f60aa941aa126592ea560da48f90ff90a50d2125a4751cc0.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_THUMB\\40551699fddd45cdea66cb8f6e53e97993384b9a09b7378d4a98d6d75f81ed4b.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_THUMB\\42d381a7a73e23ee73b9948d63d5a44599754ed5c83d1a8bef342202446b564c.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_THUMB\\760d3568373c647633fc0ebecdd4c14c302ffd8e418b31037b2efc66d111f210.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_THUMB\\8aecf10a1b193b69d7e1f7c1eea8f466afa8308c0a410195607cf560468aa280.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_THUMB\\e7f1c97a350cd2a6996b9b0fe9317b338119ab8fec56244b4e24ee4c1350e18e.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_THUMB\\fb4ad6da413220763129183c36c31227380462760b4594f2433b6ec2d9644e36.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\PINCH_THUMB\\fcf5206b0286aca8e34332ae84aa5c826401f4c88a1f8bfb1f0042558562abd3.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\UNKNOWN\\436522a021cf2bc9090ffff729bab43191ab89ddbefe2251aa9d9edbbbdc8c9f.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\UNKNOWN\\7b841d51d4ea78b0fa896e47d76cf6cb24c8a7525ccafc72d9a1c09d6997a3da.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\UNKNOWN\\8edb1422807c367f0beeaead7fe20d5ac7315ef369bce8369b603117ee25bdf5.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\UNKNOWN\\915cbab0b8370a3ea76786734f3b11f058083f7e589bf9224d0b53a7f5f94abd.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\UNKNOWN\\bdca7a77b028b1608218720ba0d9535ed9b2d9ec930ad4fc4ee60c2377c8d89a.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\UNKNOWN\\c25f6cb4697d27703b602014ab1ab687fd2b4eabb7b983d3d92fbad63d8649b7.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\UNKNOWN\\d399cd9d5b8f188ca2c163e47581716944da004c53f21cbbf5bffa6b7d6b2de0.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\UNKNOWN\\d3b3f41488721129465685e533884b54b01a075db94a2ba8864ad8f5da3e5648.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\UNKNOWN\\dd8529cd7c466b7cde26aae8a1261e6a34e7e066d66ba72c1e5a49fec3764b60.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0048\\UNKNOWN\\efcb07b224134a7e9dbbcf9d388975680f30a177f9b8a344d01d019e4a915bec.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_PINKY\\23db788bc386b5cdfd583e0536fa96de74dd0151b90527fb0fd40a52cc926936.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_PINKY\\6cc18ef261e3fa158d74ed90af0cd780c1a471550b018165bdcedae453727811.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_PINKY\\a53b65e4f493e36df3af5ac4b5399707e0db181c7ddd8559c4903366245182a6.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_PINKY\\b2e337bc250e817b41ea6bbaf7557304984c7249b31cdf53223b3aa8decc0dda.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_PINKY\\f856fb7141dcb74e1ff1a340aa0ea5bde7accd53434678ca079dfbb1ef625ac6.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_PINKY\\f9f8803b31ad725de3e44dcbcdf56bfd87c94467578ab4498593c24b16b2169e.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_PINKY\\fc49ed5e016a1d3bbf17f0dd0e288c12318a98a8150c2b8d1fc97c188193259e.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_RING\\2c319d5c8627b9435463546b9515fb071e055f89255918de4bb6ac0922130198.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_RING\\2f3221c7ff36d904ee8ee9e8f5f6e19b448d0ef77a0c9579e72e78231a9a5c8f.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_RING\\3cbe44b435408cfd47f0f66e1abb12f5c7d91ff74b09a35e41e6852c3249df81.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_RING\\6f200fac0a060814b9122ab542123f86b3e5505cbb0f33b4aae52fcc63f53f75.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_RING\\87f5fe2738b72b72896c7b5630855707ae6b4446df44049266a06f0422c438ed.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_RING\\ba34c1521e23980d4ac97934c3d2b0b51aa71101c6f2fa801dca0cb1ba81c335.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_RING\\c3d5549c78619727f57c10615ac36186731cbd094dac97c315f8c5b92b094015.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_RING\\df857881e5fd9dc30853751b3b84b2ead52863991bacf237a351a783be2c5118.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_THUMB\\18498bf9cb5f7f92e620936576ff303f08a119651e0887fdb2406c95dc06fd54.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_THUMB\\38672f77ba1b95928f397f1f2923fca0b30eecd53f6b47852de0e29195d50849.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_THUMB\\435bc871bad8c3e95538c73ce7a81d5290f192264da7506873dff41de452547b.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_THUMB\\82d353ea84756dda96e91c97dfb4e82db13da6f993ff07ebeed65dc7a32a4099.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_THUMB\\8b5928ef67956c680e04bf3f9722f5fab107cbc7e688d6302e8bc29f20be712d.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_THUMB\\90b5cbe8366bca5b0be53f468b1ccf14bf8d679c8c2dad011fb85b5343aff531.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_THUMB\\a9e3801469a6ebeae03b67aeb6514be6ce7325fa1f11d36bf6d424d42c9035a9.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_THUMB\\bb86e9cefbd4225b981e61c339d5cd61d01c958764519c91df8687ebb19edf02.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_THUMB\\c0ebf69982dd63b22b20ff6209c2f9322a8707794f050cb52b8da3b4a43ffc13.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\PINCH_THUMB\\f126e0fc537bd7aeb5085a70e9d8f6aa4230c7142630d3b74f18897fad47fba4.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\UNKNOWN\\3d2e6cea6959215f67565bc211b4c17de725ae4a4584e63c72da0d90d9f544a4.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\UNKNOWN\\606ae534501522ed71cd0a6904a8ec4b9e393d3193b2b12e7a257011486c1fe6.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\UNKNOWN\\60d5f55c43b1895b3b0f08545b6f9f91de64ce287e26a6ab00e62886808d676c.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\UNKNOWN\\7f0afb78dcf2a831facfe88c516dc875e996716fb1b68ea5fe01a22d35b37afd.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\UNKNOWN\\9c2d3a80710e981ef059712a23a54605bb6ebe20f80387e9d2f48e688f2bca7b.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\UNKNOWN\\a626ad2c49aac2298f7c46ac17320ec9fac990277732cb745b54119d76a7db13.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\UNKNOWN\\b1c6574f0a033aeabe5e34e04eab3c8bb5d91a8c09a30e8cf336125b83f7651d.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\UNKNOWN\\ca86c3c20ad79ccebcdfc0790bf7ac9322f903504850786dde74a817b2ed1f22.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\UNKNOWN\\f1b988793d6cb998fc7a3be9db8e7035d19be022a060f8024360262048f8c421.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0049\\UNKNOWN\\f43120bcef174b39c2779f15eb2a7801073ffeb2ac4a166e7cb6a187469f8ebd.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_PINKY\\0fb64381de257753e9fe9bafcbfb25b3320a370545e3c69f9ef405c9bf2ffe29.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_PINKY\\171e397401ed233928da635f50082fae3203deebf5c487477b70a76cc3e15b9e.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_PINKY\\29e21657479c6669fbe233df2823870b8aa43d686c91cad59078de32b071d419.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_PINKY\\3e2639036c605a7f85b10332722d2f377516ee74fc1461d9c66db17b55ddfd3c.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_PINKY\\41406a308fc427f4446f7df750bc1dd8965e26d1b108092af16be5fcce83a823.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_PINKY\\95b8dd3371a46e8582f9db970bf11ca38edbf3650c0f28c3de6539528cbf65bb.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_RING\\177e391a10581a854532d1b568517c23af1ee2f8458547f88238e8efe8192995.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_RING\\1b4a383ae3075f0249413142eee344640cd3ba81d108b77181d59674160095a9.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_RING\\41eacd777c5579341470abf2a82584efe2453d07a4dc0f11c2bd323d2a43bfa0.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_RING\\48b0e8f4bafad0d2d728cf96492010b1566be8a9f3209758a5a77b7e12f8ff62.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_RING\\572dc311573b9210d277dfa46e43935665eb093d5d72b14ccb2424fa77ff8324.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_RING\\64abbe58828cc035e4d3b9c4a4daccd6ee1df7cfa0a5b7370bbeb5d77d8846a8.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_RING\\909c945b96af95497de88179bae708c20e01b8031376ee54a52df3435b1ddcb9.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_RING\\b2749b3511d44ec7b7e9b1b700c2e2536a021fb7406e07658bc67021841b345a.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_RING\\e2892a2c2fb331b3376818c7372ed399a3f6bfaa2bd85676ce89553e6706afd6.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_THUMB\\046619ae50d77b68594cfd2a8b356ac59efa8e681b211a4c70a9937e08691cf7.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_THUMB\\0db67cd7d2abf7aceea7875961ff66960ad149c027cde733d27632398c153825.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_THUMB\\1be082e066bfddc447bbb859835d722e6adeae8a20ef5799ffbddf74fce2cede.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_THUMB\\2432b150e39a5b3ccea689fdfbc580cbb443da4aa6f1964411d836f2990a235d.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_THUMB\\756ad50cd0eb4cef0f6a445a348cc91d380a6ca784667aad23b184e5cc1e78fe.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_THUMB\\836e24c79cb1d03c768011da13f11a8cd808f0e4e4427521bea339681a86e41e.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_THUMB\\a6adebf7871f6b24148d1463affb0b5eba7ae2953be121990b0e3be6f137190d.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\PINCH_THUMB\\e34fd0db89734e86102e78254f65c5f8d8df01395b6d390bf361a0212168588a.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\UNKNOWN\\121bebeaa37396442794cdc4b9ba3e3597752e152d721a4cbd6ff9fe5a8e8a16.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\UNKNOWN\\281d14a4fb1c16bfe4339298c7e6478c53d41443edefce55cd0ec996e7995f15.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\UNKNOWN\\2f253ebf3c77ea5d9bcab8e9edc8cb42775a972dfb2d684039de057a7ea280e8.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\UNKNOWN\\60d7550f60794007228eac09535237a2ac42b86fd90af2f6ccbe3c661b8940ec.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\UNKNOWN\\770a46732e27252f826ee47ec999ca452d2f997374782db261a762adc77ecf41.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\UNKNOWN\\97f9c299cb2cea3620643c6755aa64e58b2dfb5708e961b7965297fcc1a01e20.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\UNKNOWN\\dbfcba20ca2746f271b8d8201e82a0d571606f4bfb43885657fff498bc24a4d5.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\UNKNOWN\\ed175e23de0b17066738e32e86c89fb1234f9016a89096fd322b2893c92ad416.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0050\\UNKNOWN\\f2c502c63347cfe61664af3c5dc37d67ca610ea5fd573304fc198a6a131b7c57.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_PINKY\\090c7f493d9b27f5eafeef807dc24428ffea55182c26a7806c9ec557834a218c.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_PINKY\\1bba0d419fb36c0cd5dbf4e7c0507572229f810c6f0e513bf0ccae60dc70cb80.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_PINKY\\3a7c936423852897effbad1808a3da8fe4ae42bab44a6fc0f99f88a69c224abb.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_PINKY\\3a8fb45f9e0262786cdf2558f16e29baeb78c3504b31d59eaf4a0da6e88cde2b.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_PINKY\\621f22a8c5a4226cfa09173977bc0d6bc1ac05238498029e4d60bc827990176f.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_PINKY\\82bc7cb78d85e593c64a636f06fc2c41b7a5c38ceb8efb4c49f956d2a507bc9c.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_PINKY\\a0a8fae58b7091410038ca68cb59c84f08e63d4dc2f0b42f54396f0f6477d568.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_PINKY\\fb5d1af3e6cb45ea7e898451ba5d43456b9dcae3d1d408cb58195d32eb2b6f06.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_RING\\1b13a7615e8850d4cfa58917e786656e5e8b87bf5ee02bbcf21f9f287619757d.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_RING\\28f01e7537ff19162e2c21f886cac8905a8e1a1ab1b1488b17f42c00714e81c6.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_RING\\f0880c3daf09c3de124a5c56fc57d03ac18e4ed3c24995f3b8ab46bb74a9502f.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_RING\\f48f61564344eeb2c1f7d36f1f6bfccff24c9a2b021318d3f0dd426515a7cb8a.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_THUMB\\16711e59f2be999621b278b0440b35f3729da64b464cb90afc5c957d46540692.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_THUMB\\4b1b35885ea90fa0f37fdd5a802e58323e4dd0d1fd2fcd4dd226d4a5ed30a302.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_THUMB\\5d894a399412a9ad56cfe81e9e6facf3396e8152373880fd4374a9dbcab635d2.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_THUMB\\737478fbd51e19c1ed512ee4af31a2ec0e3d70a57e3ae97dc20507a357745bf2.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_THUMB\\7a59ec4bf6a3dd4c9b9a6c851d1af7d3d756bf88883b3a60f5f2c7183d3aeb6a.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_THUMB\\b2eb2a63fe752cb3fca66269c0d7baa5057744ff2f14ebb8e998a06bd793f7e2.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_THUMB\\d0bb864960e7bca513fedd1b39c77ceb215aff3c0526b4514f4b84bdcdb70815.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_THUMB\\d987b975fcae48bcb8ece17cbaaf73c7537e4cb961b9f4c6002c9053c5054fb0.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_THUMB\\ea21e2d9db70eef60fbfaa64bf854ec01c8b2a56b254ed047336db6f679c770b.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\PINCH_THUMB\\ebbb4cd5eb84b507b9dd9198683c1291aabcac2d30a1e71d03b90f5986769a74.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\UNKNOWN\\183bafe0beadd0ac07f6e9947a623ee1c68e674ce37b976360531745e23472f2.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\UNKNOWN\\35b3892ddcbba797559f40a6013df25dc14b6b5a98c42ac45663aec37324a52b.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\UNKNOWN\\38082148693a6cd29fd16ca1740fd221d712b0a6c87816d6968d60ee42ecbeba.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\UNKNOWN\\38b87fdd3b86c3d23a35cd3cfdf84ad18e786373a3dfe16a669468e0805998ff.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\UNKNOWN\\39cc2ee1b49c0b78bd4e766e0775db9cfe1709a318318675d3d2fc10d6f018ac.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\UNKNOWN\\50ff98b92e0ce2d4cd6c5646a7b94bb2500f62b46cae06efea09ebc0444b389b.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\UNKNOWN\\565a8477df6087579c3e4367491499700148627a258ac2898e242e8f12aff26e.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\UNKNOWN\\864fd2ae2bee5787750eb6ed5bdbab738a9cfd10e91101a2611b8b270c62fd17.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\UNKNOWN\\d1078b724eab30b1d883a249bba4f27dc48ff6e1c70befd9ba2fac82b6281e15.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0051\\UNKNOWN\\d613fc286a0e14c1506df30e7c649f79270f38d8b047acff4a5012e9fd968c14.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_PINKY\\188061bd1eb1c5da8447c306a093aad18a1f4335ebf9c280ccecb7f1ad921276.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_PINKY\\1ff595e5a529170ae6fb3ebd42c7619e783cf1933bf4d0e8aef66ba7efb1e3d0.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_PINKY\\3eb461bec8db3a64180db8a6cfbfedd28bd718b3314213b1835321355be3d266.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_PINKY\\8038f114ef53f13467369a8b314c49b1361aed76179c10ae9fbd3faf92db8119.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_PINKY\\8ed8b86a50af5b5de372ed129c2b3d2c304e437d6bc8a2839ee82af20095374d.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_PINKY\\94a7ff54a5f7f437a76d6775e447638872122dc76e860f446c55a5626fab2e55.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_PINKY\\b008dc7eb332f54674d6ec5b6464387d489846563808b74d39a6f40cb4c13848.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_PINKY\\c01d1fe4d9495f6871ff017e5fe5f5f01e3ca4bbb2ca861228faee3f0adf5a07.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_PINKY\\c3b264552a2f2dd54a136be3df64a8c0b522a7520cbbadd91812a406e2f82c85.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_RING\\167beb0071260ea30fd64a2312c94f6b7bf10a62092bde5865d714e723405db7.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_RING\\1e4b3cec68ab3dae8b9256d84e1a4664dfd67940efbdf336884c826877d77829.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_RING\\314285e68f113bfddaa310d6f1081b8dc8a9849f6fe26d39daea44b751f17bc7.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_RING\\38b0d9c5afadf777357fca6c5bdeeb2d1ab5b76b9f09a06b001223a045d084f5.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_RING\\4b7949463f352af2cbd1672e3da444897dbef6afb30e589e594147949559b497.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_RING\\7e0d4e3d30daaf7c2b67cfad145991f792273895272e504fdd312a81781dafac.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_RING\\ba64e1d4b81bf52ace16c03f5374a36f9b05ddd0bb050f7e60abb6a23acd1b9b.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_RING\\f0bb6900bc8df52219e0da1a62e39e8689415f43835a9067564ea855fc031aa9.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_THUMB\\0055744326624f985ba6cd86bc7104a09f86b4d7e60a975ba483ffe6d1c65135.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_THUMB\\08e35c495975ddd994e68c10b29c03f1f34d9e8dfc8e16d422226ca16cf23461.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_THUMB\\0db3067897d9d550e317ec13c1e2533b64805efd829a5045a7b7e1c2ee7cfce2.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_THUMB\\27db202eb0a78156632485bca4a4995d4d240df8d2bd898b4da4c3a596cd0397.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_THUMB\\31cd5ee063d185df517bbce7bf77323a717c0ad2a09755a2555b22a127100387.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_THUMB\\37f71bf8268e7601f5cac26a129ce2111de3d3cb829bd5ac622167c04184c7df.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_THUMB\\90c5ca5cce9bbec9f12b1ff46240e86275a58736d3d62f6b906e0a7574220452.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_THUMB\\c803a5787853bb75322f9225e194b932ed674a781763ac6f90614f647ecc3701.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_THUMB\\da6d88dd38008b074050bc39890e528f76d4c85c3b0439654596a3acff219c04.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\PINCH_THUMB\\e486d0fefcd46f2eaa49f5517363b88d1d578cd180baa54cfe479e04052b4d58.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\UNKNOWN\\1c9fffa180c2c5ac5b94ead3f4a55cd9c9d12362a35cc771202e1647b2562425.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\UNKNOWN\\3934ac2b5c1c577a45705022f27cd6b4b8397ffdea8c061b638183b25f938a81.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\UNKNOWN\\471e004edf6883a7cda02acba5686446be2a2949c62139e727f0d2fbbf8223f2.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\UNKNOWN\\94f64978a63ec6b9675f26471c17480dde7824f1567ee784ed4cc81ca31143f7.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\UNKNOWN\\b30eaee5c6a1d0fd73cfcb3dd9691dbb4751f78884df76e230f1d3338dcefdbb.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\UNKNOWN\\b7b4ff79da27e8ca20fac8752c8ff535af7249112297b7afbbff5f30608fd598.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\UNKNOWN\\d0022115d243553c0b638b8030bc7865a484cc3b4cb6036a705cc097ab2618ab.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\UNKNOWN\\d2ca99fba99d5fc09789a07f352f377dc8853b37d2bc6cdeabc9811b0f4a439e.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0052\\UNKNOWN\\de226c669330143c9a77c6b67ffa200b68b67bff0795ce26a560c154ffa648d3.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_PINKY\\1a69627559b97d3cdb4933df6fe6ac6f522d0f57beaab7da5b22d9879036f898.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_PINKY\\5f3cc2b784c0e18fe8ffd8f1db08240702f7c4f138180aeaae99b1da9bdc8252.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_PINKY\\7e4902be83032a6a876d7c564b17077012bf6a135521b0aea0c2149ff9d1b898.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_PINKY\\82eae64a7984bf6a279241e15fc5bec80b15c58646f2e238d0b8c228a3a4f050.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_PINKY\\998214ca1b17e63b05799dc57543e77a5f2405eae0fd704389b8cf17e7d9d30d.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_PINKY\\b078029d726cf723a8ca787855990896e9afd6f278350eee63ff3b2b67e4d555.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_PINKY\\c109f19c2f279043d3925da2801ea34401ad77bcd5646c4a25c346d6a7082dcb.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_PINKY\\ecd7be6efc989ff174339860c3f6b7c4d3cc060bef9638ce755e8bf2315194f5.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_PINKY\\ee4227839c45d28738f82bb49af1cbcd2917f93abfd397b89c408a6e5a36a939.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_PINKY\\f368fe0d25d8590ca1f40d0cc98da007417f7f302d1a02bd8dd6da5b1a30af53.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_RING\\0915814d436768f0cf55aafa5398b72ec6cbe33df92762d0b380e024f47994da.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_RING\\3accaf449ded8af8ab53687f61b7fc68384609d501acf1e2298e19149de8400b.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_RING\\40517a41ac890972572bf3ddefa1d7ea6e47b9180611c656bab4cf91607769b6.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_RING\\5307b3e3ba8f5f080b7c8855997393a5464b9b820a9e5662bccdcd5168711f37.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_RING\\649b7d52c39215538987a5046b2bff2fdcadae4e432ec587048a236edcb1d9b5.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_RING\\6f2fa920b246f591bede95fd53efa142e9da0618bcf7c80381c1f87f0f355b02.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_RING\\98a08bbd5918e509d3fe123607547104647fd8fe9591524e06321b793cede61d.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_RING\\9f6138ae8f9a36b8e670658d3628fdd9286e7f36090b17d464873ac7ce59b735.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_RING\\fcd36a24c773c911255399f4bf0ff163c85101683642a8ec47e4abb136d05a71.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_RING\\ff0c3795d8fb548282af4b9cf2aa77658645a6eb85da890dc2b4a84094d6f6d5.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_THUMB\\0a192c76c8fb9678fcb09295c924474a41e523d9b21218f97c54a2a230875752.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_THUMB\\52a310305952021b586487fe801c7e700b1b28b8ce4124bc729d46c19f293361.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_THUMB\\56b762ec4bd7c56f17574af4017f5bbe246577539f47448740576b54cc91fdf6.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_THUMB\\5dcee30591ed2b3e63159877c0489fb6fa993817c9c1975c7db3bb15fc628e7b.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_THUMB\\63844d13daabf2cab623352425012c7769c741a541f1b6bfe66d8319ab5bdfe1.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_THUMB\\722e13f28b0d94c82b9dfb2cfaaaf94a8e86c9509edb9c8aeaefaf5b88557981.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_THUMB\\a520984dc69d763056b51dc6ca8794c4b57d176d957eabc084223f1d46855808.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_THUMB\\ecec7e3594944b1e07017f4232e6e07bd7c69fc81c246170e536bc5123d5bca7.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_THUMB\\f2a579f37d46e0664881a79027823ba2b6aaa570f03b9e1c9e16c547ae409af1.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\PINCH_THUMB\\f5c255098a8bc105dbcba10de749e8894fb0fd0f0d93ad7e1d3b5994b832a074.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\UNKNOWN\\25166b42e83e16af012bfafc7d757bb58905ddfb8de7cf99df2f98c895e3d941.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\UNKNOWN\\3328f6d12d579f56a8c54128d24152ecd34476ea79e4e6b4e6279c20a1e176e0.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\UNKNOWN\\4e6a1930b1fa563148f5dd7399cd500e41f471dd74a8ff1d936a516f4db3bb4c.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\UNKNOWN\\5ac2f3cdf77e534e846f71080548e215a9cd07a5db378223129ba0d82319e5d5.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\UNKNOWN\\6cfe57de877c632a5c7f38cba2b8633d6126e649513574aa88deebd01f2a227f.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\UNKNOWN\\81e1019fa4a2217f9b893a43c96306a362bc2465abaea8b7f94a386b5b61c294.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\UNKNOWN\\8c08f98f0f2ed53c8f524344176fe4e53f2d2ced2fa4b17fb23efdaea38d2e2e.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\UNKNOWN\\de63fa839d6675e8fd3d67d5a5f90c3d14d9ec82d4eb54ffb5ef0af758b16ca1.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\UNKNOWN\\dfed71233cb397762a878873aec9eeb77349cffd26fb5418de4b10022f132aa4.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0053\\UNKNOWN\\fb6d42f81e048ab3275ab603659a4aade66154a6b0de5ea45b18cf334805014a.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_PINKY\\002c7ad25177f66871d318496d4672825973cdbce7d6eb2ec7266c8713121f22.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_PINKY\\0510de9f6f203c565bcd5e897d463040c5de61999a22e1039fcb5f5ad909a814.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_PINKY\\31d8c917213e37bb9a693658c99400cd4bc2b56fefb2019258845a1038676bfb.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_PINKY\\47a76fe29d53275b7ed5bb7caa1a6ea52ff8540f3a1d430d1fa34969e3461321.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_PINKY\\6af6432e66de234c9cb05dbb5f1d732cae374381ed030cf4cfdd504bc792a965.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_PINKY\\accab7b208f1b30eb13049377b96f422a43e738b1b5f28ca1889df81d82e2ca3.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_PINKY\\da5eeb0edd89f964cb3c4f1c8696a00e0ae88bcdb7f3e17a68765f2c70540c7b.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_PINKY\\de8781d151249f891af0121335831048220de2707a456eac2f2a0508dbb8513d.png",
+    "label": "PINCH_PINKY",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_RING\\28ce3d5fe7ff91010e84eb561b4526b564f3ca8898aa2bcba0cb29e103946682.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_RING\\63261fcb1869c6ae44314f4819de2f2a1f562e7097e32f35df38977851eb0443.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_RING\\a2840fe32028cf6ab73bd999bbd731c6ffda2e08afc09748af56244a792bdf74.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_RING\\de0f46884818edcd9cb8c5cf4643a2a810f9f2a10c236bbcaad44559513b121b.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_RING\\de22b335addda233117fd4fe557fbb83c5565a1ed86f8f83cfc4f4e6930848d7.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_RING\\e541eef3d1526b59f3ea6b32c27f8b3baa78a9771c26a7716a4a65bebc1ff0b7.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_RING\\fe52272d37aeef83a00582925fc3fcf08fd94856de66510e36f9fdcbd0f822f6.png",
+    "label": "PINCH_RING",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_THUMB\\24cf7c6f946d6d399680b37c1bd49220b01b202b8e066d7ef22680eddcbd71b5.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_THUMB\\4594ca8ba703cbe846bfcb5ff38e0f5c63d492f0cc102ddb87cc5fd9528b3b5f.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_THUMB\\489904ebac779f531dd739536bbbb58e113b416ee782063e4c87cd6ef3e32393.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_THUMB\\82a71ca876597248cdcc60c70a35622d74274b08197fbca540b6901bce2b43ce.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_THUMB\\a7b327ee87b6bd3a70d250f46dddce711481be0c7a8acb5f516c60b96c2fd8b3.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_THUMB\\afb149d3d87753a1290db1895d37b5d3352fc8e6cc591959890267b0d2cb93b1.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_THUMB\\e0b4e53aad0d91886649facb341e2ec0f730ad0fd80d695a21acbb6e59e238d3.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\PINCH_THUMB\\e811162c40874c2daa75affa8ac9259f5ea33db6aba7d18b468851a591d26deb.png",
+    "label": "PINCH_THUMB",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\UNKNOWN\\5ad315e864ae4b696210317a89518fe1341e55c6adc73fa2ff16c99e3f661db7.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\UNKNOWN\\6203112ba5fe872df4213cfbb629a8b375831b580f09445a6bcdabddc4a5581f.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\UNKNOWN\\688108b21b10358c5f5bcd0ba6a9059057f264195f6b25ff3f8c8d83558fb98f.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\UNKNOWN\\84e9672942c8e756e1444176b7fae44ad592c2ce0018adc78f74fef94f2c1ee9.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\UNKNOWN\\8b8254b4adad42a204a2542357f8ce679a2272949eac598a6dd10d5ce289f84e.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\UNKNOWN\\8d1ee85f4fb9168a192748bc25e6b3884059e7f294b94c746274c003652575c6.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\UNKNOWN\\b72e5d7f7d7c917fc312d9ad1aa4b0cb7f43ad30a3f6a012e0b5ea7ddce78c2c.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0054\\UNKNOWN\\c5b521a7e38d0e1a3dd3b0eda86b97eb475e755233c0de28a164caff64c705eb.png",
+    "label": "UNKNOWN",
+    "split": "val"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_PINKY\\08aa46dba6cb44e00546d129f063fe01bdd4a2d8d735ba8babee6a919039224d.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_PINKY\\2c8ffb7ae029cadf38cca5a5eb2333e7aef4ef9a31dd5024f4506247da38ac6e.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_PINKY\\39212bbac3d9e5a42bd04a26cee9ae7373f8834fa4d2ff6012417f28f25bf620.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_PINKY\\39f0eda25b98716d0d908808f8d361df333081ff923109c95060a98f2aea2a7c.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_PINKY\\55feb5d9f53333e446dc78b018d4dd719116744535e950bf195b300cb197f844.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_PINKY\\5eab4f316c689263bc5a5eb7c77431d6b65724042196264b1980530a75a472da.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_PINKY\\6a6e219500b55e4eb5720f61bcf9084693509728bccc7ede215a5630958ec950.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_PINKY\\ab376665897a6930d4406032166e3b709f2184ff7cfcbdbe810a2af987b4338e.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_RING\\305777d588c1dcd5433e5f5a3e6c29ffd141e3aab5e8221bd424baa0fda1b255.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_RING\\31f164ec3eb32030d8c06e1637fc0c6a12e8a4bdf5f4077891e89dbca7b72d06.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_RING\\5b1b1bdf38dc7080c7b65534ab63d11b19ffb3d94077085d24b8a19c21007085.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_RING\\6f8d344d5b4d8d42f5a126d9cd0f38dc716cd9fc4aaa2c88d05a8fd10b67db2e.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_RING\\7c908ff896ba7914dda6b8bebbeb7334a2651f1b6f26b739137f0916a2b97d82.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_RING\\cb64715c69ab6bc71d98ee3e6afef3d132d19a1e2f1da440281b1a908144fc1f.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_RING\\d13cc3bc61c0b5664c3102e124dd74799f797bbba59971ddd5daf320fac33820.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_THUMB\\1a4cee4bba17e34fc16ea009895e2b96d8017dd27df8a442e941b4c9132b4a50.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_THUMB\\5f2141e3e2fe4ffacf1a44d43c8d64e21348cef7d89304d681d3c577266f8120.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_THUMB\\70dc210158917dff9dacc943ce7a1716b330aaff937e31e34f7c5430ae8a8468.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_THUMB\\af11fe5bbb2f9ade8ee1811fb196bd2709065c6533d4f81e4d65645a5b1c265d.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_THUMB\\b7982dd9aa668f3a6c754c37f9024f86d44107e2265d3d45ebca320a0a324a51.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_THUMB\\b7d82743e1b793460be3bf99855123f0b9c1b1637e9479633d794b2f451f6d07.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_THUMB\\e8033e86e8682e7d286cd2bbaf6f1873cfa74829b4f56be3c1328263a78bb6c8.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_THUMB\\e8c8fea85feefeec9e5c9a6ad50348f839749fbf528930834db059b2d45ab771.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\PINCH_THUMB\\ed6c351a07495299d8b37935b7e9b25348a4c387d8430fa996a647f0c4090a27.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\UNKNOWN\\0e2b087dc35770ba073945a42751e1819fe3b0e1885baa9af4eb899380e5c4f8.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\UNKNOWN\\1d056373ff1b20397aa155d38ea257d6790b8ef0aff7c7a8051573d679e91a85.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\UNKNOWN\\27b376696ff4975da63973bb5b764e4957dd19f37bcdfd944365a52b55c54d32.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\UNKNOWN\\433d9fa3ebddc0628b090bf1ac370cbfd2e1e48859a709e2ffbcd6352a70b80b.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\UNKNOWN\\49ccdc1845ff08b391bc865b783d096d26d4008584b25017385935728527af2f.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\UNKNOWN\\57a0a50ef3ec78da1e0a6c88df247e2af17b18b52d09ea7b386f624866b2f56c.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\UNKNOWN\\747c9c1ff3237c9e82760c287a97dccf6df0256b8863b4fb11d55f040011e2ba.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\UNKNOWN\\90fc5fae297feab52efbe6b19b15dd8cea60d269a22547a7fbf1b9499efe2df7.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\UNKNOWN\\d16b7cde4942e1f1ca6bb87f2f77da5d45b729e3ca03920cb266ce3255a05913.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0055\\UNKNOWN\\d26c7d67af951737bbd33c51cd00bb8f7a070d4d191fe1f3f8bee903ef2f0f01.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_PINKY\\0a163e3216273cd8845411e0f77dc895637672188e6b89a24d8cafa210d26aa0.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_PINKY\\584bee988b7403400f0c022ee086c39739440c8e8b5130087106cdc990a8adda.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_PINKY\\8567269e55d87a9efe3ca506941817d4813605d798cef5c63c4edd9846d0eb0b.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_PINKY\\a064dd88b8015226d7b61066c9422e2229bddbeec7903b629d50f69692ffe09e.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_PINKY\\b4131c53e0419e19bda858da0a0ebe2443347343439778f0dac9ce8573030269.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_PINKY\\c56fc58c848a990a5562550de30edeaecc401a8ef6d305b8a02736f3a8034bd0.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_PINKY\\f0ceb190cf9807c8cd867af384f53c4fc7b430cfd7d26440c948ded1f8778d60.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_PINKY\\fb0d6dfd38dde851b414889a81f0e9966994eca0e39cdf91afe990717a4ba9f6.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_RING\\38bf34a2b1e98bf7d1b2845f1660fa7c3c16a879efbf059dd7f37aa381117754.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_RING\\59c07c9be8ccaa628eba17d2717d2d618eb833f2ef6c754e696463f3ee2004c5.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_RING\\6c748c595a308f4282514348a144826bab98e0a7915899b34fd603b4774ebed8.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_RING\\87e10dcae36c92517fc66753ecb05fcb3fb1c154449aa9701fe699fc4051aa55.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_RING\\8cd7549cb284fa8affc50b88b70083e3cc454ef3b80931dd0bf61d7592ad9a20.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_RING\\ab21530082ce15256cc6fbc0d0fa342117c75409274dfa4c4e5166f1e2f4486e.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_RING\\adb1f40c2b29dcf58e32d8eb645526e0c36cd48da94b0c734a06574f3c5ed8da.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_THUMB\\0bd7d731c43f03ff981dde4e3f3e5218dca37b7820113c98555154b0136c964d.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_THUMB\\119e6d694e987e8c8d69df605681b0c3914ee3001ccdd1f8e58b683e97a4f71a.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_THUMB\\254fb92525400cc8d07f741aa80047df85ae023128e934c30a03951e4cc0fc21.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_THUMB\\35750c1ac9b64edd275f3a17163a9fed72f8f3921ca5263f44938d1d188dda4a.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_THUMB\\434499d386ead4c36e61e9f64f1eb998a5333b6f36efd1e0be32ee8b0756f8d4.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_THUMB\\68cc806d02d2aadcf4a20845055e4f55631110d818174f111ac311a877f60ccd.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_THUMB\\91a0ef3e86c1acf0959247a2453364146bc578f7acee0e159628ad3dfc6e4e5f.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_THUMB\\b4841242b79169e3e446006c0cb921c0cb3a1fd0c98c5115079b25620e83f932.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_THUMB\\ea20b1e8ffb300291dce9368011ff4237f6732534a1a4c9707fcc46e5193ad54.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\PINCH_THUMB\\eb1015050775a660d91a0469ae21217ec988cda894a8ebb6da340615bb639425.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\UNKNOWN\\40edaf6da83492d7f6fc6f36cbb9543dc1e4e50ee00d443f991398fe845a8c02.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\UNKNOWN\\53535c62a0e34f7b8cf669ae503c1c64838c31ade2ab5031a960a94045143a89.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\UNKNOWN\\64d4bb9c12de26a4d069c3e55661413a0027c4d8af826de5ef9b6473334b1166.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\UNKNOWN\\687c78eb9604decf67f5ea6750696ba8fc593755e9163de77d2cca2575ac26bc.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\UNKNOWN\\6aea1815288fb22228412cc2f81e5949c5d81a0eeabee4cd06014c3479273d26.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\UNKNOWN\\6afc81eab6d5c50b9435977648be80c133974562ebbb066507b65be5f10e1c06.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\UNKNOWN\\79aa5a977219715ac43af22af8f5284970cb80cf235a8a45f3ba75906bc35ba7.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\UNKNOWN\\7b1b9bb87878da2df801fcdb3ffe6f042d9d9ad7f36286ef48f3a818af752171.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0056\\UNKNOWN\\bec320664423a086101542ee23b620db8b1ed937541ccc5944031b51d267d537.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_PINKY\\17153a5a57d0291d35c855c783325bbd731e8da96e28a0705bf6e10de5eaf4b9.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_PINKY\\48675b363f9245b0f991c1069632772ade2482c248a8227c163baef077327941.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_PINKY\\83035ca731672013fb78d5d4b93d5f5e471f2fe244328e0433b086d0765f0215.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_PINKY\\bd1d6a5a9c19ac0306ed2c5b0a57304bc79c40a39883d6551c0b85ee27e12d60.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_PINKY\\c4aa3e5792f3abe1f1f877a74a681c129035ef064c227cc970c66b549d38024b.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_RING\\0ef58538e82c5b2067a5071adf677915862406fd772bef39e317fa87cbf4e53e.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_RING\\159bbf281dbda726bea28e7dee5b937156df2210d9c1fe9c7e5c59d652f1d89f.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_RING\\3dfcd25f5cd5c9ca4c60e9fb77d609a68f6bdd2b734d145a6b10e4dce1b4ac6d.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_RING\\80f2a49f10b2a65e58fb6ab0ea16f2062b445a968ffc807c42b3577461d40c77.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_RING\\97ffdb2d3fd895b5f44545bd9b4770a4b6989881ec5bf8388ab5730e4c479fc5.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_RING\\c35259c373ff397a89a926abf686115f16b92279ceb8d3bc81b8fd075c5abd98.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_RING\\e9e3595e662ee2cc41f99e0362dbba27766a451e5e35e033ac5e5965b018e031.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_THUMB\\02096b7d4c0c17f2c0fcb251e7d53b4d5ceb90866a708a170088a85ded2b4f7f.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_THUMB\\05bf0a5b28c7b1f29781fde00de484f2d1766772128c2b502046d1197877a275.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_THUMB\\47bf33b827aa6488296be02b5b667fd997260596861383670028c1b9d8603378.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_THUMB\\75494aaa966642a815ddb3bf29ef5df6ff24e304241f7915001d5ef8ec10e0f1.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_THUMB\\8bee657b1e441b8a1d941df104d2e96b475c5cea985b3487901e5269a20b5961.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_THUMB\\c1c94b503620aa5f3f13e36b6c5790c98fba3a9f02cd94ee45a60e9f9cc3c0e5.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_THUMB\\d37833e78883474e843b4fd92c5b6514c008dee5de55018b63d93e7b1ef67e80.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_THUMB\\e3e3cac79dcc367a728194e8b860e6cef6082dbfdafb1a0c3314661800e102d8.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_THUMB\\ee5c836be68ff5cfbe78c63ef984e7f864aa2ae4c74ffeef162ec820bca735df.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\PINCH_THUMB\\f4ec3d4f9d711b99a094889e6ecd3778a9f72c980e22dc5566e60644df7db458.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\UNKNOWN\\3a85086df0122b217fee7ceeafcc9c16bfbdc9b4feca27f81c07f2ad8117b994.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\UNKNOWN\\65143bd09224ceeab86cb2520c9f0f09021c30c50012d0b2ef4d403d8783c4c4.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\UNKNOWN\\74f1a5a4c8846f60a6e290e5d38b672145aaf33fa8d22354a6519730eb4c0afe.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\UNKNOWN\\b0be0df9fae99fb6e4eefcadbaaf7e6a7df11683ed6c083f389dc6d8f0c104e5.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\UNKNOWN\\cd08e26e954bbc1f26116014fda462cd5fad143686ca6bd90477dfcc464bbe57.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\UNKNOWN\\d285271694da5bbcc20ba1e064f2deef1f0436d369de6f307fea8237373ff112.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\UNKNOWN\\d3ca2884243deb7e2f71f1c28286ff1193988a539c6a1d02ee26166f0b4dc7e7.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\UNKNOWN\\d6a26d6726906f08b2e6107ff47716616d7c3dde906c9697c90fefd303f203dc.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\UNKNOWN\\e0dc7d2eae3411cb98b4a638b0f6a55704557b9462c581e2d9eefed456e8f7c2.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0057\\UNKNOWN\\fa8ea78e83e9f8e908c440bdabab732ef8103b51848202310c03abb17075687f.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_PINKY\\14f0e3e9ecb5ff50b9ddbb142968b642d2eee2a96de34ee68d9440e1a7fe0f3c.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_PINKY\\69a200f1c869b1d547bb71df9ab5d7a61aa13f1f176a33e3d2a1b6e2f98f48b9.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_PINKY\\8e697ff52ba7b0fdd952df8a2d1609cac8615676261b22926dce0e7e65feb337.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_PINKY\\9c08bce87321b1fc19229f85a561ca6e5f1a2f09a4e4fb018ebc02b32a8abb45.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_PINKY\\c5d5021759122c0039b3231337df23ac8ab11d0c220ce5283afb3a2f0bffb022.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_PINKY\\c751fb32465b594ab43861df786d8851c06c619c58427efdca41b05dc22cb6c7.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_PINKY\\e202bc0dcfdb9f14c12c6518a6ef8b0326d89b29d20600742d739bcf00dccc55.png",
+    "label": "PINCH_PINKY",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_RING\\012dc1523ee29f62f6eb61795c350df570ffa502527d4f793c477c9063d6ef89.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_RING\\092211c27e8b8b6eceba1480780b2e577fe533c44bd8527d090b660cef0017bc.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_RING\\210137c4f80b8d62548f7bafd6fb5c62a6dde457b1986dbd3b81ca49902859b4.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_RING\\63ae29deafa57abe07472594ffba696091f8d152973e953bd937d9d9fecede78.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_RING\\72793f3f889566381ca60de97071085adf358a7d40620c722416792a7ff56fb3.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_RING\\77e4480159091ebf7a7825dec77646ac5278b8dde500c30b4a81dc1ea3f3eb46.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_RING\\ab2224133fea9322adfe9167bb4691d8410d4047f7a0690e54edfa8646841a50.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_RING\\ca4098d086543bafe1c84894fc330e3726f9051943071566ca44ac3cdd5b6278.png",
+    "label": "PINCH_RING",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_THUMB\\3bc6954a8ce7fca46f08e0aa54e48872be0e1f2b3f2c3a4c6c49cff2262a69b7.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_THUMB\\519c2afbd8683c7c055c5c50932fe9e24b6d4794e61d49388134fa1fdc14767f.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_THUMB\\76597d999f90f365cbbd350f7b51e54d83539fd17325797042e4f0f2e7bcd1c6.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_THUMB\\787b5057fcc8b7c1e3fe15220ac1b3eb9c18bbc8684b2119be1384a028053635.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_THUMB\\9c204cbafa0a311936410341618f7c4b4ecc4a6a5cddbf8bf75fd9fed8e548ce.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_THUMB\\ac6d150228ea3ea3c9b1a8d36b915ce90234898218bb25ab1aa3b4e29b95f258.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_THUMB\\d3ba9ccb0f1dffdab2db8b93c982b6afc1b3055bc6449e8f9a5d2906c73cc39d.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_THUMB\\e146fbdac013116ca69e5da033278e4160309d23eb89a9d97555cb1cc870df81.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_THUMB\\e93233942ad8b53294e7fe584072bdd80bc003a04c5f0aff58befd175b914ca5.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\PINCH_THUMB\\f64e77ec872d3fe1c500c4bac868cd97ec5a0ca6f6e1c3fcf9622782577d7f0a.png",
+    "label": "PINCH_THUMB",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\UNKNOWN\\02f6665f200eb68a61149330edd4d7227cba11938f6d5491fe2343ee461e0b2c.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\UNKNOWN\\132b2616789819ecf46d85e6f76c3624ef13b4a39dbea9d31fc470fe71bb5c69.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\UNKNOWN\\151dc96ac08d6b70bb5859fa924b912335a74b80797fc0ad28dd8e18d3bed209.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\UNKNOWN\\24ce05acc4be192346a9f2f1992058083dbad7398d390876d5ab22378e1fc0c1.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\UNKNOWN\\4b68e191fb0067be0f1ec581d5485df339c894913b0e46db42935b65fd60187d.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\UNKNOWN\\5c1271b9df3f9437eddc8016ffd20dccb9f40d8e8aec05efbbddca026887e689.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\UNKNOWN\\61ba045d4da3678699db827fed3370a4bb662333e62b21c6d227aa88e9c63c16.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\UNKNOWN\\6f40ed8c5ed0b0ef4a44e842b398e28c7aa7ec5208630f69d9d4104cfb35108a.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\UNKNOWN\\a79da236b9a1d45716062ae4e32261938eae939b435a30b2bc1320da104b8160.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0058\\UNKNOWN\\cc8ff00a5288791cc588e71385c756e8668a4fe9f1b1f130d8be7b1389b3eb01.png",
+    "label": "UNKNOWN",
+    "split": "test"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_PINKY\\0a909bd74a16a338fbc947289eb95cb570f76baff2b551b7429b53aee04854ee.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_PINKY\\302d33330207e3b2c0fd3a0491c3aa4b526e6a6bc9d54cc0cff5db9d0f6c85ed.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_PINKY\\67c4d32b3042c579c0bcd26299ed0e3569836393e938b91cb727c16cd7d10237.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_PINKY\\9fed371a79c198258e57cebed8288520ca665003a42599555df55e1ab0182066.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_PINKY\\a66108cdf1908ae0f5ad885097eff0d16391ac9f92fe180f76af95aa7b434464.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_PINKY\\db10eeeef759cca1e4e9ef283b0324e23d1fe5aefe56b50fccc6a2f781a23636.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_PINKY\\dd9873266d13566314c8025f115fb66b8255dc40f241ac214f7a90ae96a99e3c.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_PINKY\\fd5b109d3336b938f2fc3c2b07be0c24633c765789c8d74ba56bbecc59fb1700.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_PINKY\\fea1af6b86cc4900d55933c0233b56f696d570db30eee10d23b46f6caa5f2bf6.png",
+    "label": "PINCH_PINKY",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_RING\\1311e3827029604161e79a89565e2a2dfd0f17b8e5c2391e62a3baa3a0c12359.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_RING\\363a75f25e885fb0603b16b30e77e40bf920e637a8f116cc66216e1874b66b7c.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_RING\\51c7efeb3eabde5468258831e85804c343a8366171496a16d61d4740bc9dd418.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_RING\\58d55f373a01da5b79b8013b75b2b54b24b3524f0ba575cd311bc4fc26307eba.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_RING\\692d1f3df618d383ae19def852a0a8fd73c6a7bc041302e8bd043cdd82d6b540.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_RING\\6e181d55d513f9431a578f56bc0a10bbaa9e5dd4d1a3460fe9fd9eee726764eb.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_RING\\8e89fe9d75df4c5b013e90117ab1299609ed18319787de50f4bc53b2873d07f1.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_RING\\a925493f6975a8d581394a7443dc45f8731c4130e60cf0cc01a6950ef9b4042b.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_RING\\f03d11f94a3e7052159a6239ed9256147c6b85b82fedffec20b363081a7fa171.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_RING\\fb2826129aed2efc712745f61802be358ed4cb10e4a0798e21baa3b0c7520107.png",
+    "label": "PINCH_RING",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_THUMB\\2ab7a13be50207e98712f0bda059b54edbb856dc18ec90e2c65f71ea0787dfa9.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_THUMB\\48266e63ef59c749c8a557837f0c617a134b0416b8697b692e45cd8d61d15bb1.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_THUMB\\7531c2102af122707c6ebdb10565b518db916af75b83f6cb22bb368535197b4c.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_THUMB\\791b36feb5f75d58c3015119b1a291a0122b0023d7057e8479d91060b4221b1a.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_THUMB\\7a5e8e583dc107d614539d0d338c095879ad5f43f0f5b9fd8b562177fbb235bf.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_THUMB\\a1d08b1f6d78eacd917a1b023a8f9a6d31ce2b82a98cd6a14beace4ef885bdd4.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_THUMB\\ba2a30f07675638f78bd8b0a713351f20a1b72ab21c58cc49db6edc9b2c893da.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_THUMB\\cf2f71650a391835511b11b1ffbdeb598320b9e638dbdfc8594a51b7444f3aa4.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\PINCH_THUMB\\ede77a9fb7c1b677ee00b2f877fcf99f65a0e11be7903e47ce97ec5b5cffa54d.png",
+    "label": "PINCH_THUMB",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\UNKNOWN\\0a4d2226f8ef7bf804ca07a2067ebd427db90bccdf5e07f220ac45c817e05278.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\UNKNOWN\\0ae5321e5da144c62c611201fafb02e0418414cb9da597fcaa3cf3584a2dcdf2.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\UNKNOWN\\1e768a22e507a09d357718f80983f915eff7b70266d3852f3fe4a369b7bc45e5.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\UNKNOWN\\4bed844c190f6555e4b39d58ffbc4c70202274f6f41f5b681d9b9c39f14b4d9f.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\UNKNOWN\\79f47998261cdd5e7388e1e572612f719113513ae75fbc8a0a63223fecebd4b1.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\UNKNOWN\\8865f777ba86f28e4bbac681628f86a55a6bead66a660d11d784c6a9f0011c35.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\UNKNOWN\\92d051a08c86f8c68c7551492f8ad12164aa69794f1ae0fe4ba6ef8837e060b9.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\UNKNOWN\\b4469d5736e8d782f32b5bb1105dce2ae448ad80dde342c423f7bc91f7bd3c3f.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\UNKNOWN\\e5cf84af9b1a40e1c935964da13274f040dcaf86b60eba84c0651e9f59cb4046.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  },
+  {
+    "path": "public_digits\\filename_block_0059\\UNKNOWN\\f1721604b880639f0a9cdf4429e41a466de2f100808f95c81a01d3f2e7093661.png",
+    "label": "UNKNOWN",
+    "split": "train"
+  }
+]

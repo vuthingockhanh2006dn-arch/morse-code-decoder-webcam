@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "feature_version": "gray64-hog16-8-8-9-v1",
+  "input": "RGB/BGR image pixels -> grayscale HOG (1764 features), no landmarks",
+  "model": "SVM C=1.0",
+  "samples": {
+    "PINCH_THUMB": 204,
+    "PINCH_RING": 206,
+    "PINCH_PINKY": 207,
+    "UNKNOWN": 207
+  },
+  "split_by": "session",
+  "dataset_protocol": {
+    "source": "https://github.com/ardamavi/Sign-Language-Digits-Dataset",
+    "mapping": {
+      "9": "PINCH_THUMB",
+      "7": "PINCH_RING",
+      "6": "PINCH_PINKY",
+      "5": "UNKNOWN"
+    },
+    "counts": {
+      "PINCH_THUMB": 204,
+      "PINCH_RING": 206,
+      "PINCH_PINKY": 207,
+      "UNKNOWN": 207
+    },
+    "total": 824,
+    "mapping_reason": "9 thumb-index contact, 7 thumb-ring contact, 6 thumb-pinky contact, 5 open palm; verified on source images. Other digit classes are excluded.",
+    "grouping": "filename_block_proxy",
+    "filename_block_size": 100,
+    "subject_ids_available": false,
+    "limitations": "Filename blocks are not verified subjects or recording sessions. Test scores are not subject-independent performance. Open palm is only one rest pose; webcam backgrounds and other unknown gestures need extra coverage. Imported whole-image framing differs from live landmark crops; validate on webcam before claiming deployment accuracy."
+  },
+  "split_counts": {
+    "train": 570,
+    "val": 122,
+    "test": 132
+  },
+  "group_assignment": {
+    "public_digits/filename_block_0053": "train",
+    "public_digits/filename_block_0049": "val",
+    "public_digits/filename_block_0058": "test",
+    "public_digits/filename_block_0057": "train",
+    "public_digits/filename_block_0059": "train",
+    "public_digits/filename_block_0043": "train",
+    "public_digits/filename_block_0012": "train",
+    "public_digits/filename_block_0048": "train",
+    "public_digits/filename_block_0047": "train",
+    "public_digits/filename_block_0055": "train",
+    "public_digits/filename_block_0052": "train",
+    "public_digits/filename_block_0051": "train",
+    "public_digits/filename_block_0042": "train",
+    "public_digits/filename_block_0041": "train",
+    "public_digits/filename_block_0056": "train",
+    "public_digits/filename_block_0044": "val",
+    "public_digits/filename_block_0050": "test",
+    "public_digits/filename_block_0046": "train",
+    "public_digits/filename_block_0045": "test",
+    "public_digits/filename_block_0054": "val",
+    "public_digits/filename_block_0011": "train",
+    "public_digits/filename_block_0040": "test",
+    "public_digits/filename_block_0013": "val"
+  },
+  "validation": [
+    {
+      "model": "SVM C=1.0",
+      "macro_f1": 0.9916643512086691,
+      "accuracy": 0.9918032786885246,
+      "fit_seconds": 1.1877233000122942
+    },
+    {
+      "model": "SVM C=10.0",
+      "macro_f1": 0.9916643512086691,
+      "accuracy": 0.9918032786885246,
+      "fit_seconds": 1.2492665000027046
+    },
+    {
+      "model": "KNN k=5",
+      "macro_f1": 0.9586909820001233,
+      "accuracy": 0.9590163934426229,
+      "fit_seconds": 0.14554880000650883
+    },
+    {
+      "model": "Random Forest",
+      "macro_f1": 0.9583217560433454,
+      "accuracy": 0.9590163934426229,
+      "fit_seconds": 0.5345888999872841
+    }
+  ],
+  "confidence_threshold": 0.55,
+  "test_accuracy": 1.0,
+  "test_macro_f1": 1.0,
+  "test_coverage": 0.9924242424242424,
+  "test_accepted_accuracy": 1.0,
+  "classification_report": {
+    "PINCH_PINKY": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 33.0
+    },
+    "PINCH_RING": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 33.0
+    },
+    "PINCH_THUMB": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 32.0
+    },
+    "UNKNOWN": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 34.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 132.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 132.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      32,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      33,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      33,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      34
+    ]
+  ],
+  "labels": [
+    "PINCH_THUMB",
+    "PINCH_RING",
+    "PINCH_PINKY",
+    "UNKNOWN"
+  ],
+  "limitations": "Session-disjoint does not imply subject-disjoint. Similar frames within a session are not independent samples. Collect multiple people and sessions."
+}

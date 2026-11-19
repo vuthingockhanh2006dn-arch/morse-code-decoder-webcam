@@ -1,0 +1,21 @@
+{
+  "source": "https://github.com/ardamavi/Sign-Language-Digits-Dataset",
+  "mapping": {
+    "9": "PINCH_THUMB",
+    "7": "PINCH_RING",
+    "6": "PINCH_PINKY",
+    "5": "UNKNOWN"
+  },
+  "counts": {
+    "PINCH_THUMB": 204,
+    "PINCH_RING": 206,
+    "PINCH_PINKY": 207,
+    "UNKNOWN": 207
+  },
+  "total": 824,
+  "mapping_reason": "9 thumb-index contact, 7 thumb-ring contact, 6 thumb-pinky contact, 5 open palm; verified on source images. Other digit classes are excluded.",
+  "grouping": "filename_block_proxy",
+  "filename_block_size": 100,
+  "subject_ids_available": false,
+  "limitations": "Filename blocks are not verified subjects or recording sessions. Test scores are not subject-independent performance. Open palm is only one rest pose; webcam backgrounds and other unknown gestures need extra coverage. Imported whole-image framing differs from live landmark crops; validate on webcam before claiming deployment accuracy."
+}

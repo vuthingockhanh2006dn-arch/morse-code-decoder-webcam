@@ -13,6 +13,7 @@ function element() {
     getContext() { return {}; }};
 }
 function get(id) { if (!elements.has(id)) elements.set(id, element()); return elements.get(id); }
+get("run-mode").value = "legacy";
 const snapshot = {state: "IDLE", morse_buffer: "", decoded_text: "", preview: null, events: []};
 const context = {console, performance: {now: () => 0}, AbortController, AbortSignal, Blob,
   setTimeout, clearTimeout, setInterval: fn => timers.push(fn),
@@ -47,7 +48,17 @@ const settle = () => new Promise(resolve => setImmediate(resolve));
   vm.runInContext('render({state:"IDLE", morse_buffer:".", decoded_text:"AN", preview:"E", events:[]})', context);
   assert.equal(get("decoded-text-view").textContent, "AN");
   assert.equal(get("preview-char").textContent, "Ký tự tiếp theo: E");
+  vm.runInContext('render({state:"LOCKED", ready:true, last_event:"DASH", event_count:1, morse_buffer:"-", decoded_text:"A", preview:"T", events:[]})', context);
+  assert.equal(get("morse-buffer-view").textContent, "-");
+  assert.match(get("input-status").textContent, /DASH/);
   assert.equal(vm.runInContext("typeof ClientMorseFSM", context), "undefined");
   assert.equal(vm.runInContext("typeof ClientMorseBuffer", context), "undefined");
+  vm.runInContext('isStreaming = false; imageLearning = {trained:false}', context);
+  get("run-mode").value = "image";
+  const count = calls.length;
+  tick(); await settle();
+  assert.equal(calls.length, count, "image mode does not inject simulator idle frames");
+  await get("camera-btn").handlers.click();
+  assert.match(get("conn-text").textContent, /Chưa có mô hình ảnh/, "missing model never silently falls back to geometry");
   console.log("Web client checks passed: ordered API, continuous release, single decoder, rendering.");
 })().catch(error => { console.error(error); process.exitCode = 1; });

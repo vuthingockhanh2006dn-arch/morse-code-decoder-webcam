@@ -1,0 +1,22 @@
+[
+  {
+    "original": "data\\images\\morse\\P01\\S01\\PINCH_THUMB\\3cf73fb0c5cdaef77be3663f72b6c6e9b137ba93d2d95ccf6d64c625e4a83c2a.png",
+    "new_label": "UNKNOWN",
+    "reason": "open palm verified at enlarged size"
+  },
+  {
+    "original": "data\\images\\morse\\P01\\S01\\PINCH_THUMB\\6f889fd34618d7e028b9a578c05f0044d6a895ed46a2920cd02669957b2bce9a.png",
+    "new_label": "UNKNOWN",
+    "reason": "open palm verified at enlarged size"
+  },
+  {
+    "original": "data\\images\\morse\\P01\\S01\\PINCH_THUMB\\764113973cb29048b439dbf170c78bc86d68cac0f4422f5e073e488d6291845a.png",
+    "new_label": "UNKNOWN",
+    "reason": "open palm verified at enlarged size"
+  },
+  {
+    "original": "data\\images\\morse\\P01\\S01\\PINCH_THUMB\\b420d7de29e920843050489049ad77d4c298abeec9091a257e5faefc61227f76.png",
+    "new_label": null,
+    "reason": "blurred transition excluded"
+  }
+]

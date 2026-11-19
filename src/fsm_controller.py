@@ -96,38 +96,38 @@ class MorseFSM:
             if now - self.first_tap_release > self.double_tap_window:
                 events.append("SPACE")
                 self._go("IDLE")
-            elif pose == "PINCH_RING":
+            elif pose == "PINCH_RING" and raw_pose == "PINCH_RING":
                 events.append("CONFIRM")
                 self._go("LOCKED")
                 return events
-            elif pose in TOUCH_POSES:
+            elif pose in TOUCH_POSES and raw_pose == pose:
                 events.append("SPACE")
                 self._go("IDLE")
             # Nếu vừa về IDLE, rơi xuống dưới để xử lý chạm mới ngay khung này.
 
         if self.state == "IDLE":
-            if pose == "PINCH_THUMB":
+            if pose == "PINCH_THUMB" and raw_pose == pose:
                 self.touch_start = now
                 self._go("THUMB_DOWN")
-            elif pose == "PINCH_RING":
+            elif pose == "PINCH_RING" and raw_pose == pose:
                 self.touch_start = now
                 self._go("RING_DOWN")
-            elif pose == "PINCH_PINKY":
+            elif pose == "PINCH_PINKY" and raw_pose == pose:
                 events.append("DELETE")
                 self._go("LOCKED")
 
         elif self.state == "THUMB_DOWN":
-            if pose == "PINCH_THUMB" and now - self.touch_start >= self.dash_time:
+            if raw_pose == "PINCH_THUMB" and pose == "PINCH_THUMB" and now - self.touch_start >= self.dash_time:
                 events.append("DASH")
                 self._go("LOCKED")
-            elif self._released(pose, "PINCH_THUMB", now):
+            elif self._released(raw_pose if raw_pose == "IDLE" else pose, "PINCH_THUMB", now):
                 end = self._count_start if self._count_start is not None else now
                 if end - self.touch_start >= self.noise_time:
                     events.append("DASH" if end - self.touch_start >= self.dash_time else "DOT")
                 self._go("IDLE")
 
         elif self.state == "RING_DOWN":
-            if self._released(pose, "PINCH_RING", now):
+            if self._released(raw_pose if raw_pose == "IDLE" else pose, "PINCH_RING", now):
                 end = self._count_start if self._count_start is not None else now
                 if end - self.touch_start >= self.noise_time:
                     self.first_tap_release = end
@@ -136,7 +136,7 @@ class MorseFSM:
                     self._go("IDLE")
 
         elif self.state == "LOCKED":
-            if self._at_rest(pose):
+            if self._at_rest(raw_pose if raw_pose == "IDLE" else pose):
                 self._go("IDLE")
 
         return events

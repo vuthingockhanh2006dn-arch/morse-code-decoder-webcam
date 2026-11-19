@@ -1,0 +1,218 @@
+{
+  "model": "Shape SVM C=1.0",
+  "feature_version": "pairwise-2d-palm-v1",
+  "input": "labeled images -> MediaPipe landmarks -> 210 normalized pairwise distances -> supervised classifier",
+  "split_counts": {
+    "train": 562,
+    "val": 106,
+    "test": 116
+  },
+  "validation": [
+    {
+      "model": "Shape SVM C=1.0",
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    },
+    {
+      "model": "Shape SVM C=10.0",
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    },
+    {
+      "model": "Shape SVM C=100.0",
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    },
+    {
+      "model": "Shape Random Forest",
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    }
+  ],
+  "webcam_train_sample_weight": 4.0,
+  "threshold": 0.55,
+  "test_accuracy": 1.0,
+  "test_macro_f1": 1.0,
+  "test_coverage": 1.0,
+  "confusion_matrix": [
+    [
+      32,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      28,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      22,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      34
+    ]
+  ],
+  "labels": [
+    "PINCH_THUMB",
+    "PINCH_RING",
+    "PINCH_PINKY",
+    "UNKNOWN"
+  ],
+  "classification_report": {
+    "PINCH_PINKY": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 22.0
+    },
+    "PINCH_RING": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 28.0
+    },
+    "PINCH_THUMB": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 32.0
+    },
+    "UNKNOWN": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 34.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 116.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 116.0
+    }
+  },
+  "undetected_images": [
+    "public_digits\\filename_block_0012\\PINCH_PINKY\\3eb1338cf25ee0a8abe874cfd3f51bab9ac55b2ceb64964e8aa3322df323fb81.png",
+    "public_digits\\filename_block_0012\\PINCH_PINKY\\d16a64cc87fe66c64b2d13ab78178c8d686b896ac1aae61e3454c16458ff664e.png",
+    "public_digits\\filename_block_0012\\PINCH_RING\\913a8132534583d6fe65c6d2a1c5d3d4f5c7435cb11611823059c10958aa135c.png",
+    "public_digits\\filename_block_0013\\PINCH_PINKY\\2bf45e7b400aa4b07fcb21a2a98e5dc66bda2b4406b92919f0cb8b6e51d91693.png",
+    "public_digits\\filename_block_0013\\PINCH_PINKY\\b30fa21cfd3a3ebc022795d63bf5808ec1e45ef9e9c9f1ad5f4b048a7fd02398.png",
+    "public_digits\\filename_block_0013\\PINCH_PINKY\\b646b472f82601163928c54c5b3951457892e515b59eb1335f93c3f9defa652a.png",
+    "public_digits\\filename_block_0013\\PINCH_RING\\8dc26727f3e3f9018e90c998feeed0fe8d0f68c47a704508dea925d3d1f3c676.png",
+    "public_digits\\filename_block_0013\\PINCH_THUMB\\2ce3e2480bc215029fae666a966f93df9118efd68ca92ec40e50ac78fcef5c28.png",
+    "public_digits\\filename_block_0041\\PINCH_PINKY\\b1ecdc81224b6aa95990d3d467eb55d487699ba9aa7f65387838d97e45d39bd7.png",
+    "public_digits\\filename_block_0041\\PINCH_PINKY\\f64abf67f9b03ab87547759204d8c6983c63c33290e04a9b2008d0f16df27cd5.png",
+    "public_digits\\filename_block_0042\\PINCH_PINKY\\b894e14789fd3b77537f9b89afde691bf7d2c3847bdbf1bc6f6b09398c9a91c2.png",
+    "public_digits\\filename_block_0043\\PINCH_RING\\a852846670319cdf6e4e5610552f55ce5f42eb95a7023b673dd3643fb7b7ad44.png",
+    "public_digits\\filename_block_0044\\PINCH_PINKY\\ca285e0d0700623db9a621b646b7f59b243e445ec1244de6cff32c5fe25209f3.png",
+    "public_digits\\filename_block_0044\\PINCH_PINKY\\fb9abec0c3c60771eedfe5b9a5bd68abe7f4226dfee8562af8aad82befce07c9.png",
+    "public_digits\\filename_block_0044\\PINCH_RING\\12c05af8538f9e3e4f2b9968a14f7097a150bb7bb022640097e41c7b32a07ded.png",
+    "public_digits\\filename_block_0044\\PINCH_RING\\1a7270aea34ee5de29214f282a8d477eaa5d2b37e1cf2b98c65d1ee1a0e64318.png",
+    "public_digits\\filename_block_0044\\PINCH_RING\\f457fa3e1010622b137bc9ae672d462787074b93bea393bf815e95e5dc69870e.png",
+    "public_digits\\filename_block_0045\\PINCH_PINKY\\80640b355ff7e24f2e57b98a61fa610b2f8825833321d59242afc1e17529f993.png",
+    "public_digits\\filename_block_0045\\PINCH_PINKY\\83295dbd29cd0df1c07c7e1ccbac6411ac120302d96e0e366eb7d004042052d7.png",
+    "public_digits\\filename_block_0045\\PINCH_PINKY\\8da8df99b5bde325c2539bb3464447b6ced10f9dbfca7b3a88bcd92412edad6a.png",
+    "public_digits\\filename_block_0045\\PINCH_PINKY\\a6f126a4e165686d78fbf81acab25abee65117474479ff28e95e3089ee384af3.png",
+    "public_digits\\filename_block_0045\\PINCH_PINKY\\be3a568d8afdd84e4d9b9b0690a9258bd754bf045762ac93ddebde3532dadf7a.png",
+    "public_digits\\filename_block_0045\\PINCH_RING\\47d1d8b69a790be4c0ed642101447e82d099db383a9654acb98894c6c5f72ede.png",
+    "public_digits\\filename_block_0045\\PINCH_RING\\ca0a361981223686e8ecd8b36978d98d7199158afe577ff8239394ff6e7c4c6c.png",
+    "public_digits\\filename_block_0045\\PINCH_RING\\ec7fad8ef5fb0baa4ce0844cf50c06cdf87a7fe1ff455008fd9a1cc72ffebe16.png",
+    "public_digits\\filename_block_0046\\PINCH_PINKY\\c0f70ad04f179a4b7d3989b97199312bc34606d2aad329c86fb5a25d843cb9c3.png",
+    "public_digits\\filename_block_0046\\PINCH_RING\\e7cc196beb34c344f7c0e806effe0c7a70c54fd1ac258a46d4d06f444b3124a5.png",
+    "public_digits\\filename_block_0046\\PINCH_RING\\f47aeff7a5120137aa680375376670882053f935ba4951a7663aea0b446cc3f1.png",
+    "public_digits\\filename_block_0047\\PINCH_PINKY\\44d769f0850b242c0eca36bf5a31fef509eac94a658de195a8336da36f0d2be3.png",
+    "public_digits\\filename_block_0047\\PINCH_PINKY\\ea7501af4729fc9eec741ce3a5980e2000442c3e932f5263e823a9aab845ba59.png",
+    "public_digits\\filename_block_0047\\PINCH_RING\\04377d88aeeb8eb7421fef12fc0a3276b5f47c8fc444f2704a50dad38c8e6f72.png",
+    "public_digits\\filename_block_0048\\PINCH_PINKY\\0785f5fc23eb53e741344bffd86e7c40110b527958e80cfd5d7b5e37b66a4dcf.png",
+    "public_digits\\filename_block_0048\\PINCH_PINKY\\466fdfe3da5b4a3d846c695715a177200c8db3bd0d5151f98ea3fb1425c4e646.png",
+    "public_digits\\filename_block_0048\\PINCH_PINKY\\5b336b31a2126382baa44dbe9de138d8f35a96c56bbe7f78ce33f619a2d8c24c.png",
+    "public_digits\\filename_block_0048\\PINCH_PINKY\\b5356b906baf28bbda5971f65de31ac2838be6d47539e5d4cd6cb6a560b140a8.png",
+    "public_digits\\filename_block_0048\\PINCH_PINKY\\cdd14b58e3d81935d1000f721d584367d33a65d760f0f355d9fc5696cca93aed.png",
+    "public_digits\\filename_block_0048\\PINCH_RING\\765de568e3b94d0228510212bb17bb90b2114040c123894842056c9236ec3b96.png",
+    "public_digits\\filename_block_0048\\PINCH_RING\\e4e1f1128c8e96f939b016daf81451e6f3188af5f706e6a476e40db8a859c793.png",
+    "public_digits\\filename_block_0048\\PINCH_RING\\fe03b58b806563132cf59dd1ae8f0ac8d078d126434ca9fa02f45f32312c9902.png",
+    "public_digits\\filename_block_0049\\PINCH_PINKY\\48ae4b936459062a958b6ee544bba7843f83d50221a30576b729716158e86312.png",
+    "public_digits\\filename_block_0049\\PINCH_PINKY\\b4366083f8245c08ee184414f31b826603c70fbd240cb9e6e5ae27ec522a9a1c.png",
+    "public_digits\\filename_block_0049\\PINCH_PINKY\\c63f792b9dffa6e993a4babb7e665f90af8ccfea7ff4230987eac57818ed4df1.png",
+    "public_digits\\filename_block_0049\\PINCH_RING\\8220817ba5f7ddb794c4afab30d7315e37dee3f2e6d321cbea1e62b8752def06.png",
+    "public_digits\\filename_block_0049\\PINCH_RING\\b0d45296f364e5868483cd7a29ecd730048feba7a2aa0278ae37ff63638bd9e0.png",
+    "public_digits\\filename_block_0050\\PINCH_PINKY\\08928c963cd665e394ecd35dd5425185628c4e1f388e60040899ff34971d96ee.png",
+    "public_digits\\filename_block_0050\\PINCH_PINKY\\29aa1ffcaa4db2a7e219ddd0802ab982cd293fa28bcfb78e40fc4f850b52663f.png",
+    "public_digits\\filename_block_0050\\PINCH_PINKY\\a7b6c81b54ecdf03d55646071c41acd067fa2a3a1c15eed6539cfa00cd066322.png",
+    "public_digits\\filename_block_0051\\PINCH_PINKY\\8eda6cd1df76454d03e2ca9945eb4a4c1e036695c35c6934850f9fb73cc4f2e8.png",
+    "public_digits\\filename_block_0051\\PINCH_PINKY\\e27ee108f243a723ca60cfd70d406e7fd2f141baca05be9583719b71a69279a5.png",
+    "public_digits\\filename_block_0051\\PINCH_RING\\275922d63304c1bc30d8df12684e69c1a78fd892e15af68c2fda5a31974c65cf.png",
+    "public_digits\\filename_block_0051\\PINCH_RING\\4b23516d88799b1c6798ae72ab85fa1b14026a00f1b90c92f0552fb66f410084.png",
+    "public_digits\\filename_block_0051\\PINCH_RING\\75207858725ef443e7d2c286e3983f6d2dbc87f9a4f7624b51e6b6eea7854edf.png",
+    "public_digits\\filename_block_0051\\PINCH_RING\\9c8e98766439b266e6f419c50db48406944db5bdb78038d99ab0ab76720f1070.png",
+    "public_digits\\filename_block_0052\\PINCH_RING\\83720260ffc50a7ad9b20803dee64711ff7cce7139482753015bc2fc32760511.png",
+    "public_digits\\filename_block_0052\\PINCH_RING\\f563531f8d77fb271097dd5a1a2723babf25e44cace3f7b3f48be4721cedb96b.png",
+    "public_digits\\filename_block_0054\\PINCH_RING\\be3423a879610d5ffdfdbaa3e44a110eb8b41e0cf70eb9f235dc5f0ed23f9c3f.png",
+    "public_digits\\filename_block_0055\\PINCH_PINKY\\ac73d4179018fd3e2b19626fc96a1bd4138bf5667af0a7e5db9436f134f102dc.png",
+    "public_digits\\filename_block_0055\\PINCH_PINKY\\bc65ee4e3a163236d9964a109ce1f9680c6ab4c5be7e4d520ca3ab824893ec95.png",
+    "public_digits\\filename_block_0055\\PINCH_RING\\2524d72d761fdf7884e59f7173caf19286b838e56900abdd429fc22fff60d55c.png",
+    "public_digits\\filename_block_0055\\PINCH_RING\\a38ec5e1cfc993b460048fe43d5faf1c30b86a3e99b68df89b0c8c5fba339f14.png",
+    "public_digits\\filename_block_0055\\PINCH_RING\\cc8a0a4c89508f8976cc62c6483631cd090e69a64ef18265f7ce7f109480db98.png",
+    "public_digits\\filename_block_0056\\PINCH_PINKY\\5adc87534c7ffab372a182a02c14caa7c37204d54ac573664b076ee66ed272da.png",
+    "public_digits\\filename_block_0056\\PINCH_RING\\1cf2d1699895ae6bb015b55a1cebf5906c27531ca9b3e6716495cff88ca1401a.png",
+    "public_digits\\filename_block_0056\\PINCH_RING\\8be53c9d3174287505a15c39ab21abc05c2dc8c6f59d7ed758b37d91bd2568f4.png",
+    "public_digits\\filename_block_0057\\PINCH_PINKY\\1f2928a6d4461837b2fd1c76a45185d07f192b9704e0a0cb9ca2fcd758fcc1a8.png",
+    "public_digits\\filename_block_0057\\PINCH_PINKY\\563aa44a790cabc1f688ae4e6632f9e87e8a6cbc38edd4e697b676a0b0ac7572.png",
+    "public_digits\\filename_block_0057\\PINCH_PINKY\\b59756e726a11acd83c1d24348c47f7ba68e415bd54a5542e40ca7c8f4820725.png",
+    "public_digits\\filename_block_0057\\PINCH_PINKY\\b69c1ed3d72edd9164d0b863e7750c362f50d9435eb1b207b503fc28f07e51b1.png",
+    "public_digits\\filename_block_0057\\PINCH_PINKY\\b891bd8f3c2c9670c60d5f003d15d58a80ea35dd5b71dabd3a5edd3a391e9f8c.png",
+    "public_digits\\filename_block_0057\\PINCH_RING\\0314bcfc082ee9a9dd0fbc01b8c03ea7f862513673dbc2e6851c2d38a337ae00.png",
+    "public_digits\\filename_block_0057\\PINCH_RING\\ad44477d8dd06aac48353e81988e9018b98a11cbf90b56a9f17f6855ae8da8a4.png",
+    "public_digits\\filename_block_0057\\PINCH_RING\\c1a3f257cf29478c6bf9fa1f26e47367403b205156817a156eef899046f38dd9.png",
+    "public_digits\\filename_block_0058\\PINCH_PINKY\\1f99de74187a13f85e3371ff2ecf84caaae89fd7e9eef55ba704782e2a03aeef.png",
+    "public_digits\\filename_block_0058\\PINCH_PINKY\\839ababe84bae62eef889d80f48161b7ab5b095dc8814bba4e091a11a5fa5168.png",
+    "public_digits\\filename_block_0058\\PINCH_PINKY\\915b0a10f34db38d259bd2c7ec7d8af1f61fd25120c584e12f5e6df8afeac30e.png",
+    "public_digits\\filename_block_0058\\PINCH_RING\\1660e5b31a7a1ab61c60c9d19632fd08e3b1a8a3cc45edd386e78fe223543208.png",
+    "public_digits\\filename_block_0058\\PINCH_RING\\d875229dfe1bbb03a11e06bbd35e3ca63f3c11a95a649cfaca7dbe219aa5736c.png",
+    "public_digits\\filename_block_0059\\PINCH_PINKY\\b94ab70b1f43fb08de40075582f7f25de983193cbb06a5c697a2d7f623f41de9.png"
+  ],
+  "group_assignment": {
+    "public_digits/filename_block_0053": "train",
+    "public_digits/filename_block_0049": "val",
+    "public_digits/filename_block_0058": "test",
+    "public_digits/filename_block_0057": "train",
+    "public_digits/filename_block_0059": "train",
+    "public_digits/filename_block_0043": "train",
+    "public_digits/filename_block_0012": "train",
+    "public_digits/filename_block_0048": "train",
+    "public_digits/filename_block_0047": "train",
+    "public_digits/filename_block_0055": "train",
+    "public_digits/filename_block_0052": "train",
+    "public_digits/filename_block_0051": "train",
+    "public_digits/filename_block_0042": "train",
+    "public_digits/filename_block_0041": "train",
+    "public_digits/filename_block_0056": "train",
+    "public_digits/filename_block_0044": "val",
+    "public_digits/filename_block_0050": "test",
+    "public_digits/filename_block_0046": "train",
+    "public_digits/filename_block_0045": "test",
+    "public_digits/filename_block_0054": "val",
+    "public_digits/filename_block_0011": "train",
+    "public_digits/filename_block_0040": "test",
+    "public_digits/filename_block_0013": "val",
+    "P01/S01": "train"
+  },
+  "calibration_train_only_groups": [
+    "P01/S01"
+  ],
+  "limitations": "Conditional on MediaPipe finding a hand. Filename groups are not verified subjects. Webcam performance requires a separate session. Pairwise 2D features do not guarantee invariance to out-of-plane rotation."
+}

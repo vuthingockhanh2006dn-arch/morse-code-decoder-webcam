@@ -1,0 +1,72 @@
+[
+  {
+    "index": 8,
+    "original": "data/images/morse/P01/S01/PINCH_PINKY/99c93995e09075e4d5bda0d2cfca73505d75a776901a158925b81ed249fa18d0.png",
+    "backup": "data\\calibration_review\\2026-11-19\\PINCH_PINKY\\99c93995e09075e4d5bda0d2cfca73505d75a776901a158925b81ed249fa18d0.png",
+    "new_label": null,
+    "reason": "manual visual audit; ambiguous transition excluded"
+  },
+  {
+    "index": 15,
+    "original": "data/images/morse/P01/S01/PINCH_RING/8a733f63131fca7f5cc3c56fe0194612e39075e6a54b933e94324e9e6d4fbd9f.png",
+    "backup": "data\\calibration_review\\2026-11-19\\PINCH_RING\\8a733f63131fca7f5cc3c56fe0194612e39075e6a54b933e94324e9e6d4fbd9f.png",
+    "new_label": null,
+    "reason": "manual visual audit; ambiguous transition excluded"
+  },
+  {
+    "index": 20,
+    "original": "data/images/morse/P01/S01/PINCH_RING/c025ebbee181af454c01b270afecc345ceaa8d453460818131d0d3393312df2a.png",
+    "backup": "data\\calibration_review\\2026-11-19\\PINCH_RING\\c025ebbee181af454c01b270afecc345ceaa8d453460818131d0d3393312df2a.png",
+    "new_label": null,
+    "reason": "manual visual audit; ambiguous transition excluded"
+  },
+  {
+    "index": 22,
+    "original": "data/images/morse/P01/S01/PINCH_RING/ea438b0980f9979037c83f529980836c40f5e8ee7e9d70a31936af27739572f0.png",
+    "backup": "data\\calibration_review\\2026-11-19\\PINCH_RING\\ea438b0980f9979037c83f529980836c40f5e8ee7e9d70a31936af27739572f0.png",
+    "new_label": "UNKNOWN",
+    "reason": "manual visual audit; corrected open palm vs index pinch"
+  },
+  {
+    "index": 23,
+    "original": "data/images/morse/P01/S01/PINCH_THUMB/08e71fecbfe33001f8bdcdaa9a44253561090efd94a110a039c0b23464802f16.png",
+    "backup": "data\\calibration_review\\2026-11-19\\PINCH_THUMB\\08e71fecbfe33001f8bdcdaa9a44253561090efd94a110a039c0b23464802f16.png",
+    "new_label": "UNKNOWN",
+    "reason": "manual visual audit; corrected open palm vs index pinch"
+  },
+  {
+    "index": 25,
+    "original": "data/images/morse/P01/S01/PINCH_THUMB/18e3dc84bddead5727d256a9b024d3f5fd732364f78ad837cda4982bab50b48e.png",
+    "backup": "data\\calibration_review\\2026-11-19\\PINCH_THUMB\\18e3dc84bddead5727d256a9b024d3f5fd732364f78ad837cda4982bab50b48e.png",
+    "new_label": "UNKNOWN",
+    "reason": "manual visual audit; corrected open palm vs index pinch"
+  },
+  {
+    "index": 37,
+    "original": "data/images/morse/P01/S01/UNKNOWN/3cf73fb0c5cdaef77be3663f72b6c6e9b137ba93d2d95ccf6d64c625e4a83c2a.png",
+    "backup": "data\\calibration_review\\2026-11-19\\UNKNOWN\\3cf73fb0c5cdaef77be3663f72b6c6e9b137ba93d2d95ccf6d64c625e4a83c2a.png",
+    "new_label": "PINCH_THUMB",
+    "reason": "manual visual audit; corrected open palm vs index pinch"
+  },
+  {
+    "index": 38,
+    "original": "data/images/morse/P01/S01/UNKNOWN/678dcce59eea819d13629acd47af44491ea730ae699532cd486312436461c3f2.png",
+    "backup": "data\\calibration_review\\2026-11-19\\UNKNOWN\\678dcce59eea819d13629acd47af44491ea730ae699532cd486312436461c3f2.png",
+    "new_label": null,
+    "reason": "manual visual audit; ambiguous transition excluded"
+  },
+  {
+    "index": 39,
+    "original": "data/images/morse/P01/S01/UNKNOWN/6f889fd34618d7e028b9a578c05f0044d6a895ed46a2920cd02669957b2bce9a.png",
+    "backup": "data\\calibration_review\\2026-11-19\\UNKNOWN\\6f889fd34618d7e028b9a578c05f0044d6a895ed46a2920cd02669957b2bce9a.png",
+    "new_label": "PINCH_THUMB",
+    "reason": "manual visual audit; corrected open palm vs index pinch"
+  },
+  {
+    "index": 40,
+    "original": "data/images/morse/P01/S01/UNKNOWN/764113973cb29048b439dbf170c78bc86d68cac0f4422f5e073e488d6291845a.png",
+    "backup": "data\\calibration_review\\2026-11-19\\UNKNOWN\\764113973cb29048b439dbf170c78bc86d68cac0f4422f5e073e488d6291845a.png",
+    "new_label": "PINCH_THUMB",
+    "reason": "manual visual audit; corrected open palm vs index pinch"
+  }
+]

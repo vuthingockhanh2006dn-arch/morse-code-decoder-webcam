@@ -1,5 +1,9 @@
 # Chạy giao diện web Morse
 
+**Bản webcam mới:** dùng mô hình SVM học hình dạng bàn tay từ ảnh có nhãn (`image_shape_model.joblib`). Quy trình ảnh → MediaPipe → đặc trưng khoảng cách → SVM giúp giảm phụ thuộc nền và chiều tay. Đây là mô hình học có giám sát, khác bộ phát hiện chạm bằng quy tắc ở chế độ tham khảo. Sau khi huấn luyện HOG bằng `src/train_image_models.py`, chạy thêm `src/image_shape_learning.py`; nút Huấn luyện trên web cập nhật cả hai. Trên trang cần thấy dòng **Nhận diện hình dạng học từ ảnh**. Nếu vẫn thấy HOG, nhấn Ctrl+F5 và kiểm tra mô hình hình dạng đã được tạo. Ngưỡng DASH của web là 0,65 giây.
+
+**Học từ ảnh (mặc định):** đã dùng lại các ảnh có tư thế chạm ngón ở lớp 9/7/6 và tay mở ở lớp 5. Xem [IMAGE_LEARNING_GUIDE.md](reports/IMAGE_LEARNING_GUIDE.md). Nếu thiếu mô hình, chạy `src/import_pose_images.py` rồi `src/train_image_models.py`; không bắt buộc thu lại từ đầu. Chức năng Thu ảnh dùng bổ sung điều kiện webcam/người mới. Landmark/hình học là chế độ tham khảo riêng.
+
 ## Cài đặt trên Windows
 
 Dùng Python 3.9–3.12, khuyến nghị 3.11. Nếu đã tạo `.venv` và cài thư viện, chỉ cần chạy dòng cuối.

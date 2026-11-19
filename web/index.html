@@ -464,6 +464,30 @@
     </div>
   </header>
 
+  <section style="margin:16px 24px;padding:18px;border:1px solid var(--border-color);border-radius:12px;background:var(--bg-card)">
+    <h2 style="font-size:1.1rem;margin-bottom:10px">Học có giám sát từ ảnh bàn tay</h2>
+    <label>Chế độ <select id="run-mode"><option value="image">Nhận diện bằng mô hình ảnh đã học</option><option value="collect">Thu ảnh có nhãn để huấn luyện</option><option value="legacy">Tham khảo: landmark/hình học và nút mô phỏng</option></select></label>
+    <p id="image-model-status" role="status" style="margin:10px 0">Đang kiểm tra mô hình ảnh…</p>
+    <p style="font-size:.85rem;line-height:1.7">Giữ cử chỉ cũ: cái–trỏ → dot/dash; cái–áp út → space/chốt chữ; cái–út → delete. Mô hình học 4 <b>tư thế</b> từ ảnh; FSM phân biệt chạm nhanh, giữ và chạm đúp.</p>
+    <div id="collection-panel" hidden style="margin-top:12px;line-height:2">
+      <label>Người <input id="image-subject" value="P01" maxlength="48" size="10"></label>
+      <label>Phiên <input id="image-session" value="S01" maxlength="48" size="10"></label>
+      <label>Nhãn ảnh <select id="image-label"><option value="UNKNOWN">Nghỉ / mở tay / tư thế khác</option><option value="PINCH_THUMB">Cái chạm trỏ (dot/dash)</option><option value="PINCH_RING">Cái chạm áp út (space/chốt chữ)</option><option value="PINCH_PINKY">Cái chạm út (delete)</option></select></label>
+      <label><input id="image-train-only" type="checkbox"> Hiệu chỉnh camera: phiên này chỉ dùng cho train, không dùng tính điểm test</label>
+      <button id="record-images" class="btn">Bắt đầu lưu ảnh</button>
+      <p>Chọn nhãn đúng rồi giữ tư thế; hệ thống không tự gán nhãn bằng hình học. Lưu tối đa khoảng 1 ảnh/giây. Thu đủ 4 nhãn trong ít nhất 3 phiên độc lập; khuyến nghị nhiều người, 50–100 ảnh/nhãn/phiên, thay đổi góc và ánh sáng.</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;margin-top:10px"><img id="image-crop-preview" width="96" height="96" alt="Vùng ảnh bàn tay gửi vào mô hình" style="border:1px solid var(--border-color);object-fit:contain"><span style="font-size:.8rem">Ảnh đầu vào của mô hình<br>Kiểm tra thấy đủ các đầu ngón tay trước khi lưu.</span></div>
+    <p id="image-counts" style="font-family:var(--font-mono);font-size:.8rem;margin:10px 0"></p>
+    <label>Chia tập <select id="image-split"><option value="session">Theo phiên (ít nhất 3 phiên)</option><option value="subject">Theo người (ít nhất 3 người)</option></select></label>
+    <button id="train-images" class="btn primary">Huấn luyện từ ảnh đã thu</button>
+    <label class="btn">Thử một ảnh <input id="test-image" type="file" accept="image/jpeg,image/png" style="max-width:190px"></label>
+    <p id="image-result" role="status" style="margin-top:10px"></p>
+    <p id="recognition-detail" role="status" style="margin-top:10px;line-height:1.6">Mở tay trước khi chạm ngón. Lớp dự đoán, ngưỡng và lý do từ chối sẽ hiển thị tại đây.</p>
+    <button id="download-crop" class="btn" style="margin-top:8px">Lưu ảnh đầu vào để kiểm tra</button>
+    <button id="arm-input" class="btn primary" style="margin-top:8px" disabled>Mở khóa nhập</button>
+    <p id="input-status" role="status" style="margin-top:10px;line-height:1.7">Chưa mở khóa nhập · Chưa có sự kiện Morse.</p>
+  </section>
   <main class="main-grid">
     <!-- CỘT TRÁI: CAMERA & VẬT LÝ TƯƠNG TÁC -->
     <div class="panel">
@@ -533,7 +557,7 @@
       <div class="test-pads-grid">
         <button id="pad-thumb" class="gesture-pad">
           <span class="pad-title">👍 Chụm Cái + Trỏ (PINCH_THUMB)</span>
-          <span class="pad-desc">Bấm nhả nhanh = DOT (.)<br>Giữ >= 0.40s = DASH (-)</span>
+          <span class="pad-desc">Bấm nhả nhanh = DOT (.)<br>Giữ >= 0.65s = DASH (-)</span>
         </button>
 
         <button id="pad-ring" class="gesture-pad">

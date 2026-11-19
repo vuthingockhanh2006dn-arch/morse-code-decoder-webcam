@@ -1,5 +1,13 @@
 # Mô tả bộ dữ liệu
 
+## Bổ sung học từ ảnh (18/11/2026)
+
+Luồng ảnh được mô tả tại [IMAGE_LEARNING_GUIDE.md](../reports/IMAGE_LEARNING_GUIDE.md). Hai bản sao bộ ảnh số chứa 2.062 ảnh duy nhất. Sau đối chiếu tư thế ảnh thực tế, dùng lớp 9 → PINCH_THUMB (204 ảnh), 7 → PINCH_RING (206), 6 → PINCH_PINKY (207), 5 → UNKNOWN/tay mở (207), tổng 824 ảnh. Không đổi số thành lệnh Morse; ánh xạ dựa trên cặp ngón thực sự xuất hiện trong ảnh. Những lớp còn lại chưa được nhập. Nguồn, hash và nhãn dẫn xuất nằm trong `data/images/morse/source_manifest.csv`.
+
+Ảnh công khai không kèm mã người/phiên trong bản dữ liệu này. Các thư mục `public_digits/filename_block_*` là nhóm tên file dùng hạn chế tương quan ảnh gần nhau, không phải người/phiên thật. Chia tập hiện tại 570 train, 122 validation, 132 test; chưa chứng minh tổng quát với người mới/webcam. Chỉ báo cáo điểm test cùng giới hạn này.
+
+Ảnh Morse mới do người dùng gán nhãn trên web được lưu tại `data/images/morse/<subject>/<session>/<pose>/*.png`. Bốn nhãn là PINCH_THUMB, PINCH_RING, PINCH_PINKY và UNKNOWN. Chia nhóm theo người/phiên trước huấn luyện; không dùng ảnh cùng nhóm ở cả train và test. Ảnh được trích HOG từ điểm ảnh, mô hình được lưu vào `models/image_pose_model.joblib`, báo cáo và danh sách chia tập nằm trong `reports/image_learning/`. Các mô tả CSV landmark bên dưới thuộc luồng thu thập trước đây, được giữ làm chế độ tham khảo.
+
 Tài liệu này mô tả cách thu, gán nhãn, làm sạch và chia dữ liệu. Mục "Số liệu thực tế" ở cuối để trống cho đến khi bạn thu xong; chạy `python3 src/data_analysis.py` để lấy số.
 
 ## 1. Nguồn

@@ -224,3 +224,10 @@ __marimo__/
 
 
 **/.DS_Store
+
+# Reproducible hand-crop cache; source images and split manifests are retained.
+data/processed/image_crops/
+data/processed/image_shape/
+
+# Local screen-recording diagnostic frames, not research training samples.
+reports/diagnostics/

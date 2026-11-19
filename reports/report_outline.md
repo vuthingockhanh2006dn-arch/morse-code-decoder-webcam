@@ -1,5 +1,7 @@
 # Đề cương báo cáo
 
+**Luồng học từ ảnh mới:** dùng [IMAGE_LEARNING_GUIDE.md](IMAGE_LEARNING_GUIDE.md) để trình bày đối chiếu tư thế lớp ảnh nguồn 9/7/6/5, đồng bộ 824 ảnh, HOG 1764 chiều, SVM/KNN/Random Forest và FSM. Số liệu thực tế ở `reports/image_learning/metrics.json`; nhóm tên file của ảnh nguồn chưa phải người/phiên thật, không công bố điểm test là độ chính xác webcam/người mới. Phần 66 landmark bên dưới là luồng tham khảo cũ.
+
 Số liệu và hình trong báo cáo lấy từ file do các script sinh ra. Đừng gõ tay.
 
 ## Chương 1. Tổng quan

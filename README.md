@@ -1,5 +1,9 @@
 # Gõ mã Morse bằng cử chỉ tay qua webcam
 
+**Nhận diện webcam hiện tại:** ảnh có nhãn → MediaPipe trích 21 điểm bàn tay → 210 khoảng cách chuẩn hóa → SVM học bốn tư thế, gồm tay nghỉ. Không dùng ngưỡng chạm ngón để gán nhãn trong nhánh này. `src/image_shape_learning.py` huấn luyện từ ảnh trong `data/images/morse`, lưu `models/image_shape_model.joblib` và `reports/image_learning/shape_metrics.json`. Đặc trưng không phụ thuộc vị trí, kích thước, phép lật và xoay trong mặt phẳng; vẫn cần kiểm tra góc nghiêng/che ngón trên webcam. HOG bên dưới được giữ làm nhánh dự phòng cho ảnh không kèm landmark.
+
+**Học từ ảnh:** xem [hướng dẫn đồng bộ ảnh và huấn luyện](reports/IMAGE_LEARNING_GUIDE.md). Đã đối chiếu ảnh nguồn: lớp 9 là cái–trỏ, 7 là cái–áp út, 6 là cái–út, 5 là tay mở. `import_pose_images.py` dùng lại 824 ảnh tương ứng để học bốn tư thế bằng HOG + SVM/KNN/Random Forest; FSM giữ nguyên cách nhập Morse. Không bắt buộc phải quay video hoặc tự thu toàn bộ dữ liệu. Chia nhóm tên file không phải đánh giá độc lập theo người.
+
 Hand gesture recognition for typing Morse code with a webcam.
 
 **Chạy giao diện web / Run the web UI:**

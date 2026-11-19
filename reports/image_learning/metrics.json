@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "feature_version": "gray64-hog16-8-8-9-v1",
+  "input": "RGB/BGR image pixels -> grayscale HOG (1764 features), no landmarks",
+  "model": "SVM C=1.0",
+  "samples": {
+    "PINCH_THUMB": 215,
+    "PINCH_RING": 214,
+    "PINCH_PINKY": 217,
+    "UNKNOWN": 216
+  },
+  "split_by": "session",
+  "dataset_protocol": {
+    "source": "https://github.com/ardamavi/Sign-Language-Digits-Dataset",
+    "mapping": {
+      "9": "PINCH_THUMB",
+      "7": "PINCH_RING",
+      "6": "PINCH_PINKY",
+      "5": "UNKNOWN"
+    },
+    "counts": {
+      "PINCH_THUMB": 204,
+      "PINCH_RING": 206,
+      "PINCH_PINKY": 207,
+      "UNKNOWN": 207
+    },
+    "total": 824,
+    "mapping_reason": "9 thumb-index contact, 7 thumb-ring contact, 6 thumb-pinky contact, 5 open palm; verified on source images. Other digit classes are excluded.",
+    "grouping": "filename_block_proxy",
+    "filename_block_size": 100,
+    "subject_ids_available": false,
+    "limitations": "Filename blocks are not verified subjects or recording sessions. Test scores are not subject-independent performance. Open palm is only one rest pose; webcam backgrounds and other unknown gestures need extra coverage. Imported whole-image framing differs from live landmark crops; validate on webcam before claiming deployment accuracy."
+  },
+  "calibration_train_only_groups": [
+    "P01/S01"
+  ],
+  "calibration_note": "Webcam calibration groups are training-only. Validation/test scores do not measure performance on these users/conditions.",
+  "training_augmentation": {
+    "scope": "train only, after group split",
+    "original_train_images": 608,
+    "effective_train_images": 2432,
+    "variants": [
+      "original",
+      "horizontal_flip",
+      "small_rotation_low_light_noise",
+      "flipped_small_rotation_low_light_noise"
+    ]
+  },
+  "validation_protocol": "original + mirrored variants of the same validation images; select by combined macro F1, not test",
+  "test_mirrored_accuracy": 0.9924242424242424,
+  "test_mirrored_macro_f1": 0.9923076923076923,
+  "image_framing": {
+    "version": "mediapipe-square-1.45-v1",
+    "source_hand_crops": 730,
+    "source_full_frame_fallbacks": 94,
+    "collected_images": "already cropped by the same web bounding-box formula"
+  },
+  "split_counts": {
+    "train": 608,
+    "val": 122,
+    "test": 132
+  },
+  "group_assignment": {
+    "public_digits/filename_block_0053": "train",
+    "public_digits/filename_block_0049": "val",
+    "public_digits/filename_block_0058": "test",
+    "public_digits/filename_block_0057": "train",
+    "public_digits/filename_block_0059": "train",
+    "public_digits/filename_block_0043": "train",
+    "public_digits/filename_block_0012": "train",
+    "public_digits/filename_block_0048": "train",
+    "public_digits/filename_block_0047": "train",
+    "public_digits/filename_block_0055": "train",
+    "public_digits/filename_block_0052": "train",
+    "public_digits/filename_block_0051": "train",
+    "public_digits/filename_block_0042": "train",
+    "public_digits/filename_block_0041": "train",
+    "public_digits/filename_block_0056": "train",
+    "public_digits/filename_block_0044": "val",
+    "public_digits/filename_block_0050": "test",
+    "public_digits/filename_block_0046": "train",
+    "public_digits/filename_block_0045": "test",
+    "public_digits/filename_block_0054": "val",
+    "public_digits/filename_block_0011": "train",
+    "public_digits/filename_block_0040": "test",
+    "public_digits/filename_block_0013": "val",
+    "P01/S01": "train"
+  },
+  "validation": [
+    {
+      "model": "SVM C=1.0",
+      "macro_f1": 0.9793068832871763,
+      "accuracy": 0.9795081967213115,
+      "original_accuracy": 0.9836065573770492,
+      "mirrored_accuracy": 0.9754098360655737,
+      "fit_seconds": 17.912269400025252
+    },
+    {
+      "model": "SVM C=10.0",
+      "macro_f1": 0.9793068832871763,
+      "accuracy": 0.9795081967213115,
+      "original_accuracy": 0.9836065573770492,
+      "mirrored_accuracy": 0.9754098360655737,
+      "fit_seconds": 20.202375099994242
+    },
+    {
+      "model": "KNN k=5",
+      "macro_f1": 0.9671273122221091,
+      "accuracy": 0.9672131147540983,
+      "original_accuracy": 0.9508196721311475,
+      "mirrored_accuracy": 0.9836065573770492,
+      "fit_seconds": 0.21076140005607158
+    },
+    {
+      "model": "Random Forest",
+      "macro_f1": 0.9671211044669532,
+      "accuracy": 0.9672131147540983,
+      "original_accuracy": 0.9672131147540983,
+      "mirrored_accuracy": 0.9672131147540983,
+      "fit_seconds": 1.291024300036952
+    }
+  ],
+  "confidence_threshold": 0.55,
+  "test_accuracy": 0.9848484848484849,
+  "test_macro_f1": 0.9848383500557414,
+  "test_coverage": 0.9848484848484849,
+  "test_accepted_accuracy": 0.9923076923076923,
+  "classification_report": {
+    "PINCH_PINKY": {
+      "precision": 1.0,
+      "recall": 0.9696969696969697,
+      "f1-score": 0.9846153846153847,
+      "support": 33.0
+    },
+    "PINCH_RING": {
+      "precision": 1.0,
+      "recall": 0.9696969696969697,
+      "f1-score": 0.9846153846153847,
+      "support": 33.0
+    },
+    "PINCH_THUMB": {
+      "precision": 0.9696969696969697,
+      "recall": 1.0,
+      "f1-score": 0.9846153846153847,
+      "support": 32.0
+    },
+    "UNKNOWN": {
+      "precision": 0.9714285714285714,
+      "recall": 1.0,
+      "f1-score": 0.9855072463768116,
+      "support": 34.0
+    },
+    "accuracy": 0.9848484848484849,
+    "macro avg": {
+      "precision": 0.9852813852813853,
+      "recall": 0.9848484848484849,
+      "f1-score": 0.9848383500557414,
+      "support": 132.0
+    },
+    "weighted avg": {
+      "precision": 0.9852945034763217,
+      "recall": 0.9848484848484849,
+      "f1-score": 0.984845106584237,
+      "support": 132.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      32,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      32,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      32,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      34
+    ]
+  ],
+  "labels": [
+    "PINCH_THUMB",
+    "PINCH_RING",
+    "PINCH_PINKY",
+    "UNKNOWN"
+  ],
+  "limitations": "Session-disjoint does not imply subject-disjoint. Similar frames within a session are not independent samples. Collect multiple people and sessions."
+}

@@ -1,0 +1,15 @@
+{
+  "scope": "training calibration photos, not independent webcam test",
+  "calibration_predictions": {
+    "correct": 38
+  },
+  "events": [
+    "DOT",
+    "DASH",
+    "CONFIRM",
+    "SPACE",
+    "DELETE"
+  ],
+  "decoded_text": "A",
+  "expected_text": "A"
+}

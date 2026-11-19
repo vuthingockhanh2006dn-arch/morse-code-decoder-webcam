@@ -1,0 +1,135 @@
+{
+  "source": "https://github.com/ardamavi/Sign-Language-Digits-Dataset",
+  "sources": [
+    {
+      "path": "CDIOII\\Morse_Webcam_Dataset\\data\\raw\\images\\sign_language_digits",
+      "classes": {
+        "0": 205,
+        "1": 206,
+        "2": 206,
+        "3": 206,
+        "4": 207,
+        "5": 207,
+        "6": 207,
+        "7": 206,
+        "8": 208,
+        "9": 204
+      },
+      "files": 2062,
+      "unique_hashes": 2062,
+      "duplicates_of_previous_source": 0
+    },
+    {
+      "path": "datasets\\data\\raw\\images\\sign_language_digits",
+      "classes": {
+        "0": 205,
+        "1": 206,
+        "2": 206,
+        "3": 206,
+        "4": 207,
+        "5": 207,
+        "6": 207,
+        "7": 206,
+        "8": 208,
+        "9": 204
+      },
+      "files": 2062,
+      "unique_hashes": 2062,
+      "duplicates_of_previous_source": 2062
+    }
+  ],
+  "unique_images_across_sources": 2062,
+  "original_labels": "Digits 0-9",
+  "morse_labeled_images_in_these_sources": 0,
+  "ipn_hands": {
+    "documentation": "https://github.com/GibranBenitez/IPN-hand/blob/master/README_HandS.md",
+    "landmark_json_files": {
+      "landmarks_gt": 200,
+      "landmarks_mp_hands": 200,
+      "landmarks_mp_holistic": 200
+    },
+    "temporal_annotation_files": 200,
+    "classes": {
+      "0": {
+        "code": "NOG",
+        "gesture": "Non-gesture",
+        "segments": 2592
+      },
+      "1": {
+        "code": "P1F",
+        "gesture": "Pointing with one finger",
+        "segments": 1217
+      },
+      "2": {
+        "code": "P2F",
+        "gesture": "Pointing with two fingers",
+        "segments": 1189
+      },
+      "3": {
+        "code": "C1F",
+        "gesture": "Click with one finger",
+        "segments": 204
+      },
+      "4": {
+        "code": "C2F",
+        "gesture": "Click with two fingers",
+        "segments": 186
+      },
+      "5": {
+        "code": "TUP",
+        "gesture": "Throw up",
+        "segments": 201
+      },
+      "6": {
+        "code": "TDN",
+        "gesture": "Throw down",
+        "segments": 200
+      },
+      "7": {
+        "code": "TLT",
+        "gesture": "Throw left",
+        "segments": 197
+      },
+      "8": {
+        "code": "TRT",
+        "gesture": "Throw right",
+        "segments": 195
+      },
+      "9": {
+        "code": "OP2",
+        "gesture": "Open twice",
+        "segments": 194
+      },
+      "10": {
+        "code": "2C1",
+        "gesture": "Double click with one finger",
+        "segments": 199
+      },
+      "11": {
+        "code": "2C2",
+        "gesture": "Double click with two fingers",
+        "segments": 215
+      },
+      "12": {
+        "code": "ZIN",
+        "gesture": "Zoom in",
+        "segments": 232
+      },
+      "13": {
+        "code": "ZOT",
+        "gesture": "Zoom out",
+        "segments": 208
+      },
+      "14": {
+        "code": "GRB",
+        "gesture": "Grab",
+        "segments": 534
+      }
+    },
+    "rgb_frames_present": 0,
+    "rgb_videos_present": 0,
+    "frame_extraction": "Original 640x480 IPN Hand video -> fps=30 -> 1-based frame indices; do not use the different 320x240 frame timeline.",
+    "interpretation": "Contains labeled gesture sequences. JSON frame-name keys are not RGB pixels. Click/double-click labels require visual verification before mapping to exact thumb-index/ring/pinky contact poses. Existing usable RGB data can be reused; fresh collection is only needed for missing/unmatched target poses."
+  },
+  "use": "Digit RGB data and IPN gesture landmark/annotation data are different sources. Locate original IPN RGB videos/frames and verify target contact poses before deciding which new images are needed."
+}

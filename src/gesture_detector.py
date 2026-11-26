@@ -4,10 +4,15 @@ import time
 
 
 class GestureDetector:
-    PAIRS = {"PINCH_THUMB": 4, "PINCH_RING": 16, "PINCH_PINKY": 20}
+    """Detect thumb-to-finger contacts:
+      * PINCH_THUMB: thumb (4) + index (8)  -> DOT (< 0.40s) / DASH (>= 0.40s)
+      * PINCH_RING:  thumb (4) + ring (16)  -> SPACE (1 tap) / CONFIRM (2 taps)
+      * PINCH_PINKY: thumb (4) + pinky (20) -> DELETE (1 tap)
+    """
+    PAIRS = {"PINCH_THUMB": 8, "PINCH_RING": 16, "PINCH_PINKY": 20}
 
     def __init__(self, touch=0.25, release=0.35, ambiguity=0.08,
-                 stable_time=0.07, anchor=8):
+                 stable_time=0.07, anchor=4):
         if anchor not in (4, 8):
             raise ValueError("anchor must be thumb (4) or index (8)")
         self.touch = touch
@@ -15,7 +20,7 @@ class GestureDetector:
         self.ambiguity = ambiguity
         self.stable_time = stable_time
         self.anchor = anchor
-        self.pairs = dict(self.PAIRS, PINCH_THUMB=8) if anchor == 4 else dict(self.PAIRS)
+        self.pairs = dict(self.PAIRS) if anchor == 4 else dict(self.PAIRS, PINCH_THUMB=4)
         self.reset()
 
     def reset(self):

@@ -1,0 +1,10 @@
+              precision    recall  f1-score   support
+
+ PINCH_PINKY     1.0000    1.0000    1.0000        29
+  PINCH_RING     0.9667    1.0000    0.9831        29
+ PINCH_THUMB     1.0000    1.0000    1.0000        29
+     UNKNOWN     1.0000    0.9936    0.9968       156
+
+    accuracy                         0.9959       243
+   macro avg     0.9917    0.9984    0.9950       243
+weighted avg     0.9960    0.9959    0.9959       243

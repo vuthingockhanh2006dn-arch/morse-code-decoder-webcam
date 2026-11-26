@@ -74,6 +74,9 @@ class MorseBuffer:
         if self.buffer:
             self.text += decode_symbol(self.buffer) or UNKNOWN_CHAR
             self.buffer = ""
+        elif self.text and not self.text.endswith(" "):
+            # Nếu bộ đệm đã rỗng (vừa chốt chữ ở lần chạm 1), lần chạm 2 sẽ thêm dấu cách
+            self.text += " "
 
     def space(self) -> None:
         self.confirm()

@@ -222,3 +222,14 @@ __marimo__/
 # Assistant / AI rules & cache
 .gemini/
 
+# Training images & related local image-training files
+CDIOII/
+datasets/
+data/raw/images/
+data/processed/*.csv
+src/train_image_dataset.py
+tests/test_train_image_dataset.py
+reports/image_training_report.json
+reports/figures/image_confusion_matrix.png
+
+**/.DS_Store

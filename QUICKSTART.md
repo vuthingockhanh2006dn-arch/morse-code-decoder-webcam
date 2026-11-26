@@ -20,13 +20,13 @@ Ngón cái là ngón chạm chính, thống nhất với dữ liệu huấn luy�
 
 | Lệnh | Thao tác |
 | --- | --- |
-| Dot `.` | Cái–trỏ chạm nhanh rồi thả |
-| Dash `-` | Cái–trỏ chạm giữ ít nhất 0,40 giây |
-| Space | Cái–áp út chạm một lần rồi thả, chờ hết cửa sổ chạm đúp |
-| Chốt chữ | Cái–áp út chạm hai lần nhanh, trong cửa sổ 0,45 giây |
-| Delete | Cái–út chạm: xóa tín hiệu cuối hoặc chữ cuối nếu chuỗi tín hiệu trống |
+| Dot `.` | Cái–trỏ chạm nhanh rồi thả (dưới 0,40 giây) — phát âm **"tích"** trước khi nhảy `.` |
+| Dash `-` | Cái–trỏ chạm giữ ít nhất 0,40 giây — phát âm **"tè"** trước khi nhảy `-` |
+| Chốt chữ (Confirm) | Cái–áp út chạm 1 lần rồi thả |
+| Space (Cách từ) | Cái–áp út chạm 2 lần nhanh trong cửa sổ 0,45 giây |
+| Delete | Cái–út chạm 1 lần: xóa tín hiệu cuối hoặc chữ cuối nếu chuỗi tín hiệu trống |
 
-Mở tay trước khi bắt đầu và giữa các thao tác. Chốt chữ giữ lại chữ trong văn bản để nhập chữ tiếp theo; Space chốt chữ rồi thêm dấu cách. Ví dụ: dot, dash, chốt chữ → A; tiếp tục dash, dot, chốt chữ → AN.
+Mở tay trước khi bắt đầu và giữa các thao tác. Chốt chữ (1 lần chạm cái–áp út) giải mã chuỗi tín hiệu thành ký tự để nhập chữ tiếp theo; Space (2 lần chạm cái–áp út) chốt chữ đang gõ (nếu có) rồi thêm dấu cách để tách các từ thành câu. Ví dụ: dot, dash, chạm cái–áp út 1 lần → A; tiếp tục dash, dot, chạm cái–áp út 1 lần → AN.
 
 Khi camera tắt, có thể nhấn giữ/thả các nút mô phỏng. Các khung nghỉ vẫn được gửi sau khi thả nút để xử lý dot và chạm đơn/chạm đúp. Không trộn camera với nút mô phỏng. Nút nghỉ thả cử chỉ; nút Xóa hết xóa cả mã và văn bản. Dừng camera hoặc mất tracking chỉ hủy cử chỉ đang thực hiện, giữ văn bản đã nhập.
 

@@ -56,8 +56,8 @@ HINTS = {  # chỉ dùng ASCII vì cv2.putText không vẽ được dấu tiến
     "UNKNOWN": "Tay nghi hoac tu the ngoai quy uoc",
     "DOT": "Giu chum ngon cai + ngon tro (tap nhanh)",
     "DASH": "Giu chum ngon cai + ngon tro (giu lau)",
-    "CONFIRM": "Chum ngon cai + ngon ap ut (cham dup 2 lan)",
-    "SPACE": "Chum ngon cai + ngon ap ut (cham 1 lan)",
+    "CONFIRM": "Chum ngon cai + ngon ap ut (cham 1 lan)",
+    "SPACE": "Chum ngon cai + ngon ap ut (cham dup 2 lan)",
     "DELETE": "Chum ngon cai + ngon ut (cham 1 lan)",
 }
 

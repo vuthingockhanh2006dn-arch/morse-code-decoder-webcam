@@ -7,14 +7,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 from gesture_detector import GestureDetector
 
 
-def hand(tip=4, gap=.02):
+def hand(tip=8, gap=.02):
     points = [[.5, .5, 0.] for _ in range(21)]
     points[0] = [.5, .8, 0.]
     points[9] = [.5, .5, 0.]
     points[5] = [.35, .5, 0.]
     points[17] = [.65, .5, 0.]
-    points[8] = [.4, .3, 0.]
-    points[4] = [.1, .3, 0.]
+    points[4] = [.4, .3, 0.]
+    points[8] = [.1, .3, 0.]
     points[16] = [.65, .3, 0.]
     points[20] = [.8, .3, 0.]
     points[tip] = [.4 + gap, .3, 0.]

@@ -370,20 +370,82 @@
     .decoded-text-box {
       font-family: var(--font-mono);
       font-size: 1.8rem;
+      line-height: 1.4;
       min-height: 72px;
       color: #f8fafc;
+      white-space: break-spaces;
       word-break: break-all;
       background: #070a12;
-      padding: 12px;
+      padding: 16px 12px;
       border-radius: 6px;
       border: 1px dashed var(--border-color);
-      display: flex;
-      align-items: center;
     }
 
-    .decoded-text-box:empty::before {
+    @keyframes caret-blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    .decoded-text-box:empty::before,
+    .decoded-text-box:not(:empty)::after {
+      content: "";
+      display: inline-block;
+      width: 3px;
+      height: 1.15em;
+      background-color: var(--color-primary);
+      box-shadow: 0 0 8px var(--color-primary);
+      vertical-align: -0.18em;
+      margin-left: 2px;
+      margin-right: 6px;
+      border-radius: 1px;
+      animation: caret-blink 1s step-end infinite;
+    }
+
+    .decoded-text-box:empty::after {
       content: "Chữ sẽ hiển thị tại đây khi xác nhận (CONFIRM)";
       font-size: 0.95rem;
+      color: #475569;
+      font-family: sans-serif;
+      vertical-align: middle;
+    }
+
+    .text-input-morse {
+      width: 100%;
+      background: #070a12;
+      color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    .text-input-morse:focus {
+      border-color: var(--color-primary);
+    }
+
+    .morse-encoded-box {
+      font-family: var(--font-mono);
+      font-size: 1.35rem;
+      letter-spacing: 0.1em;
+      line-height: 1.5;
+      min-height: 52px;
+      color: var(--color-primary);
+      background: #070a12;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px dashed var(--border-color);
+      word-break: break-word;
+      white-space: pre-wrap;
+    }
+
+    .morse-encoded-box:empty::before {
+      content: "Mã Morse tương ứng sẽ hiển thị tại đây (VD: ... --- ...)";
+      font-size: 0.9rem;
+      letter-spacing: normal;
       color: #475569;
       font-family: sans-serif;
     }
@@ -505,7 +567,7 @@
 
         <div class="meter-row">
           <div class="meter-label">
-            <span>Chụm Cái–Áp út (Thumb + Ring): SPACE / CONFIRM</span>
+            <span>Chụm Cái–Áp út (Thumb + Ring): 1 lần = CONFIRM / 2 lần = SPACE</span>
             <span id="val-ring" class="val">--</span>
           </div>
           <div class="progress-bar-bg">
@@ -538,7 +600,7 @@
 
         <button id="pad-ring" class="gesture-pad">
           <span class="pad-title">💍 Chụm Cái + Áp út (PINCH_RING)</span>
-          <span class="pad-desc">Bấm 1 lần = SPACE (Dấu cách)<br>Bấm 2 lần nhanh = CONFIRM (Chốt chữ)</span>
+          <span class="pad-desc">Bấm 1 lần = CONFIRM (Chốt ký tự)<br>Bấm 2 lần nhanh = SPACE (Cách từ)</span>
         </button>
 
         <button id="pad-pinky" class="gesture-pad">
@@ -622,6 +684,20 @@
           </div>
         </div>
         <div id="decoded-text-view" class="decoded-text-box"></div>
+      </div>
+
+      <!-- Dịch từ Chữ sang Mã Morse -->
+      <div class="display-block">
+        <div class="display-label">
+          <span>🔄 DỊCH TỪ CHỮ SANG MÃ MORSE (TEXT TO MORSE)</span>
+          <div class="btn-group">
+            <button id="play-morse-btn" class="btn primary" style="padding:2px 8px; font-size:0.75rem;">🔊 Phát âm</button>
+            <button id="copy-morse-btn" class="btn" style="padding:2px 8px; font-size:0.75rem;">Sao chép mã</button>
+            <button id="clear-morse-btn" class="btn danger" style="padding:2px 8px; font-size:0.75rem;">Xóa</button>
+          </div>
+        </div>
+        <input id="text-to-morse-input" type="text" class="text-input-morse" placeholder="Nhập chữ hoặc câu cần dịch ra Morse (VD: SOS HELLO 2026)..." autocomplete="off">
+        <div id="text-to-morse-output" class="morse-encoded-box"></div>
       </div>
 
       <!-- Bảng tra mã Morse quốc tế -->

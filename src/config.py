@@ -39,10 +39,10 @@ GESTURE_LABELS: List[str] = ["DOT", "DASH", "CONFIRM", "SPACE", "DELETE", "UNKNO
 POSE_LABELS: List[str] = ["PINCH_THUMB", "PINCH_RING", "PINCH_PINKY", "UNKNOWN"]
 
 GESTURE_TO_POSE: Dict[str, str] = {
-    "DOT": "PINCH_THUMB",       # cái + trỏ, chạm nhanh
-    "DASH": "PINCH_THUMB",      # cái + trỏ, giữ
-    "CONFIRM": "PINCH_RING",    # cái + áp út, chạm 2 lần
-    "SPACE": "PINCH_RING",      # cái + áp út, chạm 1 lần
+    "DOT": "PINCH_THUMB",       # cái + trỏ, chạm nhanh (< 0.40s)
+    "DASH": "PINCH_THUMB",      # cái + trỏ, giữ (>= 0.40s)
+    "CONFIRM": "PINCH_RING",    # cái + áp út, chạm 1 lần
+    "SPACE": "PINCH_RING",      # cái + áp út, chạm 2 lần
     "DELETE": "PINCH_PINKY",    # cái + út, chạm 1 lần
     "UNKNOWN": "UNKNOWN",
 }

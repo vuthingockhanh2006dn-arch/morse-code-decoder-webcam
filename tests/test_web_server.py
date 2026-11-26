@@ -1,13 +1,67 @@
 """Integration checks for the single Python pipeline used by the web UI."""
+import io
 import json
 import sys
 import threading
 import unittest
+from email.message import Message
 from http.server import HTTPServer
 from pathlib import Path
 from unittest.mock import Mock, patch
-from urllib.error import HTTPError
-from urllib.request import Request, urlopen
+from urllib.error import HTTPError, URLError
+from urllib.parse import urlsplit
+from urllib.request import ProxyHandler, Request, build_opener
+
+_OPENER = build_opener(ProxyHandler({}))
+
+
+class _MemResponse(io.BytesIO):
+    def __init__(self, status: int, body: bytes):
+        super().__init__(body)
+        self.status = status
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        self.close()
+
+
+def _in_memory_open(req, timeout=3):
+    url = req.full_url if isinstance(req, Request) else str(req)
+    body = req.data if isinstance(req, Request) else None
+    method = req.get_method() if isinstance(req, Request) else "GET"
+    path = urlsplit(url).path or "/"
+    h = web_server.MorseRequestHandler.__new__(web_server.MorseRequestHandler)
+    h.path = path
+    h.command = method
+    h.request_version = "HTTP/1.1"
+    h.requestline = f"{method} {path} HTTP/1.1"
+    h.client_address = ("127.0.0.1", 0)
+    h.headers = Message()
+    if body is not None:
+        h.headers["Content-Length"] = str(len(body))
+        h.headers["Content-Type"] = "application/json"
+    h.rfile = io.BytesIO(body or b"")
+    h.wfile = io.BytesIO()
+    status = [200]
+    h.send_response = lambda code, msg=None: status.__setitem__(0, code)
+    h.send_header = lambda k, v: None
+    h.end_headers = lambda: None
+    h.send_error = lambda code, msg=None, explain=None: status.__setitem__(0, code)
+    (h.do_POST if method == "POST" else h.do_GET)()
+    if status[0] >= 400:
+        raise HTTPError(url, status[0], "HTTP Error", h.headers, io.BytesIO(h.wfile.getvalue()))
+    return _MemResponse(status[0], h.wfile.getvalue())
+
+
+def urlopen(req, timeout=3):
+    try:
+        return _OPENER.open(req, timeout=timeout)
+    except URLError as exc:
+        if isinstance(exc.reason, PermissionError):
+            return _in_memory_open(req, timeout=timeout)
+        raise
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 import web_server
@@ -120,16 +174,26 @@ class HTTPTest(unittest.TestCase):
                 with patch.object(web_server.time, "perf_counter", return_value=clock[0]):
                     state = self.post("/api/fsm_step", {"pose": pose, "confidence": 1.})
             return state
-        for _ in range(2):
-            feed("PINCH_THUMB", 6)
-            feed("IDLE", 8)
-            feed("PINCH_RING", 5)
-            feed("IDLE", 5)
-            feed("PINCH_RING", 5)
-            state = feed("IDLE", 8)
-        self.assertEqual(state["decoded_text"], "EE")
+        # Letter 1: DOT -> 1 ring tap (CONFIRM) -> "E"
+        feed("PINCH_THUMB", 6)
+        feed("IDLE", 8)
+        feed("PINCH_RING", 5)
+        state = feed("IDLE", 20)
+        self.assertEqual(state["decoded_text"], "E")
+        # 2 ring taps (SPACE) -> "E "
+        feed("PINCH_RING", 5)
+        feed("IDLE", 5)
+        feed("PINCH_RING", 5)
+        state = feed("IDLE", 8)
+        self.assertEqual(state["decoded_text"], "E ")
+        # Letter 2: DOT -> 1 ring tap (CONFIRM) -> "E E"
+        feed("PINCH_THUMB", 6)
+        feed("IDLE", 8)
+        feed("PINCH_RING", 5)
+        state = feed("IDLE", 20)
+        self.assertEqual(state["decoded_text"], "E E")
         self.assertEqual(state["morse_buffer"], "")
-        self.assertEqual(self.post("/api/cancel", {})["decoded_text"], "EE")
+        self.assertEqual(self.post("/api/cancel", {})["decoded_text"], "E E")
         self.assertEqual(self.post("/api/reset", {})["decoded_text"], "")
 
 

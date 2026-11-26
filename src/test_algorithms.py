@@ -34,31 +34,40 @@ from morse_decoder import MorseBuffer, decode_message, decode_symbol, encode_mes
 # --------------------------------------------------------------------------- #
 # Dữ liệu giả lập (Synthetic Landmark Samples)
 # --------------------------------------------------------------------------- #
-def _create_synthetic_hand(pinch: str = "NONE", scale: float = 0.2) -> List[List[float]]:
-    """Tạo 21 landmark giả lập với vị trí ngón tay chuẩn hóa."""
-    pts = [[0.0, 0.0, 0.0] for _ in range(21)]
-    # Cổ tay tại gốc (0, 0, 0)
-    pts[config.WRIST] = [0.5, 0.8, 0.0]
-    # Gốc ngón giữa (định độ dài lòng bàn tay)
-    pts[config.MIDDLE_MCP] = [0.5, 0.8 - scale, 0.0]
-
-    # Các đầu ngón tay mở tự nhiên
-    pts[config.THUMB_TIP] = [0.4, 0.5, 0.0]
-    pts[config.INDEX_TIP] = [0.5, 0.4, 0.0]
-    pts[config.RING_TIP] = [0.58, 0.45, 0.0]
-    pts[config.PINKY_TIP] = [0.65, 0.5, 0.0]
+def _create_synthetic_hand(pinch: str = "NONE", scale: float = 0.3) -> List[List[float]]:
+    """Tạo 21 landmark giả lập với cấu trúc giải phẫu bàn tay thật (chuẩn tay phải)."""
+    # Khung xương chuẩn tay phải (ngón cái bên trái cổ tay, ngón út bên phải cổ tay)
+    base = [
+        [0.500, 0.950, 0.000],  # 0: WRIST
+        [0.435, 0.890, -0.04], [0.405, 0.790, -0.06], [0.420, 0.710, -0.08], [0.475, 0.685, -0.10],  # 1-4: Thumb
+        [0.475, 0.650, -0.05], [0.465, 0.490, -0.10], [0.455, 0.380, -0.14], [0.450, 0.290, -0.17],  # 5-8: Index
+        [0.540, 0.650, -0.06], [0.550, 0.480, -0.11], [0.555, 0.360, -0.15], [0.560, 0.270, -0.18],  # 9-12: Middle
+        [0.600, 0.680, -0.08], [0.625, 0.520, -0.12], [0.640, 0.420, -0.16], [0.650, 0.340, -0.18],  # 13-16: Ring
+        [0.650, 0.740, -0.09], [0.695, 0.640, -0.13], [0.720, 0.575, -0.14], [0.735, 0.515, -0.15],  # 17-20: Pinky
+    ]
+    pts = [list(p) for p in base]
 
     # Tùy biến tư thế chụm ngón (quy ước: ngón cái làm điểm tựa)
     if pinch == "PINCH_THUMB":
         # Ngón cái chụm đầu ngón trỏ (DOT / DASH)
+        pts[6] = [0.470, 0.555, -0.08]
+        pts[7] = [0.472, 0.620, -0.10]
         pts[config.INDEX_TIP] = list(pts[config.THUMB_TIP])
     elif pinch == "PINCH_RING":
         # Ngón cái chụm đầu ngón áp út (SPACE / CONFIRM)
+        pts[14] = [0.590, 0.560, -0.13]
+        pts[15] = [0.540, 0.630, -0.14]
         pts[config.RING_TIP] = list(pts[config.THUMB_TIP])
     elif pinch == "PINCH_PINKY":
         # Ngón cái chụm đầu ngón út (DELETE)
+        pts[18] = [0.620, 0.620, -0.13]
+        pts[19] = [0.555, 0.650, -0.14]
         pts[config.PINKY_TIP] = list(pts[config.THUMB_TIP])
 
+    ratio = scale / 0.3
+    if abs(ratio - 1.0) > 1e-6:
+        wx, wy, wz = pts[0]
+        pts = [[wx + (x - wx) * ratio, wy + (y - wy) * ratio, wz + (z - wz) * ratio] for x, y, z in pts]
     return pts
 
 
@@ -141,7 +150,7 @@ class PurePythonDistanceClassifier:
         self.threshold = threshold
 
     def predict_one(self, x: List[float]) -> str:
-        # 3 đặc trưng cuối là: dist_thumb_index, dist_index_ring, dist_index_pinky
+        # 3 đặc trưng cuối là: dist_thumb_index, dist_thumb_ring, dist_thumb_pinky
         d_thumb, d_ring, d_pinky = x[-3], x[-2], x[-1]
         if d_thumb < self.threshold and d_thumb < min(d_ring, d_pinky):
             return "PINCH_THUMB"
@@ -295,25 +304,32 @@ def test_fsm_and_morse() -> bool:
     assert buf.buffer == "-"
     print(f"  [OK] Giữ ngón cái (0.45s) -> phát DASH: bộ đệm = '{buf.buffer}'")
 
-    # Mô phỏng CONFIRM (chạm 2 lần ngón áp út)
+    # Mô phỏng CONFIRM (chạm 1 lần ngón cái - áp út) và SPACE (chạm 2 lần ngón cái - áp út)
     fsm.reset()
     buf = MorseBuffer()
     clock.t = 0.0
     buf.apply("DOT")  # Giả sử đang có dấu '.'
-    # Tap 1
-    feed("PINCH_RING", seconds=0.10)
-    feed("UNKNOWN", seconds=0.10)
-    # Tap 2 (trong double_tap_window)
-    ev_confirm = feed("PINCH_RING", seconds=0.10)
-    feed("UNKNOWN", seconds=0.30)
-    assert "CONFIRM" in ev_confirm, f"Kỳ vọng sự kiện CONFIRM, nhận được: {ev_confirm}"
+    feed("PINCH_RING", seconds=0.15)
+    ev_confirm = feed("UNKNOWN", seconds=0.60)
+    assert "CONFIRM" in ev_confirm, f"Kỳ vọng sự kiện CONFIRM khi chạm 1 lần, nhận được: {ev_confirm}"
     assert buf.text == "E", f"Kỳ vọng giải mã ra chữ 'E', nhận được: '{buf.text}'"
-    print(f"  [OK] Chạm đúp ngón áp út -> phát CONFIRM: giải mã thành công text = '{buf.text}'")
+    print(f"  [OK] Chạm 1 lần cái-áp út -> phát CONFIRM: giải mã thành công text = '{buf.text}'")
 
-    # Mô phỏng DELETE (chạm ngón út)
+    # Mô phỏng SPACE (chạm 2 lần ngón cái - áp út)
+    feed("PINCH_RING", seconds=0.15)
+    feed("UNKNOWN", seconds=0.15)
+    ev_space = feed("PINCH_RING", seconds=0.15)
+    feed("UNKNOWN", seconds=0.30)
+    assert "SPACE" in ev_space, f"Kỳ vọng sự kiện SPACE khi chạm 2 lần, nhận được: {ev_space}"
+    assert buf.text == "E ", f"Kỳ vọng thêm dấu cách thành 'E ', nhận được: '{buf.text}'"
+    print(f"  [OK] Chạm 2 lần cái-áp út -> phát SPACE: thêm khoảng trắng thành công text = '{buf.text}'")
+
+    # Mô phỏng DELETE (chạm ngón út 2 lần để xóa dấu cách và chữ E)
     fsm.reset()
     clock.t = 0.0
     ev_delete = feed("PINCH_PINKY", seconds=0.10)
+    feed("UNKNOWN", seconds=0.30)
+    ev_delete += feed("PINCH_PINKY", seconds=0.10)
     feed("UNKNOWN", seconds=0.30)
     assert "DELETE" in ev_delete
     assert buf.text == "", f"Kỳ vọng đã xóa text, hiện tại text = '{buf.text}'"

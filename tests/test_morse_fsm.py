@@ -75,19 +75,19 @@ class MorseFSMTest(unittest.TestCase):
     def test_dash_fires_once_while_holding(self):
         self.assertEqual(self.gesture("PINCH_THUMB", 3.0), ["DASH"])
 
-    def test_space_single_ring_tap(self):
-        self.assertEqual(self.gesture("PINCH_RING", 0.2, rest=0.8), ["SPACE"])
+    def test_confirm_single_ring_tap(self):
+        self.assertEqual(self.gesture("PINCH_RING", 0.2, rest=0.8), ["CONFIRM"])
 
-    def test_confirm_double_ring_tap(self):
+    def test_space_double_ring_tap(self):
         events = feed(self.fsm, self.clock, "PINCH_RING", 0.2)
         events += feed(self.fsm, self.clock, "UNKNOWN", 0.2)
         events += feed(self.fsm, self.clock, "PINCH_RING", 0.2)
         events += feed(self.fsm, self.clock, "UNKNOWN", 0.8)
-        self.assertEqual(events, ["CONFIRM"])
+        self.assertEqual(events, ["SPACE"])
 
-    def test_slow_second_tap_is_a_new_space(self):
+    def test_slow_second_tap_is_a_new_confirm(self):
         events = self.gesture("PINCH_RING", 0.2, rest=0.8) + self.gesture("PINCH_RING", 0.2, rest=0.8)
-        self.assertEqual(events, ["SPACE", "SPACE"])
+        self.assertEqual(events, ["CONFIRM", "CONFIRM"])
 
     def test_delete_once_while_holding(self):
         self.assertEqual(self.gesture("PINCH_PINKY", 2.0), ["DELETE"])
@@ -116,8 +116,7 @@ class MorseFSMTest(unittest.TestCase):
         b = MorseBuffer()
 
         def confirm():
-            return (feed(self.fsm, self.clock, "PINCH_RING", 0.15) + feed(self.fsm, self.clock, "UNKNOWN", 0.15)
-                    + feed(self.fsm, self.clock, "PINCH_RING", 0.15) + feed(self.fsm, self.clock, "UNKNOWN", 0.6))
+            return self.gesture("PINCH_RING", 0.2, rest=0.8)
 
         events = []
         for hold in [0.2] * 3:

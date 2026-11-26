@@ -9,15 +9,15 @@ UNKNOWN và None đều được coi là tư thế nghỉ.
 Chống nhập lặp:
   * Bỏ phiếu đa số trên N khung hình gần nhất, loại các khung nhiễu lẻ.
   * Một lần chạm chỉ tính là đã nhả sau ``release_frames`` khung liên tiếp.
-  * Sau DASH, CONFIRM, DELETE máy chuyển sang LOCKED và chỉ mở khóa khi tay
+  * Sau DASH, SPACE, DELETE máy chuyển sang LOCKED và chỉ mở khóa khi tay
     đã nghỉ ``release_frames`` khung. Giữ tay mãi cũng chỉ ra một sự kiện.
 
 Sơ đồ:
     IDLE --PINCH_THUMB--> THUMB_DOWN --nhả, ngắn hơn dash_time--> IDLE      phát DOT
                                      --giữ từ dash_time---------> LOCKED    phát DASH
     IDLE --PINCH_RING---> RING_DOWN  --nhả---------------------> WAIT_SECOND
-    WAIT_SECOND --PINCH_RING trong double_tap_window-----------> LOCKED     phát CONFIRM
-    WAIT_SECOND --hết cửa sổ hoặc có tư thế chạm khác----------> IDLE       phát SPACE
+    WAIT_SECOND --PINCH_RING trong double_tap_window-----------> LOCKED     phát SPACE
+    WAIT_SECOND --hết cửa sổ hoặc có tư thế chạm khác----------> IDLE       phát CONFIRM
     IDLE --PINCH_PINKY-----------------------------------------> LOCKED     phát DELETE
     LOCKED --tay nghỉ đủ release_frames------------------------> IDLE
 """
@@ -89,19 +89,20 @@ class MorseFSM:
 
     def update(self, raw_pose: Optional[str], confidence: float, now: float) -> List[str]:
         """Đưa vào một khung hình, trả về các sự kiện phát sinh."""
+        clean_raw = raw_pose if (raw_pose is None or confidence >= self.smoother.confidence_threshold) else "UNKNOWN"
         pose = self.smoother.update(raw_pose, confidence)
         events: List[str] = []
 
         if self.state == "WAIT_SECOND":
             if now - self.first_tap_release > self.double_tap_window:
-                events.append("SPACE")
+                events.append("CONFIRM")
                 self._go("IDLE")
             elif pose == "PINCH_RING":
-                events.append("CONFIRM")
+                events.append("SPACE")
                 self._go("LOCKED")
                 return events
             elif pose in TOUCH_POSES:
-                events.append("SPACE")
+                events.append("CONFIRM")
                 self._go("IDLE")
             # Nếu vừa về IDLE, rơi xuống dưới để xử lý chạm mới ngay khung này.
 
@@ -120,14 +121,14 @@ class MorseFSM:
             if pose == "PINCH_THUMB" and now - self.touch_start >= self.dash_time:
                 events.append("DASH")
                 self._go("LOCKED")
-            elif self._released(pose, "PINCH_THUMB", now):
+            elif self._released(clean_raw, "PINCH_THUMB", now):
                 end = self._count_start if self._count_start is not None else now
                 if end - self.touch_start >= self.noise_time:
                     events.append("DASH" if end - self.touch_start >= self.dash_time else "DOT")
                 self._go("IDLE")
 
         elif self.state == "RING_DOWN":
-            if self._released(pose, "PINCH_RING", now):
+            if self._released(clean_raw, "PINCH_RING", now):
                 end = self._count_start if self._count_start is not None else now
                 if end - self.touch_start >= self.noise_time:
                     self.first_tap_release = end
@@ -136,7 +137,7 @@ class MorseFSM:
                     self._go("IDLE")
 
         elif self.state == "LOCKED":
-            if self._at_rest(pose):
+            if self._at_rest(clean_raw):
                 self._go("IDLE")
 
         return events

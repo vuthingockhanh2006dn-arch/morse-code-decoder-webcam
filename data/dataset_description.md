@@ -13,11 +13,11 @@ Mô hình chỉ nhìn một khung hình, nên chỉ phân biệt được tư th
 
 | Nhãn cử chỉ (người quay chọn) | Nhãn tư thế (cột `pose`, mô hình học) | Máy trạng thái quyết định |
 |---|---|---|
-| DOT | PINCH_THUMB | trỏ + cái, giữ dưới 0,40 s: DOT |
-| DASH | PINCH_THUMB | trỏ + cái, giữ từ 0,40 s: DASH |
-| CONFIRM | PINCH_RING | trỏ + áp út, chạm 2 lần trong 0,45 s: CONFIRM |
-| SPACE | PINCH_RING | trỏ + áp út, chạm 1 lần: SPACE |
-| DELETE | PINCH_PINKY | trỏ + út, chạm 1 lần: DELETE |
+| DOT | PINCH_THUMB | cái + trỏ, giữ dưới 0,40 s: DOT (phát âm "tích" trước khi nhảy `.`) |
+| DASH | PINCH_THUMB | cái + trỏ, giữ từ 0,40 s: DASH (phát âm "tè" trước khi nhảy `-`) |
+| CONFIRM | PINCH_RING | cái + áp út, chạm 1 lần: CONFIRM (chốt ký tự) |
+| SPACE | PINCH_RING | cái + áp út, chạm 2 lần trong 0,45 s: SPACE (cách từ) |
+| DELETE | PINCH_PINKY | cái + út, chạm 1 lần: DELETE |
 | UNKNOWN | UNKNOWN | tay nghỉ hoặc tư thế ngoài quy ước: không sinh sự kiện |
 
 Cột `gesture` giữ nhãn cử chỉ gốc để thống kê. Cột `pose` là nhãn huấn luyện. Khi thu DOT và DASH, hãy giữ chụm ngón thay vì gõ nhịp, vì với mô hình hai nhãn này giống hệt nhau.
@@ -55,7 +55,7 @@ Hệ thống không đo độ mờ của ảnh vì ảnh không được lưu. B
 
 ## 5. Đặc trưng (66 giá trị)
 - 63 giá trị: landmark dời gốc về cổ tay, lật gương nếu tay trái, chia cho khoảng cách xa nhất tới cổ tay.
-- 3 giá trị: khoảng cách Euclid trỏ–cái, trỏ–áp út, trỏ–út, chia cho độ dài lòng bàn tay (cổ tay tới gốc ngón giữa).
+- 3 giá trị: khoảng cách Euclid cái–trỏ, cái–áp út, cái–út, chia cho độ dài lòng bàn tay (cổ tay tới gốc ngón giữa).
 
 ## 6. Chia tập
 70% train, 15% validation, 15% test, chia theo phiên quay (mặc định) hoặc theo người (`--split-by subject`). Mỗi phiên hay mỗi người nằm trọn trong một tập. Cần ít nhất 3 phiên (hoặc 3 người). Cờ `--allow-frame-split` chỉ dành cho chạy thử.
